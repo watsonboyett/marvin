@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>WebIOPi | Light Controller</title>
+    <script type="text/javascript" src="/webiopi.js"></script>
+    <script type="text/javascript">
+    
+    var channel_state_map = {};
+
+    webiopi().ready(function() {
+
+        // Following function will process data received from device macro.
+        var update_device_state = function(macro, args, response) {
+            channel = args[0];
+            channel_state_map[channel] = response;
+            update_button(channel);
+        }
+
+        webiopi().callMacro("is_device_on", [1], update_device_state);
+        webiopi().callMacro("is_device_on", [2], update_device_state);
+        webiopi().callMacro("is_device_on", [3], update_device_state);
+        webiopi().callMacro("is_device_on", [4], update_device_state);
+        webiopi().callMacro("is_device_on", [5], update_device_state);
+
+
+        // Refresh GPIO buttons (true to refresh repeatedly, false to refresh once)
+        webiopi().refreshGPIO(true);
+    });
+
+    function update_button(channel) {
+        if (channel_state_map[channel]) {
+            // show button as on
+            document.getElementById("btn" + channel).innerHTML = "Turn Off";
+            document.getElementById("btn" + channel).style.background = "goldenrod";
+        } else {
+            // show button as off
+            document.getElementById("btn" + channel).innerHTML = "Turn On";
+            document.getElementById("btn" + channel).style.background = "lightgray";
+        }
+    }
+
+    function toggle_light(channel) {
+        if (channel_state_map[channel]) {
+            // turn off
+            webiopi().callMacro("turn_off_device", [channel])
+            channel_state_map[channel] = false;
+            update_button(channel);
+        } else {
+            // turn on
+            webiopi().callMacro("turn_on_device", [channel])
+            channel_state_map[channel] = true;
+            update_button(channel);
+        }
+    }
+
+    </script>
+    <style type="text/css">
+        button {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 360px;
+            height: 120px;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            background: lightgray;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <button id="btn1" onclick="toggle_light('1')">Turn On</button>
+    <button id="btn2" onclick="toggle_light('2')">Turn On</button>
+    <button id="btn3" onclick="toggle_light('3')">Turn On</button>
+    <button id="btn4" onclick="toggle_light('4')">Turn On</button>
+    <button id="btn5" onclick="toggle_light('5')">Turn On</button>
+
+</body>
+</html>
