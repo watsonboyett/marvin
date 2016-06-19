@@ -1,3 +1,6 @@
+# add the location of this file to the 'SCRIPTS' section of /etc/webiopi/config
+# ex: marvin = /home/pi/marvin/python/script.py
+
 import webiopi
 import datetime
 import time
