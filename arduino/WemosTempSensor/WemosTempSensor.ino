@@ -1,5 +1,3 @@
-
-
 #include <Arduino.h>
 #include <DHT.h>
 #include <ESP8266WiFi.h>
@@ -22,16 +20,18 @@ DHT dht(DHTPIN, DHTTYPE);
 ESP8266WiFiMulti WiFiMulti;
 
 
-void setup() {
+void setup()
+{
 
   USE_SERIAL.begin(115200);
-  // USE_SERIAL.setDebugOutput(true);
+  USE_SERIAL.setDebugOutput(true);
 
   USE_SERIAL.println();
   USE_SERIAL.println();
   USE_SERIAL.println();
 
-  for (uint8_t t = 4; t > 0; t--) {
+  for (uint8_t t = 3; t > 0; t--)
+  {
     USE_SERIAL.printf("[SETUP] WAIT %d...\n", t);
     USE_SERIAL.flush();
     delay(1000);
@@ -43,42 +43,58 @@ void setup() {
 
 float temp_f = 0;
 float humidity_f = 0;
-void loop() {
+float humidex_f = 0;
+void loop()
+{
 
   // Reading temperature or humidity takes about 250 milliseconds!
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   float humidity_f = dht.readHumidity();
+
   // Read temperature as Fahrenheit (isFahrenheit = true)
   float temp_f = dht.readTemperature(true);
 
   // Check if any reads failed and exit early (to try again).
-  if (isnan(humidity_f) || isnan(temp_f)) {
+  if (isnan(humidity_f) || isnan(temp_f))
+  {
     USE_SERIAL.println("Failed to read from DHT sensor!");
     return;
   }
 
   // Compute heat index in Fahrenheit (the default)
-  float hif = dht.computeHeatIndex(temp_f, humidity_f);
+  float heatindex_f = dht.computeHeatIndex(temp_f, humidity_f);
 
   // wait for WiFi connection
-  if ((WiFiMulti.run() == WL_CONNECTED)) {
+  if ((WiFiMulti.run() == WL_CONNECTED))
+  {
+    USE_SERIAL.println();
 
     char temp_str[7];
+    dtostrf(temp_f, 0, 2, temp_str);
+
     char humidity_str[7];
-    dtostrf(temp_f, 5, 2, temp_str);
-    dtostrf(humidity_f, 5, 2, humidity_str);
-    String post_payload = String("sensor,node=8 humidity=") + String(humidity_str)
-                          + String(",temp=") + String(temp_str);
+    dtostrf(humidity_f, 0, 2, humidity_str);
+
+    char heatindex_str[7];
+    dtostrf(heatindex_f, 0, 2, heatindex_str);
+    
+
+    String post_payload =
+      String("sensor,node=5 ") +
+      String("humidity=") + String(humidity_str) +
+      String(",temp=") + String(temp_str);
     USE_SERIAL.print(post_payload);
 
     HTTPClient http;
     USE_SERIAL.print("[HTTP] begin...\n");
-    http.begin("http://192.168.0.10:8086/write?db=telegraf");
+
+    String write_url = String(INFLUXDB_URL) + "/write?db=" + INFLUXDB_DBNAME;
+    http.begin(write_url);
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     http.POST(post_payload);
     http.writeToStream(&Serial);
 
     http.end();
+    USE_SERIAL.println();
   }
 
   delay(30000);
