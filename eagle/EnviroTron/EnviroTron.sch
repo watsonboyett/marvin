@@ -59,7 +59,7 @@
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
-<library name="Enviro">
+<library name="EnviroTron">
 <packages>
 <package name="CHIPLED4">
 <wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="21"/>
@@ -106,26 +106,26 @@
 <circle x="-1" y="3" radius="0.1" width="0.127" layer="21"/>
 </package>
 <package name="CAN3">
-<pad name="2" x="3.6" y="-3.6" drill="0.5" rot="R90"/>
-<pad name="3" x="3.6" y="3.6" drill="0.5" rot="R90"/>
-<pad name="1" x="-3.6" y="-3.6" drill="0.5" rot="R90"/>
-<circle x="0" y="0" radius="5.08" width="0.127" layer="48"/>
-<circle x="0" y="0" radius="11" width="0.127" layer="21"/>
-<rectangle x1="10.25" y1="-0.25" x2="11.25" y2="0.25" layer="21" rot="R90"/>
-<rectangle x1="-11.25" y1="-0.25" x2="-10.25" y2="0.25" layer="21" rot="R90"/>
-<wire x1="-7.62" y1="3.81" x2="-7.62" y2="-3.81" width="0.127" layer="49"/>
-<wire x1="-7.62" y1="-3.81" x2="-8.255" y2="-3.175" width="0.127" layer="49"/>
-<wire x1="-7.62" y1="-3.81" x2="-6.985" y2="-3.175" width="0.127" layer="49"/>
-<wire x1="-7.62" y1="3.81" x2="-8.255" y2="3.175" width="0.127" layer="49"/>
-<wire x1="-7.62" y1="3.81" x2="-6.985" y2="3.175" width="0.127" layer="49"/>
-<text x="-8.89" y="0" size="1.27" layer="49" rot="R180" align="center">Y</text>
-<wire x1="0" y1="7.62" x2="-3.81" y2="7.62" width="0.127" layer="49"/>
-<wire x1="-3.81" y1="7.62" x2="-3.175" y2="6.985" width="0.127" layer="49"/>
-<wire x1="-3.81" y1="7.62" x2="-3.175" y2="8.255" width="0.127" layer="49"/>
-<wire x1="0" y1="7.62" x2="3.81" y2="7.62" width="0.127" layer="49"/>
-<wire x1="3.81" y1="7.62" x2="3.175" y2="6.985" width="0.127" layer="49"/>
-<wire x1="3.81" y1="7.62" x2="3.175" y2="8.255" width="0.127" layer="49"/>
-<text x="0" y="8.89" size="1.27" layer="49" rot="R180" align="center">X</text>
+<pad name="2" x="1.796" y="-1.796" drill="0.5" rot="R90"/>
+<pad name="3" x="1.796" y="1.796" drill="0.5" rot="R90"/>
+<pad name="1" x="-1.796" y="-1.796" drill="0.5" rot="R90"/>
+<circle x="0" y="0" radius="2.54" width="0.127" layer="48"/>
+<circle x="0" y="0" radius="5.5" width="0.127" layer="21"/>
+<rectangle x1="5.17" y1="-0.25" x2="6.17" y2="0.25" layer="21" rot="R90"/>
+<rectangle x1="-6.17" y1="-0.25" x2="-5.17" y2="0.25" layer="21" rot="R90"/>
+<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="49"/>
+<wire x1="-3.81" y1="-2.54" x2="-4.445" y2="-1.905" width="0.127" layer="49"/>
+<wire x1="-3.81" y1="-2.54" x2="-3.175" y2="-1.905" width="0.127" layer="49"/>
+<wire x1="-3.81" y1="2.54" x2="-4.445" y2="1.905" width="0.127" layer="49"/>
+<wire x1="-3.81" y1="2.54" x2="-3.175" y2="1.905" width="0.127" layer="49"/>
+<text x="-4.445" y="0" size="1.27" layer="49" rot="R180" align="center">Y</text>
+<wire x1="0" y1="3.81" x2="-2.54" y2="3.81" width="0.127" layer="49"/>
+<wire x1="-2.54" y1="3.81" x2="-1.905" y2="3.175" width="0.127" layer="49"/>
+<wire x1="-2.54" y1="3.81" x2="-1.905" y2="4.445" width="0.127" layer="49"/>
+<wire x1="0" y1="3.81" x2="2.54" y2="3.81" width="0.127" layer="49"/>
+<wire x1="2.54" y1="3.81" x2="1.905" y2="3.175" width="0.127" layer="49"/>
+<wire x1="2.54" y1="3.81" x2="1.905" y2="4.445" width="0.127" layer="49"/>
+<text x="0" y="4.445" size="1.27" layer="49" rot="R180" align="center">X</text>
 <text x="0" y="-12.7" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="25" align="center">&gt;VALUE</text>
 </package>
@@ -174,13 +174,13 @@
 <pad name="TX" x="11.43" y="8.89" drill="0.8" shape="octagon"/>
 <rectangle x1="-12.7" y1="-10.16" x2="-10.16" y2="10.16" layer="48"/>
 <rectangle x1="10.16" y1="-10.16" x2="12.7" y2="10.16" layer="48"/>
-<text x="0" y="1.27" size="1.27" layer="21" font="vector" rot="R90" align="center">WEMOS-D1 MINI</text>
+<text x="0" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;VALUE</text>
 <wire x1="-9.43" y1="-17.89" x2="13.57" y2="-17.89" width="0.127" layer="21"/>
 <wire x1="13.57" y1="-17.89" x2="13.57" y2="15.11" width="0.127" layer="21"/>
 <wire x1="10.57" y1="18.11" x2="-10.43" y2="18.11" width="0.127" layer="21"/>
-<text x="0.015" y="14.65" size="1.27" layer="49" font="vector" align="center">Radio Antenna
+<text x="0.015" y="15.92" size="1.27" layer="49" font="vector" align="center">Radio Antenna
   Facing UP</text>
-<text x="0.015" y="-15.05" size="1.27" layer="49" font="vector" align="center">USB Jack
+<text x="1.285" y="-17.59" size="1.27" layer="49" font="vector" align="center">USB Jack
 Facing DOWN/PCB</text>
 <wire x1="-13.43" y1="15.11" x2="-13.43" y2="-10.89" width="0.127" layer="21"/>
 <wire x1="-13.43" y1="15.11" x2="-10.43" y2="18.11" width="0.127" layer="21" curve="-90"/>
@@ -203,6 +203,7 @@ Facing DOWN/PCB</text>
 <text x="9.525" y="3.81" size="1.27" layer="21" font="vector" align="center-right">D1</text>
 <text x="9.525" y="6.35" size="1.27" layer="21" font="vector" align="center-right">RX</text>
 <text x="9.525" y="8.89" size="1.27" layer="21" font="vector" align="center-right">TX</text>
+<text x="1.27" y="-15.24" size="1.016" layer="25" rot="R180" align="center">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -6075,16 +6076,16 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="C2" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
 <part name="C3" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
 <part name="C4" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
-<part name="LIGHT" library="Enviro" deviceset="LTR-329" device=""/>
-<part name="PRES" library="Enviro" deviceset="MS5607" device=""/>
+<part name="LIGHT" library="EnviroTron" deviceset="LTR-329" device=""/>
+<part name="PRES" library="EnviroTron" deviceset="MS5607" device=""/>
 <part name="R1" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="R2" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="C5" library="rcl" deviceset="C-US" device="C0805" value="1u"/>
 <part name="C6" library="rcl" deviceset="C-US" device="C0805" value="10u"/>
-<part name="MOTION" library="Enviro" deviceset="PIR" device=""/>
+<part name="MOTION" library="EnviroTron" deviceset="PIR" device=""/>
 <part name="R3" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
-<part name="TEMP" library="Enviro" deviceset="SHT21" device=""/>
-<part name="U$2" library="Enviro" deviceset="WEMOS-D1-MINI" device=""/>
+<part name="TEMP" library="EnviroTron" deviceset="SHT21" device=""/>
+<part name="COMMS" library="EnviroTron" deviceset="WEMOS-D1-MINI" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6104,7 +6105,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="MOTION" gate="G$1" x="68.58" y="99.06"/>
 <instance part="R3" gate="G$1" x="88.9" y="99.06"/>
 <instance part="TEMP" gate="G$1" x="68.58" y="25.4"/>
-<instance part="U$2" gate="G$1" x="17.78" y="17.78"/>
+<instance part="COMMS" gate="G$1" x="17.78" y="17.78"/>
 </instances>
 <busses>
 </busses>
@@ -6118,7 +6119,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <wire x1="7.62" y1="22.86" x2="5.08" y2="22.86" width="0.1524" layer="91"/>
 <label x="5.08" y="22.86" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$2" gate="G$1" pin="D2"/>
+<pinref part="COMMS" gate="G$1" pin="D2"/>
 </segment>
 <segment>
 <pinref part="LIGHT" gate="G$1" pin="SDA"/>
@@ -6145,7 +6146,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <wire x1="7.62" y1="25.4" x2="5.08" y2="25.4" width="0.1524" layer="91"/>
 <label x="5.08" y="25.4" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$2" gate="G$1" pin="D1"/>
+<pinref part="COMMS" gate="G$1" pin="D1"/>
 </segment>
 <segment>
 <pinref part="LIGHT" gate="G$1" pin="SCL"/>
@@ -6167,7 +6168,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <wire x1="27.94" y1="22.86" x2="30.48" y2="22.86" width="0.1524" layer="91"/>
 <label x="30.48" y="22.86" size="1.524" layer="95" xref="yes"/>
-<pinref part="U$2" gate="G$1" pin="3V3"/>
+<pinref part="COMMS" gate="G$1" pin="3V3"/>
 </segment>
 <segment>
 <wire x1="58.42" y1="27.94" x2="55.88" y2="27.94" width="0.1524" layer="91"/>
@@ -6230,7 +6231,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <wire x1="27.94" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
 <label x="30.48" y="15.24" size="1.524" layer="95" xref="yes"/>
-<pinref part="U$2" gate="G$1" pin="GND"/>
+<pinref part="COMMS" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <wire x1="58.42" y1="22.86" x2="55.88" y2="22.86" width="0.1524" layer="91"/>
@@ -6291,7 +6292,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <wire x1="7.62" y1="27.94" x2="5.08" y2="27.94" width="0.1524" layer="91"/>
 <label x="5.08" y="27.94" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$2" gate="G$1" pin="D0"/>
+<pinref part="COMMS" gate="G$1" pin="D0"/>
 </segment>
 </net>
 </nets>
