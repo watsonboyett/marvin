@@ -156,22 +156,22 @@
 <wire x1="1" y1="1" x2="0.5" y2="1" width="0.08" layer="21"/>
 </package>
 <package name="WEMOS-D1-MINI">
-<pad name="3V3" x="-11.43" y="-8.89" drill="0.8" shape="octagon"/>
-<pad name="D8" x="-11.43" y="-6.35" drill="0.8" shape="octagon"/>
-<pad name="D7" x="-11.43" y="-3.81" drill="0.8" shape="octagon"/>
-<pad name="D6" x="-11.43" y="-1.27" drill="0.8" shape="octagon"/>
-<pad name="D5" x="-11.43" y="1.27" drill="0.8" shape="octagon"/>
-<pad name="D0" x="-11.43" y="3.81" drill="0.8" shape="octagon"/>
-<pad name="A0" x="-11.43" y="6.35" drill="0.8" shape="octagon"/>
-<pad name="RST" x="-11.43" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="5V" x="11.43" y="-8.89" drill="0.8" shape="octagon"/>
-<pad name="GND" x="11.43" y="-6.35" drill="0.8" shape="octagon"/>
-<pad name="D4" x="11.43" y="-3.81" drill="0.8" shape="octagon"/>
-<pad name="D3" x="11.43" y="-1.27" drill="0.8" shape="octagon"/>
-<pad name="D2" x="11.43" y="1.27" drill="0.8" shape="octagon"/>
-<pad name="D1" x="11.43" y="3.81" drill="0.8" shape="octagon"/>
-<pad name="RX" x="11.43" y="6.35" drill="0.8" shape="octagon"/>
-<pad name="TX" x="11.43" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="3V3" x="-11.43" y="-8.89" drill="0.9"/>
+<pad name="D8" x="-11.43" y="-6.35" drill="0.9"/>
+<pad name="D7" x="-11.43" y="-3.81" drill="0.9"/>
+<pad name="D6" x="-11.43" y="-1.27" drill="0.9"/>
+<pad name="D5" x="-11.43" y="1.27" drill="0.9"/>
+<pad name="D0" x="-11.43" y="3.81" drill="0.9"/>
+<pad name="A0" x="-11.43" y="6.35" drill="0.9"/>
+<pad name="RST" x="-11.43" y="8.89" drill="0.9"/>
+<pad name="5V" x="11.43" y="-8.89" drill="0.9"/>
+<pad name="GND" x="11.43" y="-6.35" drill="0.9"/>
+<pad name="D4" x="11.43" y="-3.81" drill="0.9"/>
+<pad name="D3" x="11.43" y="-1.27" drill="0.9"/>
+<pad name="D2" x="11.43" y="1.27" drill="0.9"/>
+<pad name="D1" x="11.43" y="3.81" drill="0.9"/>
+<pad name="RX" x="11.43" y="6.35" drill="0.9"/>
+<pad name="TX" x="11.43" y="8.89" drill="0.9"/>
 <rectangle x1="-12.7" y1="-10.16" x2="-10.16" y2="10.16" layer="48"/>
 <rectangle x1="10.16" y1="-10.16" x2="12.7" y2="10.16" layer="48"/>
 <text x="0" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;VALUE</text>
@@ -6277,6 +6277,11 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="93.98" y1="99.06" x2="96.52" y2="99.06" width="0.1524" layer="91"/>
 <label x="96.52" y="99.06" size="1.524" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="PRES" gate="G$1" pin="CSB"/>
+<wire x1="81.28" y1="78.74" x2="83.82" y2="78.74" width="0.1524" layer="91"/>
+<label x="83.82" y="78.74" size="1.524" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="PIROUT" class="0">
