@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Arduino.h>
 
 // 1. send reset sequence (to make sure that calibration PROM gets loaded into internal registers)

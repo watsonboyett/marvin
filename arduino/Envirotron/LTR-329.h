@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Arduino.h>
 
 #define ALS_ADDR (0x29)
