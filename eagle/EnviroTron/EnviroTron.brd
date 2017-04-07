@@ -1736,6 +1736,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MPN" value="" x="3.175" y="-53.34" size="1.778" layer="27" display="off"/>
 <attribute name="PN-DK" value="" x="3.175" y="-53.34" size="1.778" layer="27" display="off"/>
 </element>
+<element name="C11" library="rcl" package="C0805" value="33n" x="2.54" y="-57.785"/>
 </elements>
 <signals>
 <signal name="SDA">
@@ -1951,15 +1952,13 @@ Please make sure your boards conform to these design rules.</description>
 </polygon>
 </signal>
 <signal name="MIC-OUT">
-<contactref element="SOUND" pad="4"/>
-<contactref element="R4" pad="2"/>
 <contactref element="R6" pad="2"/>
 <contactref element="R7" pad="1"/>
 <contactref element="U$1" pad="3"/>
+<contactref element="C11" pad="2"/>
+<wire x1="2.3622" y1="-40.64" x2="3.49" y2="-57.785" width="0" layer="19" extent="1-1"/>
 <wire x1="3.9878" y1="-37.465" x2="2.3622" y2="-40.64" width="0" layer="19" extent="1-1"/>
-<wire x1="3.9878" y1="-24.13" x2="3.9878" y2="-37.465" width="0" layer="19" extent="1-1"/>
-<wire x1="7.2" y1="13.295" x2="3.9878" y2="-24.13" width="0" layer="19" extent="1-16"/>
-<wire x1="13.66" y1="17.44" x2="7.2" y2="13.295" width="0" layer="19" extent="16-16"/>
+<wire x1="13.66" y1="17.44" x2="3.9878" y2="-37.465" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$3">
 <contactref element="C5" pad="1"/>
@@ -2025,6 +2024,13 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="C8" pad="2"/>
 <contactref element="C9" pad="2"/>
 <wire x1="3.39" y1="-12.065" x2="3.39" y2="-18.415" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$8">
+<contactref element="SOUND" pad="4"/>
+<contactref element="R4" pad="2"/>
+<contactref element="C11" pad="1"/>
+<wire x1="3.9878" y1="-24.13" x2="1.59" y2="-57.785" width="0" layer="19" extent="1-1"/>
+<wire x1="7.2" y1="13.295" x2="3.9878" y2="-24.13" width="0" layer="19" extent="1-16"/>
 </signal>
 </signals>
 </board>
