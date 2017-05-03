@@ -179,7 +179,7 @@
 <wire x1="2.54" y1="3.81" x2="1.905" y2="4.445" width="0.127" layer="49"/>
 <text x="0" y="4.445" size="1.27" layer="49" rot="R180" align="center">X</text>
 <text x="0" y="-12.7" size="1.016" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.016" layer="25" align="center">&gt;VALUE</text>
+<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="SHT2X-DFN6">
 <smd name="1" x="-1" y="-1.5" dx="0.8" dy="0.4" layer="1" rot="R90"/>
@@ -226,19 +226,19 @@
 <pad name="TX" x="11.43" y="8.89" drill="0.9906" shape="octagon"/>
 <rectangle x1="-12.7" y1="-10.16" x2="-10.16" y2="10.16" layer="48"/>
 <rectangle x1="10.16" y1="-10.16" x2="12.7" y2="10.16" layer="48"/>
-<text x="0" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;VALUE</text>
-<wire x1="-9.43" y1="-17.89" x2="13.57" y2="-17.89" width="0.127" layer="21"/>
-<wire x1="13.57" y1="-17.89" x2="13.57" y2="15.11" width="0.127" layer="21"/>
-<wire x1="10.57" y1="18.11" x2="-10.43" y2="18.11" width="0.127" layer="21"/>
+<text x="0" y="2.54" size="1.016" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-9.43" y1="-17.89" x2="13.57" y2="-17.89" width="0.127" layer="51"/>
+<wire x1="13.57" y1="-17.89" x2="13.57" y2="15.11" width="0.127" layer="51"/>
+<wire x1="10.57" y1="18.11" x2="-10.43" y2="18.11" width="0.127" layer="51"/>
 <text x="0.015" y="15.92" size="1.27" layer="49" font="vector" align="center">Radio Antenna
   Facing UP</text>
-<text x="1.285" y="-17.59" size="1.27" layer="49" font="vector" align="center">USB Jack
+<text x="1.285" y="-15.05" size="1.27" layer="49" font="vector" align="center">USB Jack
 Facing DOWN/PCB</text>
-<wire x1="-13.43" y1="15.11" x2="-13.43" y2="-10.89" width="0.127" layer="21"/>
-<wire x1="-13.43" y1="15.11" x2="-10.43" y2="18.11" width="0.127" layer="21" curve="-90"/>
-<wire x1="13.57" y1="15.11" x2="10.57" y2="18.11" width="0.127" layer="21" curve="90"/>
-<wire x1="-9.43" y1="-17.89" x2="-9.43" y2="-12.89" width="0.127" layer="21"/>
-<wire x1="-9.43" y1="-12.89" x2="-13.43" y2="-10.89" width="0.127" layer="21"/>
+<wire x1="-13.43" y1="15.11" x2="-13.43" y2="-10.89" width="0.127" layer="51"/>
+<wire x1="-13.43" y1="15.11" x2="-10.43" y2="18.11" width="0.127" layer="51" curve="-90"/>
+<wire x1="13.57" y1="15.11" x2="10.57" y2="18.11" width="0.127" layer="51" curve="90"/>
+<wire x1="-9.43" y1="-17.89" x2="-9.43" y2="-12.89" width="0.127" layer="51"/>
+<wire x1="-9.43" y1="-12.89" x2="-13.43" y2="-10.89" width="0.127" layer="51"/>
 <text x="-9.525" y="-8.89" size="1.27" layer="21" font="vector" align="center-left">3V3</text>
 <text x="-9.525" y="-6.35" size="1.27" layer="21" font="vector" align="center-left">D8</text>
 <text x="-9.525" y="-3.81" size="1.27" layer="21" font="vector" align="center-left">D7</text>
@@ -255,14 +255,14 @@ Facing DOWN/PCB</text>
 <text x="9.525" y="3.81" size="1.27" layer="21" font="vector" align="center-right">D1</text>
 <text x="9.525" y="6.35" size="1.27" layer="21" font="vector" align="center-right">RX</text>
 <text x="9.525" y="8.89" size="1.27" layer="21" font="vector" align="center-right">TX</text>
-<text x="1.27" y="-15.24" size="1.016" layer="25" rot="R180" align="center">&gt;NAME</text>
+<text x="0" y="5.08" size="1.016" layer="25" rot="R180" align="center">&gt;NAME</text>
 </package>
 <package name="HLGA-10L">
 <wire x1="-1" y1="1" x2="-1" y2="-1" width="0.127" layer="21"/>
 <wire x1="-1" y1="-1" x2="1" y2="-1" width="0.127" layer="21"/>
 <wire x1="1" y1="-1" x2="1" y2="1" width="0.127" layer="21"/>
 <wire x1="1" y1="1" x2="-1" y2="1" width="0.127" layer="21"/>
-<circle x="-1.5" y="1.5" radius="0.2032" width="0.127" layer="21"/>
+<circle x="-1.5" y="0.865" radius="0.2032" width="0.127" layer="21"/>
 <wire x1="0" y1="0" x2="0" y2="-0.75" width="0.127" layer="51"/>
 <wire x1="0" y1="-0.75" x2="0.75" y2="-0.75" width="0.127" layer="51"/>
 <wire x1="0.75" y1="-0.75" x2="0.75" y2="0" width="0.127" layer="51"/>
@@ -308,8 +308,8 @@ Facing DOWN/PCB</text>
 <smd name="7" x="-0.325" y="2.2" dx="0.45" dy="1.45" layer="1" rot="R180"/>
 <smd name="8" x="-0.975" y="2.2" dx="0.45" dy="1.45" layer="1" rot="R180"/>
 <circle x="-1.95" y="-1.95" radius="0.254" width="0.127" layer="21"/>
-<text x="0" y="3.81" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<text x="0" y="3.81" size="1.016" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -412,6 +412,8 @@ Facing DOWN/PCB</text>
 <pin name="B-OUT" x="12.7" y="-7.62" length="short" rot="R180"/>
 <pin name="B-IN-P" x="12.7" y="-2.54" length="short" rot="R180"/>
 <pin name="B-IN-N" x="12.7" y="-5.08" length="short" rot="R180"/>
+<text x="0" y="12.7" size="1.524" layer="95" align="center">&gt;NAME</text>
+<text x="0" y="-12.7" size="1.524" layer="96" align="center">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -8620,7 +8622,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="PRESS" library="EnviroTron" deviceset="LPS22HB" device=""/>
 <part name="C7" library="SmslsTron-1" deviceset="C-US" device="C0603" value="100n"/>
 <part name="SOUND" library="EnviroTron" deviceset="SPU0410HR5H" device=""/>
-<part name="U$1" library="EnviroTron" deviceset="MCP6002" device=""/>
+<part name="AMP" library="EnviroTron" deviceset="MCP6002" device=""/>
 <part name="C8" library="SmslsTron-1" deviceset="C-US" device="C0603" value="1u"/>
 <part name="C9" library="SmslsTron-1" deviceset="C-US" device="C0603" value="1u"/>
 <part name="R4" library="SmslsTron-1" deviceset="R-US_" device="R0603" value="2.2k"/>
@@ -8656,7 +8658,7 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="PRESS" gate="G$1" x="68.58" y="73.66"/>
 <instance part="C7" gate="G$1" x="78.74" y="-5.08"/>
 <instance part="SOUND" gate="G$1" x="139.7" y="63.5"/>
-<instance part="U$1" gate="G$1" x="142.24" y="22.86"/>
+<instance part="AMP" gate="G$1" x="142.24" y="22.86"/>
 <instance part="C8" gate="G$1" x="190.5" y="30.48" rot="R90"/>
 <instance part="C9" gate="G$1" x="190.5" y="15.24" rot="R90"/>
 <instance part="R4" gate="G$1" x="152.4" y="71.12" rot="R270"/>
@@ -8797,7 +8799,7 @@ Source: AVX .. aphvc.pdf</description>
 <segment>
 <wire x1="129.54" y1="27.94" x2="127" y2="27.94" width="0.1524" layer="91"/>
 <label x="127" y="27.94" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$1" gate="G$1" pin="VDD"/>
+<pinref part="AMP" gate="G$1" pin="VDD"/>
 </segment>
 <segment>
 <wire x1="149.86" y1="-2.54" x2="144.78" y2="-2.54" width="0.1524" layer="91"/>
@@ -8879,7 +8881,7 @@ Source: AVX .. aphvc.pdf</description>
 <segment>
 <wire x1="129.54" y1="17.78" x2="127" y2="17.78" width="0.1524" layer="91"/>
 <label x="127" y="17.78" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$1" gate="G$1" pin="VSS"/>
+<pinref part="AMP" gate="G$1" pin="VSS"/>
 </segment>
 <segment>
 <wire x1="149.86" y1="-10.16" x2="144.78" y2="-10.16" width="0.1524" layer="91"/>
@@ -8939,7 +8941,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="172.72" y1="63.5" x2="180.34" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="A-IN-P"/>
+<pinref part="AMP" gate="G$1" pin="A-IN-P"/>
 <wire x1="154.94" y1="25.4" x2="160.02" y2="25.4" width="0.1524" layer="91"/>
 <label x="160.02" y="25.4" size="1.524" layer="95" xref="yes"/>
 </segment>
@@ -8957,13 +8959,13 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="A-OUT"/>
+<pinref part="AMP" gate="G$1" pin="A-OUT"/>
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="154.94" y1="30.48" x2="157.48" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="30.48" x2="160.02" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="30.48" x2="157.48" y2="20.32" width="0.1524" layer="91"/>
 <junction x="157.48" y="30.48"/>
-<pinref part="U$1" gate="G$1" pin="B-IN-P"/>
+<pinref part="AMP" gate="G$1" pin="B-IN-P"/>
 <wire x1="157.48" y1="20.32" x2="154.94" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -8972,7 +8974,7 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="R8" gate="G$1" pin="2"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="170.18" y1="30.48" x2="172.72" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="A-IN-N"/>
+<pinref part="AMP" gate="G$1" pin="A-IN-N"/>
 <wire x1="172.72" y1="30.48" x2="175.26" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="27.94" x2="172.72" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="27.94" x2="172.72" y2="30.48" width="0.1524" layer="91"/>
@@ -8988,7 +8990,7 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="AMP-OUT" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="B-OUT"/>
+<pinref part="AMP" gate="G$1" pin="B-OUT"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="154.94" y1="15.24" x2="157.48" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="15.24" x2="160.02" y2="15.24" width="0.1524" layer="91"/>
@@ -9007,7 +9009,7 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="R10" gate="G$1" pin="2"/>
 <pinref part="R11" gate="G$1" pin="1"/>
 <wire x1="170.18" y1="15.24" x2="172.72" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="B-IN-N"/>
+<pinref part="AMP" gate="G$1" pin="B-IN-N"/>
 <wire x1="172.72" y1="15.24" x2="175.26" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="17.78" x2="172.72" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="17.78" x2="172.72" y2="15.24" width="0.1524" layer="91"/>
