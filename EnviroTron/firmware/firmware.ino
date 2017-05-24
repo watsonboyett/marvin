@@ -2,7 +2,8 @@
 #include "creds.h"
 #include "LTR-329.h"
 #include "SHT21.h"
-#include "MS5607.h"
+#include "LPS22HB.h"
+
 
 #include <Arduino.h>
 #include <Wire.h>
@@ -82,111 +83,121 @@ void setup()
 }
 
 
+// Light sensor data
+bool ALS_configured = false;
+ALS_CONTR_t ALS_control = {0};
+ALS_MEAS_RATE_t ALS_meas = {0};
+ALS_DATA_t ALS_vis = {0};
+ALS_DATA_t ALS_ir = {0};
 
-bool als_configured = false;
-ALS_CONTR_t als_control = {0};
-ALS_MEAS_RATE_t als_meas_t = {0};
-ALS_DATA_t als_ch0 = {0};
-ALS_DATA_t als_ch1 = {0};
+void measure_ambient_light()
+{
+  // Enable light sensor
+  if (!ALS_configured)
+  {
+    ALS_control.ALS_Gain = ALS_GAIN_96X;
+    ALS_control.ALS_Mode = ALS_MODE_ACTIVE;
+    writeByte(ALS_ADDR, ALS_CONTR_ADDR, ALS_control.reg);
+    delay(100);
 
-SHT21_ADC_CONV_t sht_temp = {0};
-SHT21_ADC_CONV_t sht_rh = {0};
+    ALS_meas.ALS_Meas_Rate = ALS_MEAS_RATE_500ms;
+    ALS_meas.ALS_Int_Time = ALS_INT_TIME_200ms;
+    writeByte(ALS_ADDR, ALS_MEAS_RATE_ADDR, ALS_meas.reg);
+    
+    ALS_configured = true;
+  }
 
-bool ms_configured = false;
-MS_PROM_t ms_prom = {0};
-MS_ADC_READ_t ms_press = {0};
-MS_ADC_READ_t ms_temp = {0};
+  // Read data from light sensor
+  readByte(ALS_ADDR, ALS_DATA_CH1_LOW_ADDR, &ALS_ir.byte_low, 1);
+  readByte(ALS_ADDR, ALS_DATA_CH1_HIGH_ADDR, &ALS_ir.byte_high, 1);
+  readByte(ALS_ADDR, ALS_DATA_CH0_LOW_ADDR, &ALS_vis.byte_low, 1);
+  readByte(ALS_ADDR, ALS_DATA_CH0_HIGH_ADDR, &ALS_vis.byte_high, 1);
+}
+
+
+// Temperature/humidity sensor data
+SHT21_ADC_CONV_t SHT_temp = {0};
+SHT21_ADC_CONV_t SHT_rh = {0};
+float SHT_Temp_C = 0;
+float SHT_Temp_F = 0;
+float SHT_RH_pct = 0;
+
+void measure_temperature()
+{
+  // Read data from temperature sensor
+  readByte(SHT21_ADDR, SHT21_MEAS_T_NOHOLD_ADDR, SHT_temp.bytes, 3);
+  float temp_sens = (byteswap(SHT_temp.data) & 0xFFFC);
+  SHT_Temp_C = -46.85 + 175.72 * (temp_sens / 65536);
+  SHT_Temp_F = SHT_Temp_C * (9.0 / 5.0) + 32;
+
+  readByte(SHT21_ADDR, SHT21_MEAS_RH_NOHOLD_ADDR, SHT_rh.bytes, 3);
+  float rh_sens = (byteswap(SHT_rh.data) & 0xFFFC);
+  SHT_RH_pct = -6 + 125 * (rh_sens / 65536);
+}
+
+
+// Barometric pressure sensor data
+bool LPS_configured = false;
+LPS_CTRL_REG1_t LPS_ctrl_reg1 = {0};
+LPS_PRESS_OUT_t LPS_press = {0};
+LPS_TEMP_OUT_t LPS_temp = {0};
+float LPS_Press_mbar = 0;
+float LPS_Temp_C = 0;
+float LPS_Temp_F = 0;
+
+void measure_pressure()
+{
+  // Enable LPS22HB
+  if (!LPS_configured)
+  {
+    LPS_ctrl_reg1.ODR = 0b001;
+    LPS_ctrl_reg1.EN_LPFP = 1;
+    LPS_ctrl_reg1.BDU = 1;  // must read PRESS_OUT_H register last when BDU is enabled    
+    writeByte(LPS_ADDR, LPS_CTRL_REG1_ADDR, LPS_ctrl_reg1.reg);
+    delay(10);
+    
+    LPS_configured = true;
+  }
+
+  // Read pressure data from pressure sensor
+  readByte(LPS_ADDR, LPS_PRESS_OUT_XL_ADDR, LPS_press.bytes, 3);
+  LPS_Press_mbar = (float) LPS_press.value / 4096;
+  //USE_SERIAL.printf("LPS P raw: %x \n", lps_press.value);
+
+  // Read temperature data from pressure sensor
+  delay(10);
+  readByte(LPS_ADDR, LPS_TEMP_OUT_L_ADDR, LPS_temp.bytes, 2);
+  LPS_Temp_C = (float) LPS_temp.value / 100;
+  LPS_Temp_F = LPS_Temp_C * (9.0 / 5.0) + 32;
+  //USE_SERIAL.printf("LPS T raw: %x \n", lps_temp.value);
+}
+
 
 void loop()
 {
+  measure_ambient_light();
 
-  // Enable ALS
-  if (!als_configured)
-  {
-    als_control.ALS_Gain = ALS_GAIN_96X;
-    als_control.ALS_Mode = ALS_MODE_ACTIVE;
-    writeByte(ALS_ADDR, ALS_CONTR_ADDR, als_control.reg);
-    delay(100);
+  measure_temperature();
 
-    als_meas_t.ALS_Meas_Rate = ALS_MEAS_RATE_500ms;
-    als_meas_t.ALS_Int_Time = ALS_INT_TIME_200ms;
-    writeByte(ALS_ADDR, ALS_MEAS_RATE_ADDR, als_meas_t.reg);
-    
-    als_configured = true;
-  }
-
-  // Read sensor data from ALS
-  readByte(ALS_ADDR, ALS_DATA_CH1_LOW_ADDR, &als_ch1.byte_low, 1);
-  readByte(ALS_ADDR, ALS_DATA_CH1_HIGH_ADDR, &als_ch1.byte_high, 1);
-  readByte(ALS_ADDR, ALS_DATA_CH0_LOW_ADDR, &als_ch0.byte_low, 1);
-  readByte(ALS_ADDR, ALS_DATA_CH0_HIGH_ADDR, &als_ch0.byte_high, 1);
-
-
-  // Read sensor data from SHT21
-  readByte(SHT21_ADDR, SHT21_MEAS_T_NOHOLD_ADDR, sht_temp.bytes, 3);
-  float temp_sens = (byteswap(sht_temp.data) & 0xFFFC);
-  float temp_C = -46.85 + 175.72 * (temp_sens / 65536);
-  float temp_F = temp_C * (9.0 / 5.0) + 32;
-
-  readByte(SHT21_ADDR, SHT21_MEAS_RH_NOHOLD_ADDR, sht_rh.bytes, 3);
-  float rh_sens = (byteswap(sht_rh.data) & 0xFFFC);
-  float rh_pct = -6 + 125 * (rh_sens / 65536);
-
-
-  // Enable MS5607
-  if (!ms_configured)
-  {
-    // 1. send reset sequence (to make sure that calibration PROM gets loaded into internal registers)
-    writeByte(MS_ALT_ADDR, MS_RESET_ADDR, 0);
-    delay(10);
-    
-    // 2. read PROM data (to get calibration coefficients)
-    readByte(MS_ALT_ADDR, MS_PROM_FACTORY_ADDR, &ms_prom.FACTORY_h, 2);
-    readByte(MS_ALT_ADDR, MS_PROM_SENS_T1_ADDR, &ms_prom.SENS_T1_h, 2);
-    readByte(MS_ALT_ADDR, MS_PROM_OFF_T1_ADDR, &ms_prom.OFF_T1_h, 2);
-    readByte(MS_ALT_ADDR, MS_PROM_TCS_ADDR, &ms_prom.TCS_h, 2);
-    readByte(MS_ALT_ADDR, MS_PROM_TCO_ADDR, &ms_prom.TCO_h, 2);
-    readByte(MS_ALT_ADDR, MS_PROM_T_REF_ADDR, &ms_prom.T_REF_h, 2);
-    readByte(MS_ALT_ADDR, MS_PROM_TEMPSENS_ADDR, &ms_prom.TEMPSENS_h, 2);
-
-    delay(100);
-    ms_configured = true;
-  }
-
-  // Read sensor data from PS
-  writeByte(MS_ALT_ADDR, MS_CONV_D1_OSR_2048, 0);
-  delay(12);
-  readByte(MS_ALT_ADDR, MS_ADC_READ_ADDR, &ms_press.bytes[3], 3);
-  uint32_t D1_press = ms_press.data & 0x00ffffff; // pressure
-  USE_SERIAL.printf("MS P raw: %x \n", ms_press.data);
-
-  writeByte(MS_ALT_ADDR, MS_CONV_D2_OSR_2048, 0);
-  delay(12);
-  readByte(MS_ALT_ADDR, MS_ADC_READ_ADDR, &ms_temp.bytes[3], 3);
-  uint32_t D2_temp = ms_temp.data & 0x00ffffff; // temperature
-  USE_SERIAL.printf("MS T raw: %x \n", ms_temp.data);
-
-  int32_t dT = D2_temp - (ms_prom.T_REF << 8);
-  int32_t TEMP = 2000 + dT * (ms_prom.TEMPSENS >> 23);
-  int64_t OFF = (ms_prom.OFF_T1 << 17) + ((ms_prom.TCO * dT) >> 6);
-  int64_t SENS = (ms_prom.SENS_T1 << 16) + ((ms_prom.TCS * dT) >> 7);
-  int64_t PRESS = (D1_press * SENS >> 21 - OFF) >> 15;
-  float ms_pres_f = PRESS;
-  float ms_temp_f = TEMP;
+  measure_pressure();
+  
 
   // Print results to console
   USE_SERIAL.printf("motion: %d, ", anyMovementOccurred());
-  USE_SERIAL.printf("ALS ch0: %d, ALS ch1: %d, ", als_ch0.value, als_ch1.value);
+  USE_SERIAL.printf("ALS vis: %d, ALS ir: %d, ", ALS_vis.value, ALS_ir.value);
+  
   char temp_str[6];
-  dtostrf(temp_F, 0, 2, temp_str);
+  dtostrf(SHT_Temp_F, 0, 2, temp_str);
   char rh_str[6];
-  dtostrf(rh_pct, 0, 2, rh_str);
+  dtostrf(SHT_RH_pct, 0, 2, rh_str);
   USE_SERIAL.printf("SHT T: %s, SHT RH: %s, ", temp_str, rh_str);
-  char press_str[6];
-  dtostrf(ms_pres_f, 0, 2, press_str);
-  char ms_temp_str[6];
-  dtostrf(ms_temp_f, 0, 2, ms_temp_str);
-  USE_SERIAL.printf("MS P: %s, MS T: %s, ", press_str, ms_temp_str);
+
+  char lps_press_str[6];
+  dtostrf(LPS_Press_mbar, 0, 2, lps_press_str);
+  char lps_temp_str[6];
+  dtostrf(LPS_Temp_F, 0, 2, lps_temp_str);
+  USE_SERIAL.printf("LPS P: %s, LPS T: %s, ", lps_press_str, lps_temp_str);
+  
   USE_SERIAL.printf("\n");
   USE_SERIAL.flush();
 
