@@ -12,7 +12,7 @@
 // Temperature/Pressure compensation calculations
 // dT = D2 - T_REF = D2 - C5 * 2^8
 // TEMP (actual) = 20°C + dT * TEMPSENS = 2000 + dT * C6 / 2^23
-// OFF = OFF_T1 + TCO * dT = C2 * 2^17 + (C4 * dT) / 2^5
+// OFF = OFF_T1 + TCO * dT = C2 * 2^17 + (C4 * dT) / 2^5)
 // SENS = SENS_T1 + TCS * dT = C1 * 2^16 + (C3 * dT) / 2^7
 // P (actual) = D1 * SENS - OFF = (D1 * SENS / 2^21 - OFF) / 2^15
 
@@ -39,7 +39,7 @@
 
 typedef union
 {
-  uint8_t bytes[3];
+  uint8_t bytes[4];
   uint32_t data;
 
   struct 
@@ -47,6 +47,7 @@ typedef union
     uint8_t byte_1;
     uint8_t byte_2;
     uint8_t byte_3;
+    uint8_t byte_4;
   };
 } MS_ADC_READ_t;
 
@@ -75,4 +76,25 @@ typedef union
     uint16_t TEMPSENS;  // (C6) temperature coefficient of the temperature
     uint16_t CRC;
   };
-} PROM_t;
+
+  struct
+  {
+    uint8_t FACTORY_l;
+    uint8_t FACTORY_h;
+    uint8_t SENS_T1_l;
+    uint8_t SENS_T1_h;
+    uint8_t OFF_T1_l;
+    uint8_t OFF_T1_h;
+    uint8_t TCS_l;
+    uint8_t TCS_h;
+    uint8_t TCO_l;
+    uint8_t TCO_h;
+    uint8_t T_REF_l;
+    uint8_t T_REF_h;
+    uint8_t TEMPSENS_l;
+    uint8_t TEMPSENS_h;
+    uint8_t CRC_l;
+    uint8_t CRC_h;
+  };
+} MS_PROM_t;
+
