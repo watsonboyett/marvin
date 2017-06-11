@@ -130,15 +130,7 @@ void loop()
   char sample_count_str[9];
   sprintf(sample_count_str, "%u", sample_count);
   USE_SERIAL.printf("Sample: %s, ", sample_count_str);
-  
-  USE_SERIAL.printf("PIR M: %d, ", motion_inst);
 
-  char als_vis_str[9];
-  dtostrf(als_visible_inst, 0, 2, als_vis_str);
-  char als_ir_str[9];
-  dtostrf(als_infrared_inst, 0, 2, als_ir_str);
-  USE_SERIAL.printf("ALS Vis: %s, ALS IR: %s, ", als_vis_str, als_ir_str);
-  
   char sht_temp_str[6];
   dtostrf(sht_temp_inst, 0, 2, sht_temp_str);
   char sht_rh_str[6];
@@ -150,6 +142,14 @@ void loop()
   char lps_temp_str[6];
   dtostrf(lps_temp_inst, 0, 2, lps_temp_str);
   USE_SERIAL.printf("LPS P: %s, LPS T: %s, ", lps_press_str, lps_temp_str);
+
+  char als_vis_str[9];
+  dtostrf(als_visible_inst, 0, 2, als_vis_str);
+  char als_ir_str[9];
+  dtostrf(als_infrared_inst, 0, 2, als_ir_str);
+  USE_SERIAL.printf("ALS Vis: %s, ALS IR: %s, ", als_vis_str, als_ir_str);
+  
+  USE_SERIAL.printf("PIR M: %d, ", motion_inst);
 
   char mic_level_str[6];
   dtostrf(mic_level_inst, 0, 2, mic_level_str);
