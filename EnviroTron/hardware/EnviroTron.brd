@@ -17,10 +17,10 @@
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
@@ -178,96 +178,96 @@
 <rectangle x1="0.3" y1="-0.9" x2="0.9" y2="-0.45" layer="48" rot="R180"/>
 <rectangle x1="-0.9" y1="-0.9" x2="-0.3" y2="-0.45" layer="48"/>
 <rectangle x1="0.3" y1="0.45" x2="0.9" y2="0.9" layer="48" rot="R180"/>
+<rectangle x1="-1" y1="-1.778" x2="-0.5" y2="-1.016" layer="21"/>
 <smd name="1" x="-0.6" y="-0.675" dx="0.7" dy="0.75" layer="1"/>
 <smd name="2" x="0.6" y="-0.675" dx="0.7" dy="0.75" layer="1"/>
-<smd name="4" x="-0.6" y="0.675" dx="0.7" dy="0.75" layer="1" rot="R180"/>
 <smd name="3" x="0.6" y="0.675" dx="0.7" dy="0.75" layer="1" rot="R180"/>
+<smd name="4" x="-0.6" y="0.675" dx="0.7" dy="0.75" layer="1" rot="R180"/>
 <text x="0" y="2.54" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
-<rectangle x1="-1" y1="-1.778" x2="-0.5" y2="-1.016" layer="21"/>
 </package>
 <package name="CAN3">
-<pad name="2" x="1.796" y="-1.796" drill="0.508" diameter="1.524" rot="R90"/>
-<pad name="3" x="1.796" y="1.796" drill="0.5588" diameter="1.524" rot="R90"/>
-<pad name="1" x="-1.796" y="-1.796" drill="0.5588" diameter="1.524" rot="R90"/>
 <circle x="0" y="0" radius="2.54" width="0.127" layer="48"/>
 <circle x="0" y="0" radius="5.5" width="0.127" layer="21"/>
-<rectangle x1="5.17" y1="-0.25" x2="6.17" y2="0.25" layer="21" rot="R90"/>
-<rectangle x1="-6.17" y1="-0.25" x2="-5.17" y2="0.25" layer="21" rot="R90"/>
 <wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="49"/>
 <wire x1="-3.81" y1="-2.54" x2="-4.445" y2="-1.905" width="0.127" layer="49"/>
 <wire x1="-3.81" y1="-2.54" x2="-3.175" y2="-1.905" width="0.127" layer="49"/>
 <wire x1="-3.81" y1="2.54" x2="-4.445" y2="1.905" width="0.127" layer="49"/>
 <wire x1="-3.81" y1="2.54" x2="-3.175" y2="1.905" width="0.127" layer="49"/>
-<text x="-4.445" y="0" size="1.27" layer="49" rot="R180" align="center">Y</text>
 <wire x1="0" y1="3.81" x2="-2.54" y2="3.81" width="0.127" layer="49"/>
 <wire x1="-2.54" y1="3.81" x2="-1.905" y2="3.175" width="0.127" layer="49"/>
 <wire x1="-2.54" y1="3.81" x2="-1.905" y2="4.445" width="0.127" layer="49"/>
 <wire x1="0" y1="3.81" x2="2.54" y2="3.81" width="0.127" layer="49"/>
 <wire x1="2.54" y1="3.81" x2="1.905" y2="3.175" width="0.127" layer="49"/>
 <wire x1="2.54" y1="3.81" x2="1.905" y2="4.445" width="0.127" layer="49"/>
+<rectangle x1="5.17" y1="-0.25" x2="6.17" y2="0.25" layer="21" rot="R90"/>
+<rectangle x1="-6.17" y1="-0.25" x2="-5.17" y2="0.25" layer="21" rot="R90"/>
+<pad name="1" x="-1.796" y="-1.796" drill="0.5588" diameter="1.524" rot="R90"/>
+<pad name="2" x="1.796" y="-1.796" drill="0.508" diameter="1.524" rot="R90"/>
+<pad name="3" x="1.796" y="1.796" drill="0.5588" diameter="1.524" rot="R90"/>
+<text x="-4.445" y="0" size="1.27" layer="49" rot="R180" align="center">Y</text>
 <text x="0" y="4.445" size="1.27" layer="49" rot="R180" align="center">X</text>
 <text x="0" y="-12.7" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="SHT2X-DFN6">
-<smd name="1" x="-1" y="-1.5" dx="0.8" dy="0.4" layer="1" rot="R90"/>
+<circle x="-1.778" y="-1.27" radius="0.2032" width="0.1" layer="21"/>
 <wire x1="-1.5" y1="1.5" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
 <wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.127" layer="21"/>
 <wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.127" layer="21"/>
 <wire x1="1.5" y1="1.5" x2="-1.5" y2="1.5" width="0.127" layer="21"/>
-<smd name="2" x="0" y="-1.5" dx="0.8" dy="0.4" layer="1" rot="R90"/>
-<smd name="3" x="1" y="-1.5" dx="0.8" dy="0.4" layer="1" rot="R90"/>
-<smd name="4" x="1" y="1.5" dx="0.8" dy="0.4" layer="1" rot="R270"/>
-<smd name="5" x="0" y="1.5" dx="0.8" dy="0.4" layer="1" rot="R270"/>
-<smd name="6" x="-1" y="1.5" dx="0.8" dy="0.4" layer="1" rot="R270"/>
-<smd name="7" x="0" y="0" dx="2.4" dy="1.3" layer="1"/>
-<circle x="-1.778" y="-1.27" radius="0.2032" width="0.1" layer="21"/>
-<text x="0" y="2.54" size="1.016" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
+<wire x1="0.5" y1="1" x2="0.5" y2="-1" width="0.08" layer="21"/>
+<wire x1="0.5" y1="-1" x2="1" y2="-1" width="0.08" layer="21"/>
+<wire x1="1" y1="-1" x2="1" y2="1" width="0.08" layer="21"/>
+<wire x1="1" y1="1" x2="0.5" y2="1" width="0.08" layer="21"/>
 <rectangle x1="-1.2" y1="1.1" x2="-0.8" y2="1.5" layer="48"/>
 <rectangle x1="-0.2" y1="1.1" x2="0.2" y2="1.5" layer="48"/>
 <rectangle x1="0.8" y1="1.1" x2="1.2" y2="1.5" layer="48"/>
 <rectangle x1="0.8" y1="-1.5" x2="1.2" y2="-1.1" layer="48" rot="R180"/>
 <rectangle x1="-0.2" y1="-1.5" x2="0.2" y2="-1.1" layer="48" rot="R180"/>
 <rectangle x1="-1.2" y1="-1.5" x2="-0.8" y2="-1.1" layer="48" rot="R180"/>
-<wire x1="0.5" y1="1" x2="0.5" y2="-1" width="0.08" layer="21"/>
-<wire x1="0.5" y1="-1" x2="1" y2="-1" width="0.08" layer="21"/>
-<wire x1="1" y1="-1" x2="1" y2="1" width="0.08" layer="21"/>
-<wire x1="1" y1="1" x2="0.5" y2="1" width="0.08" layer="21"/>
+<smd name="1" x="-1" y="-1.5" dx="0.8" dy="0.4" layer="1" rot="R90"/>
+<smd name="2" x="0" y="-1.5" dx="0.8" dy="0.4" layer="1" rot="R90"/>
+<smd name="3" x="1" y="-1.5" dx="0.8" dy="0.4" layer="1" rot="R90"/>
+<smd name="4" x="1" y="1.5" dx="0.8" dy="0.4" layer="1" rot="R270"/>
+<smd name="5" x="0" y="1.5" dx="0.8" dy="0.4" layer="1" rot="R270"/>
+<smd name="6" x="-1" y="1.5" dx="0.8" dy="0.4" layer="1" rot="R270"/>
+<smd name="7" x="0" y="0" dx="2.4" dy="1.3" layer="1"/>
+<text x="0" y="2.54" size="1.016" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="WEMOS-D1-MINI">
-<pad name="3V3" x="-11.43" y="-8.89" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D8" x="-11.43" y="-6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D7" x="-11.43" y="-3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D6" x="-11.43" y="-1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D5" x="-11.43" y="1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D0" x="-11.43" y="3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="A0" x="-11.43" y="6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="RST" x="-11.43" y="8.89" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="5V" x="11.43" y="-8.89" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="GND" x="11.43" y="-6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D4" x="11.43" y="-3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D3" x="11.43" y="-1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D2" x="11.43" y="1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D1" x="11.43" y="3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="RX" x="11.43" y="6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="TX" x="11.43" y="8.89" drill="0.762" diameter="1.524" shape="octagon"/>
-<rectangle x1="-12.7" y1="-10.16" x2="-10.16" y2="10.16" layer="48"/>
-<rectangle x1="10.16" y1="-10.16" x2="12.7" y2="10.16" layer="48"/>
-<text x="0" y="2.54" size="1.016" layer="27" align="center">&gt;VALUE</text>
 <wire x1="-9.43" y1="-17.89" x2="13.57" y2="-17.89" width="0.127" layer="51"/>
 <wire x1="13.57" y1="-17.89" x2="13.57" y2="15.11" width="0.127" layer="51"/>
 <wire x1="10.57" y1="18.11" x2="-10.43" y2="18.11" width="0.127" layer="51"/>
-<text x="0.015" y="15.92" size="1.27" layer="49" font="vector" align="center">Radio Antenna
-  Facing UP</text>
-<text x="1.285" y="-15.05" size="1.27" layer="49" font="vector" align="center">USB Jack
-Facing DOWN/PCB</text>
 <wire x1="-13.43" y1="15.11" x2="-13.43" y2="-10.89" width="0.127" layer="51"/>
 <wire x1="-13.43" y1="15.11" x2="-10.43" y2="18.11" width="0.127" layer="51" curve="-90"/>
 <wire x1="13.57" y1="15.11" x2="10.57" y2="18.11" width="0.127" layer="51" curve="90"/>
 <wire x1="-9.43" y1="-17.89" x2="-9.43" y2="-12.89" width="0.127" layer="51"/>
 <wire x1="-9.43" y1="-12.89" x2="-13.43" y2="-10.89" width="0.127" layer="51"/>
+<rectangle x1="-12.7" y1="-10.16" x2="-10.16" y2="10.16" layer="48"/>
+<rectangle x1="10.16" y1="-10.16" x2="12.7" y2="10.16" layer="48"/>
+<pad name="3V3" x="-11.43" y="-8.89" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="5V" x="11.43" y="-8.89" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="A0" x="-11.43" y="6.35" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D0" x="-11.43" y="3.81" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D1" x="11.43" y="3.81" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D2" x="11.43" y="1.27" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D3" x="11.43" y="-1.27" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D4" x="11.43" y="-3.81" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D5" x="-11.43" y="1.27" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D6" x="-11.43" y="-1.27" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D7" x="-11.43" y="-3.81" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="D8" x="-11.43" y="-6.35" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="GND" x="11.43" y="-6.35" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="RST" x="-11.43" y="8.89" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="RX" x="11.43" y="6.35" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="TX" x="11.43" y="8.89" drill="0.762" diameter="1.524" shape="octagon"/>
+<text x="0" y="2.54" size="1.016" layer="27" align="center">&gt;VALUE</text>
+<text x="0.015" y="15.92" size="1.27" layer="49" font="vector" align="center">Radio Antenna
+  Facing UP</text>
+<text x="1.285" y="-15.05" size="1.27" layer="49" font="vector" align="center">USB Jack
+Facing DOWN/PCB</text>
 <text x="-9.525" y="-8.89" size="1.27" layer="21" font="vector" align="center-left">3V3</text>
 <text x="-9.525" y="-6.35" size="1.27" layer="21" font="vector" align="center-left">D8</text>
 <text x="-9.525" y="-3.81" size="1.27" layer="21" font="vector" align="center-left">D7</text>
@@ -287,11 +287,11 @@ Facing DOWN/PCB</text>
 <text x="0" y="5.08" size="1.016" layer="25" rot="R180" align="center">&gt;NAME</text>
 </package>
 <package name="HLGA-10L">
+<circle x="-1.5" y="0.865" radius="0.2032" width="0.127" layer="21"/>
 <wire x1="-1" y1="1" x2="-1" y2="-1" width="0.127" layer="21"/>
 <wire x1="-1" y1="-1" x2="1" y2="-1" width="0.127" layer="21"/>
 <wire x1="1" y1="-1" x2="1" y2="1" width="0.127" layer="21"/>
 <wire x1="1" y1="1" x2="-1" y2="1" width="0.127" layer="21"/>
-<circle x="-1.5" y="0.865" radius="0.2032" width="0.127" layer="21"/>
 <wire x1="0" y1="0" x2="0" y2="-0.75" width="0.127" layer="51"/>
 <wire x1="0" y1="-0.75" x2="0.75" y2="-0.75" width="0.127" layer="51"/>
 <wire x1="0.75" y1="-0.75" x2="0.75" y2="0" width="0.127" layer="51"/>
@@ -310,56 +310,101 @@ Facing DOWN/PCB</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="BPAD-4">
-<smd name="4" x="-0.85" y="1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
-<smd name="3" x="-0.85" y="-1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
-<smd name="2" x="0.85" y="-1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
-<smd name="1" x="0.85" y="1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
+<circle x="0" y="0.7" radius="0.25" width="0.127" layer="21"/>
+<circle x="2" y="1.7" radius="0.2032" width="0.127" layer="21"/>
 <wire x1="-1.45" y1="1.88" x2="1.45" y2="1.88" width="0.127" layer="21"/>
 <wire x1="1.45" y1="1.88" x2="1.45" y2="-1.88" width="0.127" layer="21"/>
 <wire x1="1.45" y1="-1.88" x2="-1.45" y2="-1.88" width="0.127" layer="21"/>
 <wire x1="-1.45" y1="-1.88" x2="-1.45" y2="1.88" width="0.127" layer="21"/>
-<circle x="0" y="0.7" radius="0.25" width="0.127" layer="21"/>
-<circle x="2" y="1.7" radius="0.2032" width="0.127" layer="21"/>
+<smd name="1" x="0.85" y="1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
+<smd name="2" x="0.85" y="-1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
+<smd name="3" x="-0.85" y="-1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
+<smd name="4" x="-0.85" y="1.23" dx="0.8" dy="0.8" layer="1" roundness="100"/>
 <text x="0" y="-2.54" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="MSOP-8">
-<smd name="1" x="-0.975" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
-<smd name="2" x="-0.325" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
-<smd name="3" x="0.325" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
-<smd name="4" x="0.975" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
+<circle x="-1.95" y="-1.95" radius="0.254" width="0.127" layer="21"/>
 <wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.127" layer="21"/>
 <wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.127" layer="21"/>
 <wire x1="1.5" y1="1.5" x2="-1.5" y2="1.5" width="0.127" layer="21"/>
 <wire x1="-1.5" y1="1.5" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
+<smd name="1" x="-0.975" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
+<smd name="2" x="-0.325" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
+<smd name="3" x="0.325" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
+<smd name="4" x="0.975" y="-2.2" dx="0.45" dy="1.45" layer="1"/>
 <smd name="5" x="0.975" y="2.2" dx="0.45" dy="1.45" layer="1" rot="R180"/>
 <smd name="6" x="0.325" y="2.2" dx="0.45" dy="1.45" layer="1" rot="R180"/>
 <smd name="7" x="-0.325" y="2.2" dx="0.45" dy="1.45" layer="1" rot="R180"/>
 <smd name="8" x="-0.975" y="2.2" dx="0.45" dy="1.45" layer="1" rot="R180"/>
-<circle x="-1.95" y="-1.95" radius="0.254" width="0.127" layer="21"/>
 <text x="0" y="3.81" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="SOT23-6">
+<circle x="-1.778" y="-1.27" radius="0.254" width="0.127" layer="21"/>
 <wire x1="1.55" y1="-0.875" x2="-1.55" y2="-0.875" width="0.1524" layer="21"/>
 <wire x1="-1.55" y1="-0.875" x2="-1.55" y2="0.875" width="0.1524" layer="21"/>
 <wire x1="-1.55" y1="0.875" x2="1.55" y2="0.875" width="0.1524" layer="21"/>
 <wire x1="1.55" y1="0.875" x2="1.55" y2="-0.875" width="0.1524" layer="21"/>
 <rectangle x1="-1.2" y1="-1.5" x2="-0.7" y2="-0.875" layer="51" rot="R180"/>
 <rectangle x1="-0.25" y1="0.875" x2="0.25" y2="1.5" layer="51" rot="R180"/>
-<smd name="5" x="0" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="3" x="0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="1" x="-0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<text x="0" y="0" size="1.016" layer="27" ratio="10" rot="R180" align="center">&gt;VALUE</text>
-<text x="0" y="-2.54" size="1.016" layer="25" ratio="10" rot="R180" align="center">&gt;NAME</text>
-<smd name="6" x="-0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="4" x="0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="2" x="0" y="-1.35" dx="0.55" dy="1" layer="1"/>
 <rectangle x1="0.7" y1="0.875" x2="1.2" y2="1.5" layer="51"/>
 <rectangle x1="-0.25" y1="-1.5" x2="0.25" y2="-0.875" layer="51"/>
 <rectangle x1="-1.2" y1="0.875" x2="-0.7" y2="1.5" layer="51"/>
 <rectangle x1="0.7" y1="-1.5" x2="1.2" y2="-0.875" layer="51" rot="R180"/>
-<circle x="-1.778" y="-1.27" radius="0.254" width="0.127" layer="21"/>
+<smd name="1" x="-0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<smd name="2" x="0" y="-1.35" dx="0.55" dy="1" layer="1"/>
+<smd name="3" x="0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<smd name="4" x="0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<smd name="5" x="0" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<smd name="6" x="-0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<text x="0" y="0" size="1.016" layer="27" ratio="10" rot="R180" align="center">&gt;VALUE</text>
+<text x="0" y="-2.54" size="1.016" layer="25" ratio="10" rot="R180" align="center">&gt;NAME</text>
+</package>
+<package name="R0603">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
+<wire x1="-0.4318" y1="-0.3556" x2="0.4318" y2="-0.3556" width="0.127" layer="51"/>
+<wire x1="0.4318" y1="0.3556" x2="-0.4318" y2="0.3556" width="0.127" layer="51"/>
+<wire x1="-1.5494" y1="0.7874" x2="1.5494" y2="0.7874" width="0.0508" layer="39"/>
+<wire x1="1.5494" y1="0.7874" x2="1.5494" y2="-0.7874" width="0.0508" layer="39"/>
+<wire x1="1.5494" y1="-0.7874" x2="-1.5494" y2="-0.7874" width="0.0508" layer="39"/>
+<wire x1="-1.5494" y1="-0.7874" x2="-1.5494" y2="0.7874" width="0.0508" layer="39"/>
+<wire x1="-1.6002" y1="0.8382" x2="-1.6002" y2="0.2032" width="0.127" layer="21"/>
+<wire x1="-1.6002" y1="0.8382" x2="-0.9652" y2="0.8382" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="-0.8382" x2="1.6002" y2="-0.2032" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="-0.8382" x2="0.9652" y2="-0.8382" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="0.8382" x2="1.6002" y2="0.2032" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="0.8382" x2="0.9652" y2="0.8382" width="0.127" layer="21"/>
+<wire x1="-1.6002" y1="-0.8382" x2="-1.6002" y2="-0.2032" width="0.127" layer="21"/>
+<wire x1="-1.6002" y1="-0.8382" x2="-0.9652" y2="-0.8382" width="0.127" layer="21"/>
+<rectangle x1="0.4318" y1="-0.4318" x2="0.8128" y2="0.4318" layer="51"/>
+<rectangle x1="-0.8128" y1="-0.4318" x2="-0.4318" y2="0.4318" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
+<smd name="1" x="-0.8128" y="0" dx="0.9652" dy="1.0668" layer="1"/>
+<smd name="2" x="0.8128" y="0" dx="0.9652" dy="1.0668" layer="1"/>
+<text x="0" y="1.27" size="1.016" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
+</package>
+<package name="C0603">
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
+<wire x1="-1.651" y1="0.762" x2="1.651" y2="0.762" width="0.0508" layer="39"/>
+<wire x1="1.651" y1="0.762" x2="1.651" y2="-0.762" width="0.0508" layer="39"/>
+<wire x1="1.651" y1="-0.762" x2="-1.651" y2="-0.762" width="0.0508" layer="39"/>
+<wire x1="-1.651" y1="-0.762" x2="-1.651" y2="0.762" width="0.0508" layer="39"/>
+<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
+<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
+<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<text x="0" y="1.27" size="1.016" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
+</package>
+<package name="SILK_QC">
+<text x="3.81" y="1.27" size="1.016" layer="21" font="vector" ratio="15" align="center-left">&gt;REV</text>
+<text x="0" y="2.54" size="1.016" layer="21" font="vector" ratio="15" align="center-left">&gt;PRODUCT</text>
+<text x="0" y="1.27" size="1.016" layer="21" font="vector" ratio="15" align="center-left">Rev.</text>
 </package>
 </packages>
 </library>
@@ -1430,52 +1475,6 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 </package>
 </packages>
 </library>
-<library name="SmslsTron-1">
-<description>Generated from &lt;b&gt;SmslsTron-1.sch&lt;/b&gt;&lt;p&gt;
-by exp-lbrs.ulp</description>
-<packages>
-<package name="R0603">
-<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
-<wire x1="-0.4318" y1="-0.3556" x2="0.4318" y2="-0.3556" width="0.127" layer="51"/>
-<wire x1="0.4318" y1="0.3556" x2="-0.4318" y2="0.3556" width="0.127" layer="51"/>
-<wire x1="-1.5494" y1="0.7874" x2="1.5494" y2="0.7874" width="0.0508" layer="39"/>
-<wire x1="1.5494" y1="0.7874" x2="1.5494" y2="-0.7874" width="0.0508" layer="39"/>
-<wire x1="1.5494" y1="-0.7874" x2="-1.5494" y2="-0.7874" width="0.0508" layer="39"/>
-<wire x1="-1.5494" y1="-0.7874" x2="-1.5494" y2="0.7874" width="0.0508" layer="39"/>
-<rectangle x1="0.4318" y1="-0.4318" x2="0.8128" y2="0.4318" layer="51"/>
-<rectangle x1="-0.8128" y1="-0.4318" x2="-0.4318" y2="0.4318" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-<smd name="1" x="-0.8128" y="0" dx="0.9652" dy="1.0668" layer="1"/>
-<smd name="2" x="0.8128" y="0" dx="0.9652" dy="1.0668" layer="1"/>
-<text x="0" y="1.27" size="1.016" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-1.6002" y1="0.8382" x2="-1.6002" y2="0.2032" width="0.127" layer="21"/>
-<wire x1="-1.6002" y1="0.8382" x2="-0.9652" y2="0.8382" width="0.127" layer="21"/>
-<wire x1="1.6002" y1="-0.8382" x2="1.6002" y2="-0.2032" width="0.127" layer="21"/>
-<wire x1="1.6002" y1="-0.8382" x2="0.9652" y2="-0.8382" width="0.127" layer="21"/>
-<wire x1="1.6002" y1="0.8382" x2="1.6002" y2="0.2032" width="0.127" layer="21"/>
-<wire x1="1.6002" y1="0.8382" x2="0.9652" y2="0.8382" width="0.127" layer="21"/>
-<wire x1="-1.6002" y1="-0.8382" x2="-1.6002" y2="-0.2032" width="0.127" layer="21"/>
-<wire x1="-1.6002" y1="-0.8382" x2="-0.9652" y2="-0.8382" width="0.127" layer="21"/>
-</package>
-<package name="C0603">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-1.651" y1="0.762" x2="1.651" y2="0.762" width="0.0508" layer="39"/>
-<wire x1="1.651" y1="0.762" x2="1.651" y2="-0.762" width="0.0508" layer="39"/>
-<wire x1="1.651" y1="-0.762" x2="-1.651" y2="-0.762" width="0.0508" layer="39"/>
-<wire x1="-1.651" y1="-0.762" x2="-1.651" y2="0.762" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="0" y="1.27" size="1.016" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
-</package>
-</packages>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1661,19 +1660,19 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="SmslsTron-1" package="C0603" value="100n" x="2.54" y="2.8575" smashed="yes" rot="R270">
+<element name="C1" library="EnviroTron" package="C0603" value="100n" x="2.54" y="2.8575" smashed="yes" rot="R270">
 <attribute name="NAME" x="1.27" y="2.8575" size="1.016" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="2.54" y="2.8575" size="1.016" layer="27" rot="R270" align="center"/>
 </element>
-<element name="C2" library="SmslsTron-1" package="C0603" value="100n" x="19.685" y="2.8575" smashed="yes" rot="R90">
+<element name="C2" library="EnviroTron" package="C0603" value="100n" x="19.685" y="2.8575" smashed="yes" rot="R90">
 <attribute name="NAME" x="18.415" y="2.8575" size="1.016" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="19.685" y="2.8575" size="1.016" layer="27" rot="R90" align="center"/>
 </element>
-<element name="C3" library="SmslsTron-1" package="C0603" value="100n" x="17.145" y="19.685" smashed="yes" rot="R90">
+<element name="C3" library="EnviroTron" package="C0603" value="100n" x="17.145" y="19.685" smashed="yes" rot="R90">
 <attribute name="NAME" x="18.415" y="19.685" size="1.016" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="17.145" y="19.685" size="1.016" layer="27" rot="R90" align="center"/>
 </element>
-<element name="C4" library="SmslsTron-1" package="C0603" value="100n" x="6.0325" y="28.575" smashed="yes" rot="R90">
+<element name="C4" library="EnviroTron" package="C0603" value="100n" x="6.0325" y="28.575" smashed="yes" rot="R90">
 <attribute name="NAME" x="4.7625" y="28.575" size="1.016" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="6.0325" y="28.575" size="1.016" layer="27" rot="R90" align="center"/>
 </element>
@@ -1681,19 +1680,19 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="13.6525" y="21.9075" size="1.016" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="12.7" y="19.685" size="1.016" layer="27" rot="R90" align="center"/>
 </element>
-<element name="R1" library="SmslsTron-1" package="R0603" value="10k" x="6.0325" y="21.59" smashed="yes">
+<element name="R1" library="EnviroTron" package="R0603" value="10k" x="6.0325" y="21.59" smashed="yes">
 <attribute name="NAME" x="8.5725" y="21.59" size="1.016" layer="25" align="center"/>
 <attribute name="VALUE" x="6.0325" y="21.59" size="1.016" layer="27" align="center"/>
 <attribute name="MPN" value="" x="6.0325" y="21.59" size="1.778" layer="27" display="off"/>
 <attribute name="PN-DK" value="" x="6.0325" y="21.59" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R2" library="SmslsTron-1" package="R0603" value="10k" x="6.0325" y="19.05" smashed="yes">
+<element name="R2" library="EnviroTron" package="R0603" value="10k" x="6.0325" y="19.05" smashed="yes">
 <attribute name="NAME" x="8.5725" y="19.05" size="1.016" layer="25" align="center"/>
 <attribute name="VALUE" x="6.0325" y="19.05" size="1.016" layer="27" align="center"/>
 <attribute name="MPN" value="" x="6.0325" y="19.05" size="1.778" layer="27" display="off"/>
 <attribute name="PN-DK" value="" x="6.0325" y="19.05" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C5" library="SmslsTron-1" package="C0603" value="1u" x="19.3675" y="10.795" smashed="yes" rot="R90">
+<element name="C5" library="EnviroTron" package="C0603" value="1u" x="19.3675" y="10.795" smashed="yes" rot="R90">
 <attribute name="NAME" x="19.3675" y="13.335" size="1.016" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="19.3675" y="10.795" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
@@ -1705,7 +1704,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="13.6525" y="33.655" size="1.016" layer="25" align="center"/>
 <attribute name="VALUE" x="13.6525" y="29.845" size="1.016" layer="27" align="center"/>
 </element>
-<element name="R3" library="SmslsTron-1" package="R0603" value="10k" x="21.2725" y="28.575" smashed="yes" rot="R90">
+<element name="R3" library="EnviroTron" package="R0603" value="10k" x="21.2725" y="28.575" smashed="yes" rot="R90">
 <attribute name="NAME" x="23.1775" y="28.575" size="1.016" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="21.2725" y="28.575" size="1.016" layer="27" rot="R90" align="center"/>
 <attribute name="MPN" value="" x="21.2725" y="28.575" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1723,7 +1722,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="24.86" y="3.175" size="1.016" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="22.225" y="3.175" size="1.016" layer="27" rot="R90" align="center"/>
 </element>
-<element name="C7" library="SmslsTron-1" package="C0603" value="100n" x="15.875" y="24.13" smashed="yes" rot="MR270">
+<element name="C7" library="EnviroTron" package="C0603" value="100n" x="15.875" y="24.13" smashed="yes" rot="MR270">
 <attribute name="NAME" x="15.875" y="26.67" size="1.016" layer="26" rot="MR270" align="center"/>
 <attribute name="VALUE" x="15.875" y="24.13" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
@@ -1739,67 +1738,67 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="12.7" y="26.67" size="1.016" layer="26" rot="MR0" align="center"/>
 <attribute name="VALUE" x="12.7" y="22.86" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
-<element name="C8" library="SmslsTron-1" package="C0603" value="1u" x="20.955" y="23.495" smashed="yes" rot="MR270">
+<element name="C8" library="EnviroTron" package="C0603" value="1u" x="20.955" y="23.495" smashed="yes" rot="MR270">
 <attribute name="NAME" x="20.32" y="26.035" size="1.016" layer="26" rot="MR270" align="center"/>
 <attribute name="VALUE" x="20.955" y="23.495" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
-<element name="C9" library="SmslsTron-1" package="C0603" value="1u" x="6.35" y="24.13" smashed="yes" rot="MR270">
+<element name="C9" library="EnviroTron" package="C0603" value="1u" x="6.35" y="24.13" smashed="yes" rot="MR270">
 <attribute name="NAME" x="6.985" y="26.67" size="1.016" layer="26" rot="MR270" align="center"/>
 <attribute name="VALUE" x="6.35" y="24.13" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
-<element name="R4" library="SmslsTron-1" package="R0603" value="2.2k" x="17.145" y="16.51" smashed="yes" rot="MR270">
+<element name="R4" library="EnviroTron" package="R0603" value="2.2k" x="17.145" y="16.51" smashed="yes" rot="MR270">
 <attribute name="MPN" value="" x="17.145" y="16.51" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="PN-DK" value="" x="17.145" y="16.51" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="18.7325" y="16.51" size="1.016" layer="26" rot="MR270" align="center"/>
 <attribute name="VALUE" x="17.145" y="16.51" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
-<element name="R5" library="SmslsTron-1" package="R0603" value="10k" x="17.145" y="11.43" smashed="yes" rot="MR270">
+<element name="R5" library="EnviroTron" package="R0603" value="10k" x="17.145" y="11.43" smashed="yes" rot="MR270">
 <attribute name="MPN" value="" x="17.145" y="11.43" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="PN-DK" value="" x="17.145" y="11.43" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="15.5575" y="11.43" size="1.016" layer="26" rot="MR270" align="center"/>
 <attribute name="VALUE" x="17.145" y="11.43" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
-<element name="C10" library="rcl" package="C0805" value="10u" x="9.525" y="11.43" smashed="yes" rot="MR270">
+<element name="C10" library="EnviroTron" package="C0603" value="10u" x="9.525" y="11.43" smashed="yes" rot="MR270">
 <attribute name="NAME" x="11.1125" y="11.43" size="1.016" layer="26" rot="MR270" align="center"/>
 <attribute name="VALUE" x="9.525" y="11.43" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
-<element name="R6" library="SmslsTron-1" package="R0603" value="1M" x="11.43" y="16.51" smashed="yes" rot="MR90">
+<element name="R6" library="EnviroTron" package="R0603" value="1M" x="11.43" y="16.51" smashed="yes" rot="MR90">
 <attribute name="MPN" value="" x="11.43" y="16.51" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="PN-DK" value="" x="11.43" y="16.51" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="11.43" y="13.97" size="1.016" layer="26" rot="MR90" align="center"/>
 <attribute name="VALUE" x="11.43" y="16.51" size="1.016" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="R7" library="SmslsTron-1" package="R0603" value="1M" x="8.89" y="16.51" smashed="yes" rot="MR270">
+<element name="R7" library="EnviroTron" package="R0603" value="1M" x="8.89" y="16.51" smashed="yes" rot="MR270">
 <attribute name="MPN" value="" x="8.89" y="16.51" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="PN-DK" value="" x="8.89" y="16.51" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="7.3025" y="16.51" size="1.016" layer="26" rot="MR270" align="center"/>
 <attribute name="VALUE" x="8.89" y="16.51" size="1.016" layer="28" rot="MR270" align="center"/>
 </element>
-<element name="R8" library="SmslsTron-1" package="R0603" value="300k" x="18.415" y="21.59" smashed="yes" rot="MR90">
+<element name="R8" library="EnviroTron" package="R0603" value="300k" x="18.415" y="21.59" smashed="yes" rot="MR90">
 <attribute name="MPN" value="" x="18.415" y="21.59" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="PN-DK" value="" x="18.415" y="21.59" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="20.32" y="21.59" size="1.016" layer="26" rot="MR90" align="center"/>
 <attribute name="VALUE" x="18.415" y="21.59" size="1.016" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="R9" library="SmslsTron-1" package="R0603" value="10k" x="18.415" y="25.4" smashed="yes" rot="MR90">
+<element name="R9" library="EnviroTron" package="R0603" value="10k" x="18.415" y="25.4" smashed="yes" rot="MR90">
 <attribute name="MPN" value="" x="18.415" y="25.4" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="PN-DK" value="" x="18.415" y="25.4" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="18.415" y="27.94" size="1.016" layer="26" rot="MR90" align="center"/>
 <attribute name="VALUE" x="18.415" y="25.4" size="1.016" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="R10" library="SmslsTron-1" package="R0603" value="300k" x="8.89" y="22.225" smashed="yes" rot="MR90">
+<element name="R10" library="EnviroTron" package="R0603" value="300k" x="8.89" y="22.225" smashed="yes" rot="MR90">
 <attribute name="MPN" value="" x="8.89" y="22.225" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="PN-DK" value="" x="8.89" y="22.225" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="10.4775" y="22.225" size="1.016" layer="26" rot="MR90" align="center"/>
 <attribute name="VALUE" x="8.89" y="22.225" size="1.016" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="R11" library="SmslsTron-1" package="R0603" value="10k" x="8.89" y="26.035" smashed="yes" rot="MR90">
+<element name="R11" library="EnviroTron" package="R0603" value="10k" x="8.89" y="26.035" smashed="yes" rot="MR90">
 <attribute name="MPN" value="" x="8.89" y="26.035" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="PN-DK" value="" x="8.89" y="26.035" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="10.4775" y="26.035" size="1.016" layer="26" rot="MR90" align="center"/>
 <attribute name="VALUE" x="8.89" y="26.035" size="1.016" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="C11" library="rcl" package="C0805" value="33n" x="14.605" y="16.51" smashed="yes" rot="MR90">
+<element name="C11" library="EnviroTron" package="C0603" value="33n" x="14.605" y="16.51" smashed="yes" rot="MR90">
 <attribute name="NAME" x="15.24" y="19.685" size="1.016" layer="26" rot="MR90" align="center"/>
 <attribute name="VALUE" x="14.605" y="16.51" size="1.016" layer="28" rot="MR90" align="center"/>
 </element>
@@ -1809,21 +1808,26 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VALUE" x="12.065" y="13.335" size="1.016" layer="27" ratio="10" rot="R180" align="center"/>
 <attribute name="NAME" x="12.065" y="10.795" size="1.016" layer="25" ratio="10" rot="R180" align="center"/>
 </element>
-<element name="C12" library="SmslsTron-1" package="C0603" value="100n" x="17.145" y="13.335" smashed="yes" rot="R270">
+<element name="C12" library="EnviroTron" package="C0603" value="100n" x="17.145" y="13.335" smashed="yes" rot="R270">
 <attribute name="NAME" x="17.145" y="10.16" size="1.016" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="17.145" y="13.335" size="1.016" layer="27" rot="R270" align="center"/>
 </element>
-<element name="R12" library="SmslsTron-1" package="R0603" value="10k" x="8.255" y="13.335" smashed="yes" rot="R90">
+<element name="R12" library="EnviroTron" package="R0603" value="10k" x="8.255" y="13.335" smashed="yes" rot="R90">
 <attribute name="PN-DK" value="" x="8.255" y="13.335" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="8.255" y="13.335" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="8.255" y="10.16" size="1.016" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="8.255" y="13.335" size="1.016" layer="27" rot="R90" align="center"/>
 </element>
-<element name="R13" library="SmslsTron-1" package="R0603" value="10k" x="5.715" y="13.335" smashed="yes" rot="R270">
+<element name="R13" library="EnviroTron" package="R0603" value="10k" x="5.715" y="13.335" smashed="yes" rot="R270">
 <attribute name="PN-DK" value="" x="5.715" y="13.335" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="5.715" y="13.335" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="5.715" y="10.16" size="1.016" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="5.715" y="13.335" size="1.016" layer="27" rot="R270" align="center"/>
+</element>
+<element name="U$1" library="EnviroTron" package="SILK_QC" value="SILK_QC" x="17.78" y="30.48" rot="MR0">
+<attribute name="REV" value="1C" x="17.78" y="30.48" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PRODUCT" value="EnviroTron" x="17.78" y="30.48" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MPN" value="DNP" x="17.78" y="30.48" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 </elements>
 <signals>
@@ -2065,7 +2069,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="19.685" y1="31.75" x2="15.5575" y2="31.75" width="0.254" layer="1"/>
 <wire x1="15.5575" y1="31.75" x2="15.4485" y2="31.641" width="0.254" layer="1"/>
 <wire x1="12.485" y1="10.2" x2="14.185" y2="10.2" width="0.254" layer="16"/>
-<wire x1="9.525" y1="10.48" x2="11.11" y2="10.48" width="0.254" layer="16"/>
+<wire x1="9.525" y1="10.58" x2="11.11" y2="10.48" width="0.254" layer="16"/>
 <wire x1="11.11" y1="10.48" x2="11.43" y2="10.16" width="0.254" layer="16"/>
 <wire x1="11.43" y1="10.16" x2="12.445" y2="10.16" width="0.254" layer="16"/>
 <wire x1="12.445" y1="10.16" x2="12.485" y2="10.2" width="0.254" layer="16"/>
@@ -2278,14 +2282,14 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="12.319" y1="20.574" x2="12.375" y2="20.66" width="0.254" layer="16"/>
 <wire x1="11.43" y1="17.399" x2="11.43" y2="17.3228" width="0.254" layer="16"/>
 <wire x1="11.557" y1="17.399" x2="14.605" y2="17.399" width="0.254" layer="16"/>
-<wire x1="14.605" y1="17.399" x2="14.605" y2="17.46" width="0.254" layer="16"/>
+<wire x1="14.605" y1="17.399" x2="14.605" y2="17.36" width="0.254" layer="16"/>
 <wire x1="11.557" y1="17.399" x2="11.43" y2="17.3228" width="0.254" layer="16"/>
 </signal>
 <signal name="N$5">
 <contactref element="R4" pad="1"/>
 <contactref element="R5" pad="2"/>
 <contactref element="C10" pad="1"/>
-<wire x1="9.525" y1="12.38" x2="9.205" y2="12.38" width="0.254" layer="16"/>
+<wire x1="9.525" y1="12.28" x2="9.205" y2="12.38" width="0.254" layer="16"/>
 <wire x1="9.205" y1="12.38" x2="7.9375" y2="11.1125" width="0.254" layer="16"/>
 <wire x1="7.9375" y1="11.1125" x2="7.9375" y2="9.8425" width="0.254" layer="16"/>
 <wire x1="7.9375" y1="9.8425" x2="8.5725" y2="9.2075" width="0.254" layer="16"/>
@@ -2390,9 +2394,9 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="R4" pad="2"/>
 <contactref element="C11" pad="1"/>
 <wire x1="17.145" y1="15.6972" x2="14.7422" y2="15.6972" width="0.254" layer="16"/>
-<wire x1="14.7422" y1="15.6972" x2="14.605" y2="15.56" width="0.254" layer="16"/>
+<wire x1="14.7422" y1="15.6972" x2="14.605" y2="15.66" width="0.254" layer="16"/>
 <wire x1="14.185" y1="12.66" x2="14.185" y2="15.14" width="0.254" layer="16"/>
-<wire x1="14.185" y1="15.14" x2="14.605" y2="15.56" width="0.254" layer="16"/>
+<wire x1="14.185" y1="15.14" x2="14.605" y2="15.66" width="0.254" layer="16"/>
 </signal>
 <signal name="ADC">
 <contactref element="U1" pad="4"/>

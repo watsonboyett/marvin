@@ -26,7 +26,6 @@
 
 ## Pressure
 
-* MS560702BA03-50 - $5, I2C, decent accuracy, wide range
 * LPS22HBTR - $4, I2C, high accuracy, decent range
 
 ## Sound 
