@@ -70,7 +70,7 @@ float SHT_GetRelHumidity_pct()
   return SHT_RH_pct;
 }
 
-float SHT_TemperatureOffset_C = -3;
+float SHT_TemperatureOffset_C = -4.7;
 float SHT_RelHumidityOffset_pct = 0;
 
 void SHT_MeasureTemperature()

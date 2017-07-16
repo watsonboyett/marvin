@@ -12,7 +12,7 @@
 #include <ESP8266HTTPClient.h>
 
 #define USE_SERIAL Serial
-#define USE_WIFI (true)
+#define USE_WIFI (false)
 
 void connect_wifi()
 {
@@ -81,6 +81,7 @@ float lps_temp_avg = 0;
 
 float mic_level_inst = 0;
 float mic_level_avg = 0;
+float mic_level_max = 0;
 
 uint32_t sample_count = 0;
 void loop()
@@ -103,7 +104,9 @@ void loop()
   lps_pres_inst = LPS_GetPressure_mbar();
   lps_temp_inst = LPS_GetTemperature_F();
 
-  mic_level_inst = MIC_GetMicAvgLevel_V();
+  mic_level_inst = MIC_GetAvgLevel_SPL();
+  mic_level_max = MIC_GetMaxLevel_SPL();
+  MIC_ResetMinMaxLevels();
 
   if (sample_count > 1)
   {
@@ -151,10 +154,13 @@ void loop()
   
   USE_SERIAL.printf("PIR M: %d, ", motion_inst);
 
-  char mic_level_str[6];
-  dtostrf(mic_level_inst, 0, 2, mic_level_str);
-  USE_SERIAL.printf("MIC V: %s ", mic_level_str);
-    
+  char mic_inst_str[6];
+  dtostrf(mic_level_inst, 0, 2, mic_inst_str);
+  USE_SERIAL.printf("MIC Va: %s ", mic_inst_str);
+  char mic_max_str[6];
+  dtostrf(mic_level_max, 0, 2, mic_max_str);
+  USE_SERIAL.printf("MIC Vh: %s ", mic_max_str);
+  
   USE_SERIAL.printf("\n");
   USE_SERIAL.flush();
 
