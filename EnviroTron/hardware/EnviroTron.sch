@@ -311,27 +311,6 @@ Facing DOWN/PCB</text>
 <text x="0" y="3.81" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
-<package name="SOT23-6">
-<circle x="-1.778" y="-1.27" radius="0.254" width="0.127" layer="21"/>
-<wire x1="1.55" y1="-0.875" x2="-1.55" y2="-0.875" width="0.1524" layer="21"/>
-<wire x1="-1.55" y1="-0.875" x2="-1.55" y2="0.875" width="0.1524" layer="21"/>
-<wire x1="-1.55" y1="0.875" x2="1.55" y2="0.875" width="0.1524" layer="21"/>
-<wire x1="1.55" y1="0.875" x2="1.55" y2="-0.875" width="0.1524" layer="21"/>
-<rectangle x1="-1.2" y1="-1.5" x2="-0.7" y2="-0.875" layer="51" rot="R180"/>
-<rectangle x1="-0.25" y1="0.875" x2="0.25" y2="1.5" layer="51" rot="R180"/>
-<rectangle x1="0.7" y1="0.875" x2="1.2" y2="1.5" layer="51"/>
-<rectangle x1="-0.25" y1="-1.5" x2="0.25" y2="-0.875" layer="51"/>
-<rectangle x1="-1.2" y1="0.875" x2="-0.7" y2="1.5" layer="51"/>
-<rectangle x1="0.7" y1="-1.5" x2="1.2" y2="-0.875" layer="51" rot="R180"/>
-<smd name="1" x="-0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="2" x="0" y="-1.35" dx="0.55" dy="1" layer="1"/>
-<smd name="3" x="0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="4" x="0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="5" x="0" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<smd name="6" x="-0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
-<text x="0" y="0" size="1.016" layer="27" ratio="10" rot="R180" align="center">&gt;VALUE</text>
-<text x="0" y="-2.54" size="1.016" layer="25" ratio="10" rot="R180" align="center">&gt;NAME</text>
-</package>
 <package name="R0603">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <wire x1="-0.4318" y1="-0.3556" x2="0.4318" y2="-0.3556" width="0.127" layer="51"/>
@@ -1905,19 +1884,27 @@ Source: VISHAY wscwsn.pdf</description>
 </package>
 <package name="C0603">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-1.651" y1="0.762" x2="1.651" y2="0.762" width="0.0508" layer="39"/>
-<wire x1="1.651" y1="0.762" x2="1.651" y2="-0.762" width="0.0508" layer="39"/>
-<wire x1="1.651" y1="-0.762" x2="-1.651" y2="-0.762" width="0.0508" layer="39"/>
-<wire x1="-1.651" y1="-0.762" x2="-1.651" y2="0.762" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 <smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
 <smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
 <text x="0" y="1.27" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-0.4318" y1="-0.3556" x2="0.4318" y2="-0.3556" width="0.127" layer="51"/>
+<wire x1="0.4318" y1="0.3556" x2="-0.4318" y2="0.3556" width="0.127" layer="51"/>
+<wire x1="-1.5494" y1="0.7874" x2="1.5494" y2="0.7874" width="0.0508" layer="39"/>
+<wire x1="1.5494" y1="0.7874" x2="1.5494" y2="-0.7874" width="0.0508" layer="39"/>
+<wire x1="1.5494" y1="-0.7874" x2="-1.5494" y2="-0.7874" width="0.0508" layer="39"/>
+<wire x1="-1.5494" y1="-0.7874" x2="-1.5494" y2="0.7874" width="0.0508" layer="39"/>
+<wire x1="-1.6002" y1="0.8382" x2="-1.6002" y2="0.2032" width="0.127" layer="21"/>
+<wire x1="-1.6002" y1="0.8382" x2="-0.9652" y2="0.8382" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="-0.8382" x2="1.6002" y2="-0.2032" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="-0.8382" x2="0.9652" y2="-0.8382" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="0.8382" x2="1.6002" y2="0.2032" width="0.127" layer="21"/>
+<wire x1="1.6002" y1="0.8382" x2="0.9652" y2="0.8382" width="0.127" layer="21"/>
+<wire x1="-1.6002" y1="-0.8382" x2="-1.6002" y2="-0.2032" width="0.127" layer="21"/>
+<wire x1="-1.6002" y1="-0.8382" x2="-0.9652" y2="-0.8382" width="0.127" layer="21"/>
+<rectangle x1="0.4318" y1="-0.4318" x2="0.8128" y2="0.4318" layer="51"/>
+<rectangle x1="-0.8128" y1="-0.4318" x2="-0.4318" y2="0.4318" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 </package>
 <package name="C025-024X044">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
@@ -3590,20 +3577,6 @@ Source: AVX .. aphvc.pdf</description>
 <text x="0" y="12.7" size="1.524" layer="95" align="center">&gt;NAME</text>
 <text x="0" y="-12.7" size="1.524" layer="96" align="center">&gt;VALUE</text>
 </symbol>
-<symbol name="MUX-2:1">
-<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
-<wire x1="7.62" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
-<pin name="A" x="10.16" y="-5.08" length="short" rot="R180"/>
-<pin name="B1" x="10.16" y="5.08" length="short" rot="R180"/>
-<pin name="B2" x="10.16" y="2.54" length="short" rot="R180"/>
-<pin name="GND" x="-10.16" y="-5.08" length="short" direction="pwr"/>
-<pin name="SEL" x="-10.16" y="0" length="short" direction="in"/>
-<pin name="VCC" x="-10.16" y="5.08" length="short" direction="pwr"/>
-<text x="0" y="10.16" size="1.778" layer="95" align="center">&gt;NAME</text>
-<text x="0" y="-10.16" size="1.778" layer="96" align="center">&gt;VALUE</text>
-</symbol>
 <symbol name="R-US">
 <wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
 <wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
@@ -3884,29 +3857,6 @@ to update values on the board</text>
 <technology name="">
 <attribute name="MPN" value="MCP6002T-I/MS" constant="no"/>
 <attribute name="PN-DK" value="MCP6002T-I/MSCT-ND" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="SN74LVC1G3157">
-<gates>
-<gate name="G$1" symbol="MUX-2:1" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23-6">
-<connects>
-<connect gate="G$1" pin="A" pad="4"/>
-<connect gate="G$1" pin="B1" pad="3"/>
-<connect gate="G$1" pin="B2" pad="1"/>
-<connect gate="G$1" pin="GND" pad="2"/>
-<connect gate="G$1" pin="SEL" pad="6"/>
-<connect gate="G$1" pin="VCC" pad="5"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MPN" value="SN74LVC1G3157DBVR" constant="no"/>
-<attribute name="PN-DK" value="296-14908-6-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -8810,7 +8760,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="C5" library="EnviroTron" deviceset="C-US" device="C0603" value="1u"/>
 <part name="C6" library="rcl" deviceset="C-US" device="C0805" value="10u"/>
 <part name="MOTION" library="EnviroTron" deviceset="PIR" device=""/>
-<part name="R3" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
+<part name="R3" library="EnviroTron" deviceset="R-US_" device="R0603" value="50k"/>
 <part name="TEMP" library="EnviroTron" deviceset="SHT21" device=""/>
 <part name="COMMS" library="EnviroTron" deviceset="WEMOS-D1-MINI" device=""/>
 <part name="PRESS" library="EnviroTron" deviceset="LPS22HB" device=""/>
@@ -8819,20 +8769,13 @@ Source: AVX .. aphvc.pdf</description>
 <part name="AMP" library="EnviroTron" deviceset="MCP6002" device=""/>
 <part name="C8" library="EnviroTron" deviceset="C-US" device="C0603" value="1u"/>
 <part name="C9" library="EnviroTron" deviceset="C-US" device="C0603" value="1u"/>
-<part name="R4" library="EnviroTron" deviceset="R-US_" device="R0603" value="2.2k"/>
-<part name="R5" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
-<part name="C10" library="EnviroTron" deviceset="C-US" device="C0603" value="10u"/>
 <part name="R6" library="EnviroTron" deviceset="R-US_" device="R0603" value="1M"/>
 <part name="R7" library="EnviroTron" deviceset="R-US_" device="R0603" value="1M"/>
-<part name="R8" library="EnviroTron" deviceset="R-US_" device="R0603" value="300k"/>
+<part name="R8" library="EnviroTron" deviceset="R-US_" device="R0603" value="68k"/>
 <part name="R9" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
-<part name="R10" library="EnviroTron" deviceset="R-US_" device="R0603" value="300k"/>
+<part name="R10" library="EnviroTron" deviceset="R-US_" device="R0603" value="68k"/>
 <part name="R11" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="C11" library="EnviroTron" deviceset="C-US" device="C0603" value="33n"/>
-<part name="U1" library="EnviroTron" deviceset="SN74LVC1G3157" device=""/>
-<part name="C12" library="EnviroTron" deviceset="C-US" device="C0603" value="100n"/>
-<part name="R12" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
-<part name="R13" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="FRAME1" library="EnviroTron" deviceset="LETTER_L" device="">
 <attribute name="SECTION" value="Sensor Board"/>
 </part>
@@ -8840,6 +8783,8 @@ Source: AVX .. aphvc.pdf</description>
 <attribute name="PRODUCT" value="EnviroTron"/>
 <attribute name="REV" value="1C"/>
 </part>
+<part name="C10" library="EnviroTron" deviceset="C-US" device="C0603" value="100n"/>
+<part name="R4" library="EnviroTron" deviceset="R-US_" device="R0603" value="50k"/>
 </parts>
 <sheets>
 <sheet>
@@ -8865,10 +8810,10 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 </instance>
 <instance part="C5" gate="G$1" x="20.32" y="33.02"/>
 <instance part="C6" gate="G$1" x="30.48" y="33.02"/>
-<instance part="MOTION" gate="G$1" x="109.22" y="149.86"/>
-<instance part="R3" gate="G$1" x="132.08" y="149.86" smashed="yes">
-<attribute name="NAME" x="127" y="149.86" size="1.778" layer="95" align="bottom-center"/>
-<attribute name="VALUE" x="137.16" y="149.86" size="1.778" layer="96" align="bottom-center"/>
+<instance part="MOTION" gate="G$1" x="109.22" y="160.02"/>
+<instance part="R3" gate="G$1" x="121.92" y="152.4" smashed="yes" rot="R270">
+<attribute name="NAME" x="127" y="152.4" size="1.778" layer="95" align="bottom-center"/>
+<attribute name="VALUE" x="127" y="149.86" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="TEMP" gate="G$1" x="109.22" y="76.2"/>
 <instance part="COMMS" gate="G$1" x="45.72" y="73.66"/>
@@ -8884,25 +8829,13 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <attribute name="NAME" x="219.456" y="56.515" size="1.778" layer="95"/>
 <attribute name="VALUE" x="227.076" y="56.769" size="1.778" layer="96"/>
 </instance>
-<instance part="R4" gate="G$1" x="177.8" y="111.76" smashed="yes" rot="R270">
-<attribute name="NAME" x="182.88" y="114.3" size="1.778" layer="95" align="center"/>
-<attribute name="VALUE" x="182.88" y="111.76" size="1.778" layer="96" align="center"/>
+<instance part="R6" gate="G$1" x="190.5" y="114.3" smashed="yes" rot="R270">
+<attribute name="NAME" x="195.58" y="114.3" size="1.778" layer="95" align="center"/>
+<attribute name="VALUE" x="195.58" y="111.76" size="1.778" layer="96" align="center"/>
 </instance>
-<instance part="R5" gate="G$1" x="187.96" y="121.92" smashed="yes" rot="R180">
-<attribute name="NAME" x="185.42" y="119.38" size="1.778" layer="95" rot="R180" align="center"/>
-<attribute name="VALUE" x="190.5" y="119.38" size="1.778" layer="96" rot="R180" align="center"/>
-</instance>
-<instance part="C10" gate="G$1" x="172.72" y="121.92" smashed="yes" rot="R270">
-<attribute name="NAME" x="170.18" y="129.54" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="170.18" y="127" size="1.778" layer="96" align="center-left"/>
-</instance>
-<instance part="R6" gate="G$1" x="198.12" y="114.3" smashed="yes" rot="R270">
-<attribute name="NAME" x="203.2" y="114.3" size="1.778" layer="95" align="center"/>
-<attribute name="VALUE" x="203.2" y="111.76" size="1.778" layer="96" align="center"/>
-</instance>
-<instance part="R7" gate="G$1" x="198.12" y="93.98" smashed="yes" rot="R270">
-<attribute name="NAME" x="203.2" y="96.52" size="1.778" layer="95" align="center"/>
-<attribute name="VALUE" x="203.2" y="93.98" size="1.778" layer="96" align="center"/>
+<instance part="R7" gate="G$1" x="190.5" y="93.98" smashed="yes" rot="R270">
+<attribute name="NAME" x="195.58" y="96.52" size="1.778" layer="95" align="center"/>
+<attribute name="VALUE" x="195.58" y="93.98" size="1.778" layer="96" align="center"/>
 </instance>
 <instance part="R8" gate="G$1" x="187.96" y="71.12" smashed="yes">
 <attribute name="NAME" x="182.88" y="71.12" size="1.778" layer="95" align="bottom-center"/>
@@ -8920,25 +8853,20 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <attribute name="NAME" x="203.2" y="55.88" size="1.778" layer="95" align="bottom-center"/>
 <attribute name="VALUE" x="213.36" y="55.88" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="C11" gate="G$1" x="185.42" y="104.14" smashed="yes" rot="R90">
-<attribute name="NAME" x="185.42" y="99.06" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="185.42" y="96.52" size="1.778" layer="96" align="center-left"/>
-</instance>
-<instance part="U1" gate="G$1" x="45.72" y="139.7"/>
-<instance part="C12" gate="G$1" x="71.12" y="17.78"/>
-<instance part="R12" gate="G$1" x="38.1" y="167.64" smashed="yes" rot="R180">
-<attribute name="NAME" x="33.02" y="167.64" size="1.778" layer="95" align="bottom-center"/>
-<attribute name="VALUE" x="43.18" y="167.64" size="1.778" layer="96" align="bottom-center"/>
-</instance>
-<instance part="R13" gate="G$1" x="58.42" y="167.64" smashed="yes" rot="R180">
-<attribute name="NAME" x="53.34" y="167.64" size="1.778" layer="95" align="bottom-center"/>
-<attribute name="VALUE" x="63.5" y="167.64" size="1.778" layer="96" align="bottom-center"/>
+<instance part="C11" gate="G$1" x="180.34" y="104.14" smashed="yes" rot="R90">
+<attribute name="NAME" x="180.34" y="99.06" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="180.34" y="96.52" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
 <instance part="FRAME1" gate="G$2" x="97.79" y="3.81">
 <attribute name="SECTION" x="97.79" y="3.81" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="U$1" gate="G$1" x="220.98" y="177.8"/>
+<instance part="C10" gate="G$1" x="71.12" y="17.78"/>
+<instance part="R4" gate="G$1" x="132.08" y="160.02" smashed="yes">
+<attribute name="NAME" x="127" y="160.02" size="1.778" layer="95" align="bottom-center"/>
+<attribute name="VALUE" x="137.16" y="160.02" size="1.778" layer="96" align="bottom-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9025,9 +8953,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <junction x="50.8" y="20.32"/>
 <pinref part="C7" gate="G$1" pin="1"/>
 <junction x="20.32" y="20.32"/>
-<pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="60.96" y1="20.32" x2="71.12" y2="20.32" width="0.1524" layer="91"/>
 <junction x="60.96" y="20.32"/>
+<pinref part="C10" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="LIGHT" gate="G$1" pin="VDD"/>
@@ -9059,8 +8987,8 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 </segment>
 <segment>
 <pinref part="MOTION" gate="G$1" pin="VDD"/>
-<wire x1="99.06" y1="152.4" x2="96.52" y2="152.4" width="0.1524" layer="91"/>
-<label x="96.52" y="152.4" size="1.524" layer="95" rot="R180" xref="yes"/>
+<wire x1="99.06" y1="162.56" x2="96.52" y2="162.56" width="0.1524" layer="91"/>
+<label x="96.52" y="162.56" size="1.524" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="109.22" x2="152.4" y2="109.22" width="0.1524" layer="91"/>
@@ -9081,23 +9009,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <junction x="20.32" y="35.56"/>
 </segment>
 <segment>
-<pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="193.04" y1="121.92" x2="198.12" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="198.12" y1="121.92" x2="198.12" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="121.92" x2="198.12" y2="124.46" width="0.1524" layer="91"/>
-<junction x="198.12" y="121.92"/>
-<label x="198.12" y="124.46" size="1.524" layer="95" rot="R90" xref="yes"/>
-</segment>
-<segment>
-<wire x1="35.56" y1="144.78" x2="33.02" y2="144.78" width="0.1524" layer="91"/>
-<label x="33.02" y="144.78" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="U1" gate="G$1" pin="VCC"/>
-</segment>
-<segment>
-<wire x1="33.02" y1="167.64" x2="30.48" y2="167.64" width="0.1524" layer="91"/>
-<label x="30.48" y="167.64" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="R12" gate="G$1" pin="2"/>
+<wire x1="190.5" y1="121.92" x2="190.5" y2="119.38" width="0.1524" layer="91"/>
+<label x="190.5" y="121.92" size="1.524" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -9127,9 +9041,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <junction x="50.8" y="12.7"/>
 <pinref part="C7" gate="G$1" pin="2"/>
 <junction x="20.32" y="12.7"/>
-<pinref part="C12" gate="G$1" pin="2"/>
 <wire x1="60.96" y1="12.7" x2="71.12" y2="12.7" width="0.1524" layer="91"/>
 <junction x="60.96" y="12.7"/>
+<pinref part="C10" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="LIGHT" gate="G$1" pin="VSS"/>
@@ -9143,13 +9057,13 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 </segment>
 <segment>
 <pinref part="MOTION" gate="G$1" pin="GND"/>
-<wire x1="99.06" y1="147.32" x2="96.52" y2="147.32" width="0.1524" layer="91"/>
-<label x="96.52" y="147.32" size="1.524" layer="95" rot="R180" xref="yes"/>
+<wire x1="99.06" y1="157.48" x2="96.52" y2="157.48" width="0.1524" layer="91"/>
+<label x="96.52" y="157.48" size="1.524" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="149.86" x2="139.7" y2="149.86" width="0.1524" layer="91"/>
-<label x="139.7" y="149.86" size="1.524" layer="95" xref="yes"/>
+<wire x1="121.92" y1="147.32" x2="121.92" y2="144.78" width="0.1524" layer="91"/>
+<label x="121.92" y="144.78" size="1.524" layer="95" xref="yes"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="119.38" x2="91.44" y2="119.38" width="0.1524" layer="91"/>
@@ -9175,14 +9089,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <junction x="20.32" y="27.94"/>
 </segment>
 <segment>
-<pinref part="C10" gate="G$1" pin="2"/>
-<wire x1="167.64" y1="121.92" x2="165.1" y2="121.92" width="0.1524" layer="91"/>
-<label x="165.1" y="121.92" size="1.524" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="198.12" y1="88.9" x2="198.12" y2="86.36" width="0.1524" layer="91"/>
-<label x="198.12" y="86.36" size="1.524" layer="95" xref="yes"/>
+<wire x1="190.5" y1="88.9" x2="190.5" y2="86.36" width="0.1524" layer="91"/>
+<label x="190.5" y="86.36" size="1.524" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="C8" gate="G$1" pin="2"/>
@@ -9194,59 +9103,34 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <junction x="231.14" y="55.88"/>
 <label x="233.68" y="55.88" size="1.524" layer="95" xref="yes"/>
 </segment>
-<segment>
-<wire x1="35.56" y1="134.62" x2="33.02" y2="134.62" width="0.1524" layer="91"/>
-<label x="33.02" y="134.62" size="1.524" layer="95" rot="R180" xref="yes"/>
-<pinref part="U1" gate="G$1" pin="GND"/>
-</segment>
-<segment>
-<wire x1="66.04" y1="167.64" x2="63.5" y2="167.64" width="0.1524" layer="91"/>
-<label x="66.04" y="167.64" size="1.524" layer="95" xref="yes"/>
-<pinref part="R13" gate="G$1" pin="1"/>
-</segment>
 </net>
 <net name="PIROUT" class="0">
 <segment>
-<pinref part="MOTION" gate="G$1" pin="OUT"/>
-<wire x1="119.38" y1="149.86" x2="121.92" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="127" y1="149.86" x2="121.92" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="149.86" x2="121.92" y2="157.48" width="0.1524" layer="91"/>
-<junction x="121.92" y="149.86"/>
-<label x="121.92" y="157.48" size="1.524" layer="95" xref="yes"/>
+<label x="142.24" y="160.02" size="1.524" layer="95" xref="yes"/>
+<wire x1="142.24" y1="160.02" x2="137.16" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<label x="33.02" y="68.58" size="1.524" layer="95" rot="R180" xref="yes"/>
-<wire x1="33.02" y1="68.58" x2="35.56" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="COMMS" gate="G$1" pin="D6"/>
+<label x="33.02" y="71.12" size="1.524" layer="95" rot="R180" xref="yes"/>
+<wire x1="33.02" y1="71.12" x2="35.56" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="COMMS" gate="G$1" pin="D5"/>
 </segment>
 </net>
 <net name="MIC_OUT" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="198.12" y1="104.14" x2="198.12" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="104.14" x2="190.5" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="198.12" y1="104.14" x2="198.12" y2="99.06" width="0.1524" layer="91"/>
-<junction x="198.12" y="104.14"/>
-<label x="198.12" y="104.14" size="1.524" layer="95" xref="yes"/>
+<wire x1="190.5" y1="104.14" x2="190.5" y2="99.06" width="0.1524" layer="91"/>
+<junction x="190.5" y="104.14"/>
+<label x="190.5" y="104.14" size="1.524" layer="95" xref="yes"/>
 <pinref part="C11" gate="G$1" pin="2"/>
-<wire x1="190.5" y1="104.14" x2="198.12" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="104.14" x2="190.5" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="AMP" gate="G$1" pin="A-IN-P"/>
 <wire x1="175.26" y1="66.04" x2="180.34" y2="66.04" width="0.1524" layer="91"/>
 <label x="180.34" y="66.04" size="1.524" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="R4" gate="G$1" pin="1"/>
-<pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="177.8" y1="116.84" x2="177.8" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="177.8" y1="121.92" x2="182.88" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="175.26" y1="121.92" x2="177.8" y2="121.92" width="0.1524" layer="91"/>
-<junction x="177.8" y="121.92"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -9291,9 +9175,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <label x="177.8" y="50.8" size="1.524" layer="95" xref="yes"/>
 </segment>
 <segment>
-<label x="58.42" y="144.78" size="1.524" layer="95" xref="yes"/>
-<wire x1="58.42" y1="144.78" x2="55.88" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="B1"/>
+<pinref part="COMMS" gate="G$1" pin="A0"/>
+<wire x1="35.56" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
+<label x="33.02" y="86.36" size="1.524" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -9317,53 +9201,20 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="177.8" y1="104.14" x2="177.8" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="SOUND" gate="G$1" pin="OUT"/>
 <wire x1="175.26" y1="104.14" x2="177.8" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="1"/>
-<wire x1="177.8" y1="104.14" x2="182.88" y2="104.14" width="0.1524" layer="91"/>
-<junction x="177.8" y="104.14"/>
 </segment>
 </net>
-<net name="ADC" class="0">
+<net name="N$3" class="0">
 <segment>
-<pinref part="U1" gate="G$1" pin="A"/>
-<wire x1="55.88" y1="134.62" x2="58.42" y2="134.62" width="0.1524" layer="91"/>
-<label x="58.42" y="134.62" size="1.524" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="COMMS" gate="G$1" pin="A0"/>
-<wire x1="35.56" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
-<label x="33.02" y="86.36" size="1.524" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="DEV_ID" class="0">
-<segment>
-<label x="58.42" y="142.24" size="1.524" layer="95" xref="yes"/>
-<wire x1="58.42" y1="142.24" x2="55.88" y2="142.24" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="B2"/>
-</segment>
-<segment>
-<pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="43.18" y1="167.64" x2="48.26" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="167.64" x2="53.34" y2="167.64" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="167.64" x2="48.26" y2="162.56" width="0.1524" layer="91"/>
-<junction x="48.26" y="167.64"/>
-<label x="48.26" y="162.56" size="1.524" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="MUX_SEL" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="SEL"/>
-<wire x1="35.56" y1="139.7" x2="33.02" y2="139.7" width="0.1524" layer="91"/>
-<label x="33.02" y="139.7" size="1.524" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<label x="33.02" y="76.2" size="1.524" layer="95" rot="R180" xref="yes"/>
-<wire x1="33.02" y1="76.2" x2="35.56" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="COMMS" gate="G$1" pin="D3"/>
+<pinref part="MOTION" gate="G$1" pin="OUT"/>
+<wire x1="119.38" y1="160.02" x2="121.92" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="121.92" y1="157.48" x2="121.92" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="127" y1="160.02" x2="121.92" y2="160.02" width="0.1524" layer="91"/>
+<junction x="121.92" y="160.02"/>
 </segment>
 </net>
 </nets>

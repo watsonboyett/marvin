@@ -13,10 +13,21 @@ void PIR_StateChanged()
   movement_read = false;
 }
 
+void PIR_EnableInterrupt(bool enable)
+{
+  if (enable)
+  {
+    attachInterrupt(digitalPinToInterrupt(MOTION_PIN), PIR_StateChanged, RISING);
+  }
+  else
+  {
+    detachInterrupt(digitalPinToInterrupt(MOTION_PIN));
+  }
+}
+
 void PIR_Setup()
 {
   pinMode(MOTION_PIN, INPUT);
-  attachInterrupt(digitalPinToInterrupt(MOTION_PIN), PIR_StateChanged, RISING);
 }
 
 bool PIR_AnyMovementOccurred()

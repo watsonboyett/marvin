@@ -6,4 +6,6 @@
 
 void PIR_Setup();
 
+void PIR_EnableInterrupt(bool enable);
+
 bool PIR_AnyMovementOccurred();

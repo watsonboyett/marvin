@@ -304,7 +304,7 @@ float LPS_GetTemperature_F()
 }
 
 float LPS_PressureOffset_mbar = 0;
-float LPS_TemperatureOffset_C = -3.2;
+float LPS_TemperatureOffset_C = -5.2;
 
 void LPS_MeasurePressure()
 {
