@@ -43,6 +43,10 @@ void setup()
 {
   USE_SERIAL.begin(115200);
   USE_SERIAL.setDebugOutput(true);
+  USE_SERIAL.println();
+  
+  int chip_id = ESP.getChipId();
+  USE_SERIAL.printf("Chip ID: %#06x \n", chip_id);
   
   connect_wifi();
   
@@ -56,8 +60,6 @@ void setup()
   delay(1000);
 }
 
-
-int cycles_since_last_write = 0;
 
 bool motion_inst = false;
 bool motion_avg = false;
@@ -82,138 +84,150 @@ float lps_temp_avg = 0;
 float mic_level_inst = 0;
 float mic_level_avg = 0;
 
+uint32_t previous_time = 0;
+uint32_t sample_interval = 1000;
 uint32_t sample_count = 0;
+uint16_t samples_since_last_write = 0;
 void loop()
 {
-  sample_count++;
-  
-  // Get the latest sensor values
-  motion_inst = PIR_AnyMovementOccurred();
-  motion_avg = motion_avg || motion_inst;
-  
-  ALS_MeasureLight();
-  als_infrared_inst = ALS_GetIrLightLevel();
-  als_visible_inst = ALS_GetAmbientLightLevel();
-  
-  SHT_MeasureTemperature();
-  sht_temp_inst = SHT_GetTemperature_F();
-  sht_rh_inst = SHT_GetRelHumidity_pct();
-  
-  LPS_MeasurePressure();
-  lps_pres_inst = LPS_GetPressure_mbar();
-  lps_temp_inst = LPS_GetTemperature_F();
+  uint32_t current_time = millis();
 
-  mic_level_inst = MIC_GetMicAvgLevel_V();
-
-  if (sample_count > 1)
+  if (current_time - previous_time >= sample_interval)
   {
-    als_visible_avg = (als_visible_inst * avg_a) + (als_visible_avg * avg_a1);
-    sht_temp_avg = (sht_temp_inst * avg_a) + (sht_temp_avg * avg_a1);
-    sht_rh_avg = (sht_rh_inst * avg_a) + (sht_rh_avg * avg_a1);
-    lps_pres_avg = (lps_pres_inst * avg_a) + (lps_pres_avg * avg_a1);
-    lps_temp_avg = (lps_temp_inst * avg_a) + (lps_temp_avg * avg_a1);
-    mic_level_avg = (mic_level_inst * avg_a) + (mic_level_avg * avg_a1);
-  }
-  else
-  {
-    // initialize average values
-    als_visible_avg = als_visible_inst;
-    sht_temp_avg = sht_temp_inst;
-    sht_rh_avg = sht_rh_inst;
-    lps_pres_avg = lps_pres_inst;
-    lps_temp_avg = lps_temp_inst;
-    mic_level_avg = mic_level_inst;
-  }
-
-  
-  // Print results to console
-  char sample_count_str[9];
-  sprintf(sample_count_str, "%u", sample_count);
-  USE_SERIAL.printf("Sample: %s, ", sample_count_str);
-
-  char sht_temp_str[6];
-  dtostrf(sht_temp_inst, 0, 2, sht_temp_str);
-  char sht_rh_str[6];
-  dtostrf(sht_rh_inst, 0, 2, sht_rh_str);
-  USE_SERIAL.printf("SHT T: %s, SHT RH: %s, ", sht_temp_str, sht_rh_str);
-
-  char lps_press_str[6];
-  dtostrf(lps_pres_inst, 0, 2, lps_press_str);
-  char lps_temp_str[6];
-  dtostrf(lps_temp_inst, 0, 2, lps_temp_str);
-  USE_SERIAL.printf("LPS P: %s, LPS T: %s, ", lps_press_str, lps_temp_str);
-
-  char als_vis_str[9];
-  dtostrf(als_visible_inst, 0, 2, als_vis_str);
-  char als_ir_str[9];
-  dtostrf(als_infrared_inst, 0, 2, als_ir_str);
-  USE_SERIAL.printf("ALS Vis: %s, ALS IR: %s, ", als_vis_str, als_ir_str);
-  
-  USE_SERIAL.printf("PIR M: %d, ", motion_inst);
-
-  char mic_level_str[6];
-  dtostrf(mic_level_inst, 0, 2, mic_level_str);
-  USE_SERIAL.printf("MIC V: %s ", mic_level_str);
+    previous_time = current_time;
+    sample_count++;
     
-  USE_SERIAL.printf("\n");
-  USE_SERIAL.flush();
-
-
-  // write sensor data to database (ensure WiFi is connected)
-  int db_write_rate = 30;
-  if (USE_WIFI && cycles_since_last_write >= db_write_rate && (WiFi.status() == WL_CONNECTED))
-  {
-    String post_payload =
-      String("sensor,node=0 ") +
-      String("sample=") + String(sample_count_str) +
-      String(",temp=") + String(sht_temp_avg) + 
-      String(",humidity=") + String(sht_rh_avg) +
-      String(",pressure=") + String(lps_pres_avg) +
-      String(",temp_alt=") + String(lps_temp_avg) +
-      String(",light=") + String(als_visible_avg) +
-      String(",motion=") + String(motion_avg) +
-      String(",sound=") + String(mic_level_avg);
-    USE_SERIAL.println(post_payload);
-
-    bool isHttpGet = false;
-    String write_url = String(INFLUXDB_URL) + "/write?db=" + INFLUXDB_DBNAME;
-
-    HTTPClient http;
-    USE_SERIAL.print("[HTTP] begin... ");
-    http.begin(write_url);
-    int httpCode = -1;
-    if (isHttpGet)
+    // Get the latest sensor values
+    motion_inst = PIR_AnyMovementOccurred();
+    motion_avg = motion_avg || motion_inst;
+    
+    ALS_MeasureLight();
+    als_infrared_inst = ALS_GetIrLightLevel();
+    als_visible_inst = ALS_GetAmbientLightLevel();
+    
+    SHT_MeasureTemperature();
+    sht_temp_inst = SHT_GetTemperature_F();
+    sht_rh_inst = SHT_GetRelHumidity_pct();
+    
+    LPS_MeasurePressure();
+    lps_pres_inst = LPS_GetPressure_mbar();
+    lps_temp_inst = LPS_GetTemperature_F();
+  
+    mic_level_inst = MIC_GetMicAvgLevel_V();
+  
+    if (sample_count > 1)
     {
-      httpCode = http.GET();
+      als_visible_avg = (als_visible_inst * avg_a) + (als_visible_avg * avg_a1);
+      sht_temp_avg = (sht_temp_inst * avg_a) + (sht_temp_avg * avg_a1);
+      sht_rh_avg = (sht_rh_inst * avg_a) + (sht_rh_avg * avg_a1);
+      lps_pres_avg = (lps_pres_inst * avg_a) + (lps_pres_avg * avg_a1);
+      lps_temp_avg = (lps_temp_inst * avg_a) + (lps_temp_avg * avg_a1);
+      mic_level_avg = (mic_level_inst * avg_a) + (mic_level_avg * avg_a1);
     }
     else
     {
-      http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-      httpCode = http.POST(post_payload);
-      http.writeToStream(&Serial);
+      // initialize average values
+      als_visible_avg = als_visible_inst;
+      sht_temp_avg = sht_temp_inst;
+      sht_rh_avg = sht_rh_inst;
+      lps_pres_avg = lps_pres_inst;
+      lps_temp_avg = lps_temp_inst;
+      mic_level_avg = mic_level_inst;
     }
-    http.end();
-    USE_SERIAL.printf("[HTTP] end. HttpCode: %d \n", httpCode);
+  
+    
+    // Print results to console
+    char sample_count_str[9];
+    sprintf(sample_count_str, "%u", sample_count);
+    USE_SERIAL.printf("Sample: %s, ", sample_count_str);
+  
+    char sht_temp_str[6];
+    dtostrf(sht_temp_inst, 0, 2, sht_temp_str);
+    char sht_rh_str[6];
+    dtostrf(sht_rh_inst, 0, 2, sht_rh_str);
+    USE_SERIAL.printf("SHT T: %s, SHT RH: %s, ", sht_temp_str, sht_rh_str);
+  
+    char lps_press_str[6];
+    dtostrf(lps_pres_inst, 0, 2, lps_press_str);
+    char lps_temp_str[6];
+    dtostrf(lps_temp_inst, 0, 2, lps_temp_str);
+    USE_SERIAL.printf("LPS P: %s, LPS T: %s, ", lps_press_str, lps_temp_str);
+  
+    char als_vis_str[9];
+    dtostrf(als_visible_inst, 0, 2, als_vis_str);
+    char als_ir_str[9];
+    dtostrf(als_infrared_inst, 0, 2, als_ir_str);
+    USE_SERIAL.printf("ALS Vis: %s, ALS IR: %s, ", als_vis_str, als_ir_str);
+    
+    USE_SERIAL.printf("PIR M: %d, ", motion_inst);
+  
+    char mic_level_str[6];
+    dtostrf(mic_level_inst, 0, 2, mic_level_str);
+    USE_SERIAL.printf("MIC V: %s ", mic_level_str);
+      
+    USE_SERIAL.printf("\n");
+    USE_SERIAL.flush();
+  
 
-    if(httpCode < 1)
+    // write sensor data to database (ensure WiFi is connected)
+    int db_write_rate = 30;
+    if (USE_WIFI && samples_since_last_write >= db_write_rate && (WiFi.status() == WL_CONNECTED))
     {
-      USE_SERIAL.printf("[HTTP] failed, error: %s\n", http.errorToString(httpCode).c_str());
-    }
-    else
-    {
-      if(isHttpGet && httpCode == HTTP_CODE_OK) 
+      noInterrupts();
+      
+      String post_payload =
+        String("sensor,node=0 ") +
+        String("sample=") + String(sample_count_str) +
+        String(",temp=") + String(sht_temp_avg) + 
+        String(",humidity=") + String(sht_rh_avg) +
+        String(",pressure=") + String(lps_pres_avg) +
+        String(",temp_alt=") + String(lps_temp_avg) +
+        String(",light=") + String(als_visible_avg) +
+        String(",motion=") + String(motion_avg) +
+        String(",sound=") + String(mic_level_avg);
+      USE_SERIAL.println(post_payload);
+  
+      bool isHttpGet = false;
+      String write_url = String(INFLUXDB_URL) + "/write?db=" + INFLUXDB_DBNAME;
+  
+      HTTPClient http;
+      USE_SERIAL.print("[HTTP] begin... ");
+      http.begin(write_url);
+      int httpCode = -1;
+      if (isHttpGet)
       {
-          String payload = http.getString();
-          USE_SERIAL.println(payload);
-      }  
+        httpCode = http.GET();
+      }
+      else
+      {
+        http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpCode = http.POST(post_payload);
+        http.writeToStream(&Serial);
+      }
+      http.end();
+      USE_SERIAL.printf("[HTTP] end. HttpCode: %d \n", httpCode);
+  
+      if(httpCode < 1)
+      {
+        USE_SERIAL.printf("[HTTP] failed, error: %s\n", http.errorToString(httpCode).c_str());
+      }
+      else
+      {
+        if(isHttpGet && httpCode == HTTP_CODE_OK) 
+        {
+            String payload = http.getString();
+            USE_SERIAL.println(payload);
+        }  
+      }
+  
+      interrupts();
+      
+      motion_avg = false;
+      samples_since_last_write = 0;
     }
-    
-    motion_avg = false;
-    cycles_since_last_write = 0;
+  
+    samples_since_last_write++;
   }
-
-  cycles_since_last_write++;
-  delay(1000);
 }
 
 

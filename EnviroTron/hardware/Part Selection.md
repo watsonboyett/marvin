@@ -8,6 +8,7 @@
 
 * SHT21 - $9, I2C, 0.5C/2%RH accuracy
 * SHT25 - $14, I2C, 0.2C/1.8%RH accuracy
+* Si7013 - $4, I2C, 0.4C/3%RH accuracy
 
 
 ## Light
@@ -28,6 +29,7 @@
 
 * LPS22HBTR - $4, I2C, high accuracy, decent range
 
+
 ## Sound 
 
 * (MIC) SPM0404HE5H-PB - $4
@@ -41,6 +43,7 @@
 ## Air Quality
 
 * AS-MLV-P2 - $25, CO/
+* SGP30 - $?, MO Gas (CO2 Equivalent)
 
 
 ## Vibration/Acceleration

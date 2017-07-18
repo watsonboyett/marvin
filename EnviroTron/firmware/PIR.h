@@ -2,7 +2,7 @@
 
 #include <Arduino.h>
 
-#define MOTION_PIN (D5)
+#define MOTION_PIN (D6)
 
 void PIR_Setup();
 
