@@ -11,6 +11,10 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
+extern "C" {
+#include "user_interface.h"
+}
+
 #define USE_SERIAL Serial
 #define USE_WIFI (true)
 
@@ -56,9 +60,11 @@ void setup()
   String sdk_version = String("SDK Version: ") + ESP.getSdkVersion();
   USE_SERIAL.println(sdk_version);
 
-
   connect_wifi();
+  // NOTE: prevent ESP from sleeping because it causes lots of ADC noise
+  wifi_set_sleep_type(NONE_SLEEP_T);
 
+  
   I2C_Setup();
   PIR_Setup();
   MIC_Setup();
