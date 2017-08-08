@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -236,11 +236,11 @@ by exp-lbrs.ulp</description>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="SHT2X-DFN6">
-<circle x="-1.778" y="-1.27" radius="0.2032" width="0.1" layer="21"/>
+<circle x="-2.032" y="-1.27" radius="0.2032" width="0.1" layer="21"/>
 <wire x1="-1.5" y1="1.5" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.127" layer="49"/>
 <wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.127" layer="21"/>
-<wire x1="1.5" y1="1.5" x2="-1.5" y2="1.5" width="0.127" layer="21"/>
+<wire x1="1.5" y1="1.5" x2="-1.5" y2="1.5" width="0.127" layer="49"/>
 <wire x1="0.5" y1="1" x2="0.5" y2="-1" width="0.08" layer="21"/>
 <wire x1="0.5" y1="-1" x2="1" y2="-1" width="0.08" layer="21"/>
 <wire x1="1" y1="-1" x2="1" y2="1" width="0.08" layer="21"/>
@@ -3494,6 +3494,20 @@ Source: VISHAY wscwsn.pdf</description>
 <text x="-8.75" y="3.9" size="1.27" layer="25">&gt;NAME</text>
 <text x="-8.75" y="-5.15" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="SOT23-3">
+<wire x1="0.381" y1="1.4224" x2="0.381" y2="-1.4732" width="0.1524" layer="21"/>
+<wire x1="0.381" y1="-1.4732" x2="-0.381" y2="-1.4732" width="0.1524" layer="21"/>
+<wire x1="-0.381" y1="-1.4732" x2="-0.381" y2="1.4224" width="0.1524" layer="21"/>
+<wire x1="-0.381" y1="1.4224" x2="0.381" y2="1.4224" width="0.1524" layer="21"/>
+<rectangle x1="0.4953" y1="-1.2319" x2="0.8763" y2="-0.7239" layer="51" rot="R270"/>
+<rectangle x1="0.4953" y1="0.6985" x2="0.8763" y2="1.2065" layer="51" rot="R270"/>
+<rectangle x1="-0.8763" y1="-0.2667" x2="-0.4953" y2="0.2413" layer="51" rot="R270"/>
+<smd name="3" x="-1.016" y="-0.0254" dx="0.7874" dy="0.889" layer="1" rot="R270"/>
+<smd name="2" x="1.016" y="0.9398" dx="0.7874" dy="0.889" layer="1" rot="R270"/>
+<smd name="1" x="1.016" y="-0.9906" dx="0.7874" dy="0.889" layer="1" rot="R270"/>
+<text x="0" y="0" size="1.016" layer="27" ratio="10" rot="R270" align="center">&gt;VALUE</text>
+<text x="2.54" y="0" size="1.016" layer="25" ratio="10" rot="R270" align="center">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="LPS22HB">
@@ -3741,9 +3755,24 @@ to update values on the board</text>
 <text x="0" y="5.08" size="1.778" layer="95" align="center">&gt;NAME</text>
 <text x="0" y="2.54" size="1.778" layer="96" align="center">&gt;VALUE</text>
 </symbol>
+<symbol name="VREG">
+<wire x1="-5.08" y1="-2.54" x2="5.08" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-2.54" width="0.4064" layer="94"/>
+<pin name="GND" x="0" y="-5.08" visible="off" length="short" direction="in" rot="R90"/>
+<pin name="IN" x="-7.62" y="2.54" visible="off" length="short" direction="in"/>
+<pin name="OUT" x="7.62" y="2.54" visible="off" length="short" direction="pas" rot="R180"/>
+<text x="2.54" y="-5.08" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.54" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.032" y="-1.778" size="1.524" layer="95">GND</text>
+<text x="-4.445" y="1.905" size="1.524" layer="95">IN</text>
+<text x="0.127" y="1.905" size="1.524" layer="95">OUT</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="LPS22HB">
+<description>Pressure Sensor 3.77 PSI ~ 18.27 PSI (26 kPa ~ 126 kPa) Absolute 24 bit</description>
 <gates>
 <gate name="G$1" symbol="LPS22HB" x="0" y="0"/>
 </gates>
@@ -3761,7 +3790,7 @@ to update values on the board</text>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="MANUFACTURER" value="STMicroelectronics" constant="no"/>
+<attribute name="MFG" value="STMicroelectronics" constant="no"/>
 <attribute name="MPN" value="LPS22HBTR" constant="no"/>
 <attribute name="PN-DK" value="497-16265-1-ND" constant="no"/>
 </technology>
@@ -3770,6 +3799,9 @@ to update values on the board</text>
 </devices>
 </deviceset>
 <deviceset name="LTR-329">
+<description>AMBIENT LIGHT PHOTO SENSOR
+
+Optical Sensor Ambient I²C</description>
 <gates>
 <gate name="G$1" symbol="LTR-329" x="0" y="0"/>
 </gates>
@@ -3782,12 +3814,17 @@ to update values on the board</text>
 <connect gate="G$1" pin="VSS" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MFG" value="Lite-On Inc." constant="no"/>
+<attribute name="MPN" value="LTR-329ALS-01" constant="no"/>
+<attribute name="PN-DK" value="160-2160-1-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
 <deviceset name="MCP6002">
+<description>IC OPAMP General Purpose Amplifier Circuit Rail-to-Rail</description>
 <gates>
 <gate name="G$1" symbol="MCP6002" x="0" y="0"/>
 </gates>
@@ -3805,6 +3842,7 @@ to update values on the board</text>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="MFG" value="Microchip Technology" constant="no"/>
 <attribute name="MPN" value="MCP6002T-I/MS" constant="no"/>
 <attribute name="PN-DK" value="MCP6002T-I/MSCT-ND" constant="no"/>
 </technology>
@@ -3813,6 +3851,7 @@ to update values on the board</text>
 </devices>
 </deviceset>
 <deviceset name="PIR">
+<description>Sensor Motion, Pyroelectric, PIR (Passive Infrared) 197" (5m) 16.4' Polyethylene, Black Lens</description>
 <gates>
 <gate name="G$1" symbol="PIR" x="0" y="0"/>
 </gates>
@@ -3824,12 +3863,17 @@ to update values on the board</text>
 <connect gate="G$1" pin="VDD" pad="1"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MFG" value="Panasonic Electric Works" constant="no"/>
+<attribute name="MPN" value="EKMC1601112" constant="no"/>
+<attribute name="PN-DK" value="255-3075-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
 <deviceset name="SHT21">
+<description>SENSOR Humidity/Temperature 3V I2C 2%</description>
 <gates>
 <gate name="G$1" symbol="SHT21" x="0" y="-2.54"/>
 </gates>
@@ -3842,7 +3886,11 @@ to update values on the board</text>
 <connect gate="G$1" pin="VSS" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MFG" value="Sensirion AG" constant="no"/>
+<attribute name="MPN" value="SHT21" constant="no"/>
+<attribute name="PN-DK" value="1649-1005-1-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -3871,6 +3919,7 @@ to update values on the board</text>
 </devices>
 </deviceset>
 <deviceset name="SPU0410HR5H">
+<description>MEMS MIC Analog 100Hz ~ 10kHz (Silicon) 1.5 ~ 3.6V Omnidirectional (-42dB ±3dB @ 94dB SPL)</description>
 <gates>
 <gate name="G$1" symbol="SPU0410HR5H" x="0" y="0"/>
 </gates>
@@ -3883,6 +3932,7 @@ to update values on the board</text>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="MFG" value="Knowles" constant="no"/>
 <attribute name="MPN" value="SPU0410HR5H-PB" constant="no"/>
 <attribute name="PN-DK" value="423-1138-6-ND" constant="no"/>
 </technology>
@@ -5449,6 +5499,28 @@ LETTER landscape</description>
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MCP1700">
+<description>IC Linear Voltage Regulator IC Positive Fixed Output 3.3V 250mA</description>
+<gates>
+<gate name="G$1" symbol="VREG" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-SOT23" package="SOT23-3">
+<connects>
+<connect gate="G$1" pin="GND" pad="1"/>
+<connect gate="G$1" pin="IN" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MFG" value="Microchip Technology" constant="no"/>
+<attribute name="MPN" value="MCP1700T-3302E/TT" constant="no"/>
+<attribute name="PN-DK" value="MCP1700T3302ETTCT-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
