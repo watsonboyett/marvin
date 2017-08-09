@@ -3737,6 +3737,9 @@ to update values on the board</text>
 </symbols>
 <devicesets>
 <deviceset name="LTR-329">
+<description>AMBIENT LIGHT PHOTO SENSOR
+
+Optical Sensor Ambient I²C</description>
 <gates>
 <gate name="G$1" symbol="LTR-329" x="0" y="0"/>
 </gates>
@@ -3749,12 +3752,17 @@ to update values on the board</text>
 <connect gate="G$1" pin="VSS" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MFG" value="Lite-On Inc." constant="no"/>
+<attribute name="MPN" value="LTR-329ALS-01" constant="no"/>
+<attribute name="PN-DK" value="160-2160-1-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
 <deviceset name="PIR">
+<description>Sensor Motion, Pyroelectric, PIR (Passive Infrared) 197" (5m) 16.4' Polyethylene, Black Lens</description>
 <gates>
 <gate name="G$1" symbol="PIR" x="0" y="0"/>
 </gates>
@@ -3766,12 +3774,17 @@ to update values on the board</text>
 <connect gate="G$1" pin="VDD" pad="1"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MFG" value="Panasonic Electric Works" constant="no"/>
+<attribute name="MPN" value="EKMC1601112" constant="no"/>
+<attribute name="PN-DK" value="255-3075-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
 <deviceset name="SHT21">
+<description>SENSOR Humidity/Temperature 3V I2C 2%</description>
 <gates>
 <gate name="G$1" symbol="SHT21" x="0" y="-2.54"/>
 </gates>
@@ -3784,7 +3797,11 @@ to update values on the board</text>
 <connect gate="G$1" pin="VSS" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MFG" value="Sensirion AG" constant="no"/>
+<attribute name="MPN" value="SHT21" constant="no"/>
+<attribute name="PN-DK" value="1649-1005-1-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -3820,6 +3837,7 @@ to update values on the board</text>
 </devices>
 </deviceset>
 <deviceset name="LPS22HB">
+<description>Pressure Sensor 3.77 PSI ~ 18.27 PSI (26 kPa ~ 126 kPa) Absolute 24 bit</description>
 <gates>
 <gate name="G$1" symbol="LPS22HB" x="0" y="0"/>
 </gates>
@@ -3837,7 +3855,7 @@ to update values on the board</text>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="MANUFACTURER" value="STMicroelectronics" constant="no"/>
+<attribute name="MFG" value="STMicroelectronics" constant="no"/>
 <attribute name="MPN" value="LPS22HBTR" constant="no"/>
 <attribute name="PN-DK" value="497-16265-1-ND" constant="no"/>
 </technology>
@@ -3846,6 +3864,7 @@ to update values on the board</text>
 </devices>
 </deviceset>
 <deviceset name="SPU0410HR5H">
+<description>MEMS MIC Analog 100Hz ~ 10kHz (Silicon) 1.5 ~ 3.6V Omnidirectional (-42dB ±3dB @ 94dB SPL)</description>
 <gates>
 <gate name="G$1" symbol="SPU0410HR5H" x="0" y="0"/>
 </gates>
@@ -3858,6 +3877,7 @@ to update values on the board</text>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="MFG" value="Knowles" constant="no"/>
 <attribute name="MPN" value="SPU0410HR5H-PB" constant="no"/>
 <attribute name="PN-DK" value="423-1138-6-ND" constant="no"/>
 </technology>
@@ -3866,6 +3886,7 @@ to update values on the board</text>
 </devices>
 </deviceset>
 <deviceset name="MCP6002">
+<description>IC OPAMP General Purpose Amplifier Circuit Rail-to-Rail</description>
 <gates>
 <gate name="G$1" symbol="MCP6002" x="0" y="0"/>
 </gates>
@@ -3883,6 +3904,7 @@ to update values on the board</text>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="MFG" value="Microchip Technology" constant="no"/>
 <attribute name="MPN" value="MCP6002T-I/MS" constant="no"/>
 <attribute name="PN-DK" value="MCP6002T-I/MSCT-ND" constant="no"/>
 </technology>
@@ -5424,6 +5446,7 @@ LETTER landscape</description>
 </devices>
 </deviceset>
 <deviceset name="MCP1700">
+<description>IC Linear Voltage Regulator IC Positive Fixed Output 3.3V 250mA</description>
 <gates>
 <gate name="G$1" symbol="VREG" x="0" y="0"/>
 </gates>
