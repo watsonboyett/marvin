@@ -1,12 +1,14 @@
 Qty,Value,Parts,MFG,MPN,PN-DK,Description
 1,WEMOS-D1-MINI,COMMS,,,,
-1,MCP1700-SOT23,PWR,Microchip Technology,MCP1700T-3302E/TT,MCP1700T3302ETTCT-ND,IC Linear Voltage Regulator IC Positive Fixed Output 3.3V 250mA
+1,REF3033-SOT23,PWR,Texas Instruments,REF3033AIDBZR,296-26324-1-ND,IC VREF SERIES 3.3V SOT23-3
 1,SHT21,TEMP,Sensirion AG,SHT21,1649-1005-1-ND,SENSOR Humidity/Temperature 3V I2C 2%
-1,PIR,MOTION," Black Lens""",Panasonic Electric Works,EKMC1601112,"Sensor Motion, Pyroelectric, PIR (Passive Infrared) 197 (5m) 16.4' Polyethylene"
+1,PIR,MOTION,Panasonic Electric Works,EKMC1601112,255-3075-ND,"Sensor Motion, Pyroelectric, PIR (Passive Infrared) 197 (5m) 16.4' Polyethylene"
 1,LTR-329,LIGHT,Lite-On Inc.,LTR-329ALS-01,160-2160-1-ND,AMBIENT LIGHT PHOTO SENSOR
 1,LPS22HB,PRESS,STMicroelectronics,LPS22HBTR,497-16265-1-ND,Pressure Sensor 3.77 PSI ~ 18.27 PSI (26 kPa ~ 126 kPa) Absolute 24 bit
 1,SPU0410HR5H,SOUND,Knowles,SPU0410HR5H-PB,423-1138-6-ND,MEMS MIC Analog 100Hz ~ 10kHz (Silicon) 1.5 ~ 3.6V Omnidirectional (-42dB ±3dB @ 94dB SPL)
 1,MCP6002,AMP,Microchip Technology,MCP6002T-I/MS,MCP6002T-I/MSCT-ND,IC OPAMP General Purpose Amplifier Circuit Rail-to-Rail
+1,MCP3321,U2,Microchip Technology,MCP3221A5T-I/OT,MCP3221A5T-I/OTCT-ND,IC ADC 12BIT 2.7V 1CH LP SOT23-5
+2,1n,"C14, C15",Murata Electronics North America,GRM188R71H102KA01D,490-1494-1-ND,CAP CER 1000PF 50V X7R 0603
 7,100n,"C1, C2, C3, C4, C7, C10, C11",Murata Electronics North America,GRM188R71H104KA93D,490-1519-1-ND,CAP CER 0.1UF 50V X7R 0603
 4,1u,"C5, C8, C9, C12",Murata Electronics North America,GRM188R61A105KA61D,490-1543-1-ND,CAP CER 1UF 10V X5R 0603
 1,10u,C6,Murata Electronics North America,GRM21BR61E106KA73L,490-5523-1-ND,CAP CER 10UF 25V X5R 0805

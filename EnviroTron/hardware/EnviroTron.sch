@@ -149,7 +149,7 @@
 <rectangle x1="0.3" y1="-0.9" x2="0.9" y2="-0.45" layer="48" rot="R180"/>
 <rectangle x1="-0.9" y1="-0.9" x2="-0.3" y2="-0.45" layer="48"/>
 <rectangle x1="0.3" y1="0.45" x2="0.9" y2="0.9" layer="48" rot="R180"/>
-<rectangle x1="-1" y1="-1.778" x2="-0.5" y2="-1.016" layer="21"/>
+<rectangle x1="-1" y1="-1.7" x2="-0.5" y2="-1.2" layer="21"/>
 <smd name="1" x="-0.6" y="-0.675" dx="0.7" dy="0.75" layer="1"/>
 <smd name="2" x="0.6" y="-0.675" dx="0.7" dy="0.75" layer="1"/>
 <smd name="3" x="0.6" y="0.675" dx="0.7" dy="0.75" layer="1" rot="R180"/>
@@ -173,13 +173,16 @@
 <wire x1="2.54" y1="3.81" x2="1.905" y2="4.445" width="0.127" layer="49"/>
 <rectangle x1="5.17" y1="-0.25" x2="6.17" y2="0.25" layer="21" rot="R90"/>
 <rectangle x1="-6.17" y1="-0.25" x2="-5.17" y2="0.25" layer="21" rot="R90"/>
-<pad name="1" x="-1.796" y="-1.796" drill="0.5588" diameter="1.524" rot="R90"/>
-<pad name="2" x="1.796" y="-1.796" drill="0.508" diameter="1.524" rot="R90"/>
-<pad name="3" x="1.796" y="1.796" drill="0.5588" diameter="1.524" rot="R90"/>
+<pad name="1" x="-1.796" y="-1.796" drill="0.6" rot="R90"/>
+<pad name="2" x="1.796" y="-1.796" drill="0.6" rot="R90"/>
+<pad name="3" x="1.796" y="1.796" drill="0.6" rot="R90"/>
 <text x="-4.445" y="0" size="1.27" layer="49" rot="R180" align="center">Y</text>
 <text x="0" y="4.445" size="1.27" layer="49" rot="R180" align="center">X</text>
-<text x="0" y="-12.7" size="1.016" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="-7.62" size="1.016" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
+<circle x="-1.796" y="-1.796" radius="0.225" width="0.001" layer="49"/>
+<circle x="1.796" y="-1.796" radius="0.225" width="0.001" layer="49"/>
+<circle x="1.796" y="1.796" radius="0.225" width="0.001" layer="49"/>
 </package>
 <package name="SHT2X-DFN6">
 <circle x="-2.032" y="-1.27" radius="0.2032" width="0.1" layer="21"/>
@@ -218,22 +221,22 @@
 <wire x1="-9.43" y1="-12.89" x2="-13.43" y2="-10.89" width="0.127" layer="51"/>
 <rectangle x1="-12.7" y1="-10.16" x2="-10.16" y2="10.16" layer="48"/>
 <rectangle x1="10.16" y1="-10.16" x2="12.7" y2="10.16" layer="48"/>
-<pad name="3V3" x="-11.43" y="-8.89" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="5V" x="11.43" y="-8.89" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="A0" x="-11.43" y="6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D0" x="-11.43" y="3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D1" x="11.43" y="3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D2" x="11.43" y="1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D3" x="11.43" y="-1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D4" x="11.43" y="-3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D5" x="-11.43" y="1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D6" x="-11.43" y="-1.27" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D7" x="-11.43" y="-3.81" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="D8" x="-11.43" y="-6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="GND" x="11.43" y="-6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="RST" x="-11.43" y="8.89" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="RX" x="11.43" y="6.35" drill="0.762" diameter="1.524" shape="octagon"/>
-<pad name="TX" x="11.43" y="8.89" drill="0.762" diameter="1.524" shape="octagon"/>
+<pad name="3V3" x="-11.43" y="-8.89" drill="0.8" shape="octagon"/>
+<pad name="5V" x="11.43" y="-8.89" drill="0.8" shape="octagon"/>
+<pad name="A0" x="-11.43" y="6.35" drill="0.8" shape="octagon"/>
+<pad name="D0" x="-11.43" y="3.81" drill="0.8" shape="octagon"/>
+<pad name="D1" x="11.43" y="3.81" drill="0.8" shape="octagon"/>
+<pad name="D2" x="11.43" y="1.27" drill="0.8" shape="octagon"/>
+<pad name="D3" x="11.43" y="-1.27" drill="0.8" shape="octagon"/>
+<pad name="D4" x="11.43" y="-3.81" drill="0.8" shape="octagon"/>
+<pad name="D5" x="-11.43" y="1.27" drill="0.8" shape="octagon"/>
+<pad name="D6" x="-11.43" y="-1.27" drill="0.8" shape="octagon"/>
+<pad name="D7" x="-11.43" y="-3.81" drill="0.8" shape="octagon"/>
+<pad name="D8" x="-11.43" y="-6.35" drill="0.8" shape="octagon"/>
+<pad name="GND" x="11.43" y="-6.35" drill="0.8" shape="octagon"/>
+<pad name="RST" x="-11.43" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="RX" x="11.43" y="6.35" drill="0.8" shape="octagon"/>
+<pad name="TX" x="11.43" y="8.89" drill="0.8" shape="octagon"/>
 <text x="0" y="2.54" size="1.016" layer="27" align="center">&gt;VALUE</text>
 <text x="0.015" y="15.92" size="1.27" layer="49" font="vector" align="center">Radio Antenna
   Facing UP</text>
@@ -3487,6 +3490,25 @@ Source: AVX .. aphvc.pdf</description>
 <text x="0" y="0" size="1.016" layer="27" ratio="10" rot="R270" align="center">&gt;VALUE</text>
 <text x="2.54" y="0" size="1.016" layer="25" ratio="10" rot="R270" align="center">&gt;NAME</text>
 </package>
+<package name="SOT23-5">
+<circle x="-1.778" y="-1.27" radius="0.254" width="0.127" layer="21"/>
+<wire x1="1.55" y1="-0.875" x2="-1.55" y2="-0.875" width="0.1524" layer="49"/>
+<wire x1="-1.55" y1="-0.875" x2="-1.55" y2="0.875" width="0.1524" layer="21"/>
+<wire x1="-1.55" y1="0.875" x2="1.55" y2="0.875" width="0.1524" layer="49"/>
+<wire x1="1.55" y1="0.875" x2="1.55" y2="-0.875" width="0.1524" layer="21"/>
+<rectangle x1="-1.2" y1="-1.5" x2="-0.7" y2="-0.875" layer="49" rot="R180"/>
+<rectangle x1="0.7" y1="0.875" x2="1.2" y2="1.5" layer="49"/>
+<rectangle x1="-0.25" y1="-1.5" x2="0.25" y2="-0.875" layer="49"/>
+<rectangle x1="-1.2" y1="0.875" x2="-0.7" y2="1.5" layer="49"/>
+<rectangle x1="0.7" y1="-1.5" x2="1.2" y2="-0.875" layer="49" rot="R180"/>
+<smd name="1" x="-0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<smd name="2" x="0" y="-1.35" dx="0.55" dy="1" layer="1"/>
+<smd name="3" x="0.95" y="-1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<smd name="4" x="0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<smd name="5" x="-0.95" y="1.35" dx="0.55" dy="1" layer="1" rot="R180"/>
+<text x="0" y="0" size="1.016" layer="27" ratio="10" rot="R180" align="center">&gt;VALUE</text>
+<text x="0" y="-2.54" size="1.016" layer="25" ratio="10" rot="R180" align="center">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="LTR-329">
@@ -3572,8 +3594,8 @@ Source: AVX .. aphvc.pdf</description>
 <pin name="GND" x="-10.16" y="-5.08" length="short"/>
 <pin name="OUT" x="10.16" y="0" length="short" rot="R180"/>
 <pin name="PWR" x="-10.16" y="5.08" length="short"/>
-<text x="0" y="10.16" size="1.778" layer="95" align="center">&gt;NAME</text>
-<text x="0" y="-10.16" size="1.778" layer="96" align="center">&gt;VALUE</text>
+<text x="0" y="10.16" size="1.524" layer="95" align="center">&gt;NAME</text>
+<text x="0" y="-10.16" size="1.524" layer="96" align="center">&gt;VALUE</text>
 </symbol>
 <symbol name="MCP6002">
 <wire x1="-10.16" y1="10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
@@ -3733,6 +3755,19 @@ to update values on the board</text>
 <text x="-2.032" y="-1.778" size="1.524" layer="95">GND</text>
 <text x="-4.445" y="1.905" size="1.524" layer="95">IN</text>
 <text x="0.127" y="1.905" size="1.524" layer="95">OUT</text>
+</symbol>
+<symbol name="MCP3221">
+<pin name="VDD" x="-10.16" y="5.08" length="short"/>
+<pin name="VSS" x="-10.16" y="-5.08" length="short"/>
+<pin name="SDA" x="10.16" y="5.08" length="short" rot="R180"/>
+<pin name="SCL" x="10.16" y="2.54" length="short" rot="R180"/>
+<pin name="AIN" x="10.16" y="-5.08" length="short" rot="R180"/>
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
+<text x="0" y="10.16" size="1.524" layer="95" align="center">&gt;NAME</text>
+<text x="0" y="-10.16" size="1.524" layer="96" align="center">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -5445,13 +5480,13 @@ LETTER landscape</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MCP1700">
-<description>IC Linear Voltage Regulator IC Positive Fixed Output 3.3V 250mA</description>
+<deviceset name="VREG">
+<description>IC Linear Voltage Regulator/Reference</description>
 <gates>
 <gate name="G$1" symbol="VREG" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-SOT23" package="SOT23-3">
+<device name="-MCP1700-SOT23" package="SOT23-3">
 <connects>
 <connect gate="G$1" pin="GND" pad="1"/>
 <connect gate="G$1" pin="IN" pad="3"/>
@@ -5465,6 +5500,44 @@ LETTER landscape</description>
 </technology>
 </technologies>
 </device>
+<device name="-REF33XX-SOT23" package="SOT23-3">
+<connects>
+<connect gate="G$1" pin="GND" pad="3"/>
+<connect gate="G$1" pin="IN" pad="1"/>
+<connect gate="G$1" pin="OUT" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MFG" value="Texas Instruments" constant="no"/>
+<attribute name="MPN" value="REF3033AIDBZR" constant="no"/>
+<attribute name="PN-DK" value="296-26324-1-ND" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MCP3221">
+<description>IC ADC 12 Bit Analog to Digital Converter 1 Input 1 SAR SOT-23-5</description>
+<gates>
+<gate name="G$1" symbol="MCP3221" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT23-5">
+<connects>
+<connect gate="G$1" pin="AIN" pad="3"/>
+<connect gate="G$1" pin="SCL" pad="5"/>
+<connect gate="G$1" pin="SDA" pad="4"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
+<connect gate="G$1" pin="VSS" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MFG" value="Microchip Technology" constant="no"/>
+<attribute name="MPN" value="MCP3221A5T-I/OT" constant="no"/>
+<attribute name="PN-DK" value="MCP3221A5T-I/OTCT-ND" constant="no"/>
+</technology>
+</technologies>
+</device>
 </devices>
 </deviceset>
 </devicesets>
@@ -5475,7 +5548,7 @@ LETTER landscape</description>
 <attribute name="CONTACT_ADDRESS" value="Licensed under CC-BY-SA"/>
 <attribute name="CONTACT_COMPANY" value="github.com/watsonboyett"/>
 <attribute name="CONTACT_PHONE" value="(Creative Commons, Attribution + Share Alike)"/>
-<attribute name="REV" value="1C"/>
+<attribute name="REV" value="1D"/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -5515,12 +5588,16 @@ LETTER landscape</description>
 </part>
 <part name="U$1" library="EnviroTron" deviceset="SILK_QC" device="">
 <attribute name="PRODUCT" value="EnviroTron"/>
-<attribute name="REV" value="1C"/>
+<attribute name="REV" value="1D"/>
 </part>
 <part name="C10" library="EnviroTron" deviceset="C-US" device="C0603" value="100n"/>
 <part name="R4" library="EnviroTron" deviceset="R-US_" device="R0603" value="68k"/>
-<part name="PWR" library="EnviroTron" deviceset="MCP1700" device="-SOT23"/>
+<part name="PWR" library="EnviroTron" deviceset="VREG" device="-REF33XX-SOT23"/>
 <part name="C12" library="EnviroTron" deviceset="C-US" device="C0603" value="1u"/>
+<part name="U2" library="EnviroTron" deviceset="MCP3221" device=""/>
+<part name="C13" library="EnviroTron" deviceset="C-US" device="C0603" value="100n"/>
+<part name="C14" library="EnviroTron" deviceset="C-US" device="C0603" value="1n"/>
+<part name="C15" library="EnviroTron" deviceset="C-US" device="C0603" value="1n"/>
 </parts>
 <sheets>
 <sheet>
@@ -5565,13 +5642,13 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <attribute name="NAME" x="219.456" y="56.515" size="1.778" layer="95"/>
 <attribute name="VALUE" x="227.076" y="56.769" size="1.778" layer="96"/>
 </instance>
-<instance part="R6" gate="G$1" x="190.5" y="114.3" smashed="yes" rot="R270">
-<attribute name="NAME" x="195.58" y="114.3" size="1.778" layer="95" align="center"/>
-<attribute name="VALUE" x="195.58" y="111.76" size="1.778" layer="96" align="center"/>
+<instance part="R6" gate="G$1" x="190.5" y="111.76" smashed="yes" rot="R270">
+<attribute name="NAME" x="195.58" y="111.76" size="1.778" layer="95" align="center"/>
+<attribute name="VALUE" x="195.58" y="109.22" size="1.778" layer="96" align="center"/>
 </instance>
-<instance part="R7" gate="G$1" x="190.5" y="93.98" smashed="yes" rot="R270">
-<attribute name="NAME" x="195.58" y="96.52" size="1.778" layer="95" align="center"/>
-<attribute name="VALUE" x="195.58" y="93.98" size="1.778" layer="96" align="center"/>
+<instance part="R7" gate="G$1" x="190.5" y="96.52" smashed="yes" rot="R270">
+<attribute name="NAME" x="195.58" y="99.06" size="1.778" layer="95" align="center"/>
+<attribute name="VALUE" x="195.58" y="96.52" size="1.778" layer="96" align="center"/>
 </instance>
 <instance part="R8" gate="G$1" x="187.96" y="71.12" smashed="yes">
 <attribute name="NAME" x="182.88" y="71.12" size="1.778" layer="95" align="bottom-center"/>
@@ -5608,6 +5685,16 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <attribute name="VALUE" x="35.56" y="157.48" size="1.778" layer="96"/>
 </instance>
 <instance part="C12" gate="G$1" x="25.4" y="147.32"/>
+<instance part="U2" gate="G$1" x="187.96" y="142.24"/>
+<instance part="C13" gate="G$1" x="81.28" y="17.78"/>
+<instance part="C14" gate="G$1" x="187.96" y="78.74" smashed="yes" rot="R90">
+<attribute name="NAME" x="183.896" y="79.375" size="1.778" layer="95"/>
+<attribute name="VALUE" x="191.516" y="79.629" size="1.778" layer="96"/>
+</instance>
+<instance part="C15" gate="G$1" x="187.96" y="48.26" smashed="yes" rot="R90">
+<attribute name="NAME" x="183.896" y="48.895" size="1.778" layer="95"/>
+<attribute name="VALUE" x="191.516" y="49.149" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -5638,6 +5725,11 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <wire x1="50.8" y1="114.3" x2="53.34" y2="114.3" width="0.1524" layer="91"/>
 <label x="53.34" y="114.3" size="1.524" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="SDA"/>
+<wire x1="198.12" y1="147.32" x2="200.66" y2="147.32" width="0.1524" layer="91"/>
+<label x="200.66" y="147.32" size="1.524" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="SCL" class="0">
 <segment>
@@ -5664,6 +5756,11 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="104.14" x2="53.34" y2="104.14" width="0.1524" layer="91"/>
 <label x="53.34" y="104.14" size="1.524" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="SCL"/>
+<wire x1="198.12" y1="144.78" x2="200.66" y2="144.78" width="0.1524" layer="91"/>
+<label x="200.66" y="144.78" size="1.524" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="3V3" class="0">
@@ -5705,6 +5802,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <wire x1="60.96" y1="20.32" x2="71.12" y2="20.32" width="0.1524" layer="91"/>
 <junction x="60.96" y="20.32"/>
 <pinref part="C10" gate="G$1" pin="1"/>
+<pinref part="C13" gate="G$1" pin="1"/>
+<wire x1="71.12" y1="20.32" x2="81.28" y2="20.32" width="0.1524" layer="91"/>
+<junction x="71.12" y="20.32"/>
 </segment>
 <segment>
 <pinref part="LIGHT" gate="G$1" pin="VDD"/>
@@ -5751,8 +5851,13 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="190.5" y1="121.92" x2="190.5" y2="119.38" width="0.1524" layer="91"/>
-<label x="190.5" y="121.92" size="1.524" layer="95" rot="R180" xref="yes"/>
+<wire x1="190.5" y1="119.38" x2="190.5" y2="116.84" width="0.1524" layer="91"/>
+<label x="190.5" y="119.38" size="1.524" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="VDD"/>
+<wire x1="177.8" y1="147.32" x2="175.26" y2="147.32" width="0.1524" layer="91"/>
+<label x="175.26" y="147.32" size="1.524" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -5785,6 +5890,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <wire x1="60.96" y1="12.7" x2="71.12" y2="12.7" width="0.1524" layer="91"/>
 <junction x="60.96" y="12.7"/>
 <pinref part="C10" gate="G$1" pin="2"/>
+<pinref part="C13" gate="G$1" pin="2"/>
+<wire x1="71.12" y1="12.7" x2="81.28" y2="12.7" width="0.1524" layer="91"/>
+<junction x="71.12" y="12.7"/>
 </segment>
 <segment>
 <pinref part="LIGHT" gate="G$1" pin="VSS"/>
@@ -5823,8 +5931,8 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 </segment>
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="190.5" y1="88.9" x2="190.5" y2="86.36" width="0.1524" layer="91"/>
-<label x="190.5" y="86.36" size="1.524" layer="95" rot="R180" xref="yes"/>
+<wire x1="190.5" y1="91.44" x2="190.5" y2="88.9" width="0.1524" layer="91"/>
+<label x="190.5" y="88.9" size="1.524" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="C8" gate="G$1" pin="2"/>
@@ -5858,6 +5966,11 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <junction x="25.4" y="139.7"/>
 <label x="20.32" y="139.7" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="VSS"/>
+<wire x1="177.8" y1="137.16" x2="175.26" y2="137.16" width="0.1524" layer="91"/>
+<label x="175.26" y="137.16" size="1.524" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="PIROUT" class="0">
 <segment>
@@ -5874,9 +5987,9 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <net name="MIC_OUT" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="190.5" y1="104.14" x2="190.5" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="104.14" x2="190.5" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="190.5" y1="104.14" x2="190.5" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="104.14" x2="190.5" y2="101.6" width="0.1524" layer="91"/>
 <junction x="190.5" y="104.14"/>
 <label x="190.5" y="104.14" size="1.524" layer="95" xref="yes"/>
 <pinref part="C11" gate="G$1" pin="2"/>
@@ -5893,23 +6006,33 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <pinref part="AMP" gate="G$1" pin="A-OUT"/>
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="175.26" y1="71.12" x2="177.8" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="71.12" x2="182.88" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="71.12" x2="180.34" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="71.12" x2="182.88" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="71.12" x2="177.8" y2="60.96" width="0.1524" layer="91"/>
 <junction x="177.8" y="71.12"/>
 <pinref part="AMP" gate="G$1" pin="B-IN-P"/>
 <wire x1="177.8" y1="60.96" x2="175.26" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="180.34" y1="78.74" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="71.12" x2="180.34" y2="78.74" width="0.1524" layer="91"/>
+<junction x="180.34" y="71.12"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
 <pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="193.04" y1="71.12" x2="198.12" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="71.12" x2="195.58" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="AMP" gate="G$1" pin="A-IN-N"/>
+<wire x1="195.58" y1="71.12" x2="198.12" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="71.12" x2="203.2" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="68.58" x2="198.12" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="68.58" x2="198.12" y2="71.12" width="0.1524" layer="91"/>
 <junction x="198.12" y="71.12"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<wire x1="193.04" y1="78.74" x2="195.58" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="71.12" x2="195.58" y2="78.74" width="0.1524" layer="91"/>
+<junction x="195.58" y="71.12"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -5924,27 +6047,37 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 <pinref part="AMP" gate="G$1" pin="B-OUT"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="175.26" y1="55.88" x2="177.8" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="55.88" x2="182.88" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="55.88" x2="177.8" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="55.88" x2="180.34" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="55.88" x2="182.88" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="55.88" x2="177.8" y2="43.18" width="0.1524" layer="91"/>
 <junction x="177.8" y="55.88"/>
-<label x="177.8" y="50.8" size="1.524" layer="95" xref="yes"/>
+<label x="177.8" y="43.18" size="1.524" layer="95" xref="yes"/>
+<wire x1="180.34" y1="55.88" x2="180.34" y2="48.26" width="0.1524" layer="91"/>
+<junction x="180.34" y="55.88"/>
+<pinref part="C15" gate="G$1" pin="1"/>
+<wire x1="180.34" y1="48.26" x2="185.42" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="COMMS" gate="G$1" pin="A0"/>
-<wire x1="35.56" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
-<label x="33.02" y="86.36" size="1.524" layer="95" rot="R180" xref="yes"/>
+<pinref part="U2" gate="G$1" pin="AIN"/>
+<wire x1="198.12" y1="137.16" x2="200.66" y2="137.16" width="0.1524" layer="91"/>
+<label x="200.66" y="137.16" size="1.524" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="R10" gate="G$1" pin="2"/>
 <pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="193.04" y1="55.88" x2="198.12" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="55.88" x2="195.58" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="AMP" gate="G$1" pin="B-IN-N"/>
+<wire x1="195.58" y1="55.88" x2="198.12" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="55.88" x2="203.2" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="58.42" x2="198.12" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="58.42" x2="198.12" y2="55.88" width="0.1524" layer="91"/>
 <junction x="198.12" y="55.88"/>
+<wire x1="195.58" y1="55.88" x2="195.58" y2="48.26" width="0.1524" layer="91"/>
+<junction x="195.58" y="55.88"/>
+<pinref part="C15" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="48.26" x2="193.04" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -5991,9 +6124,6 @@ These map to WeMos pins D3/D4/D8/D0.</text>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="104,1,-2.54,91.44,U1,VCC,3V3,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>
