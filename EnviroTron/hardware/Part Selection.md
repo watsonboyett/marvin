@@ -28,7 +28,7 @@
 ## Pressure
 
 * LPS22HBTR - $4, I2C, high accuracy, decent range
-
+* ICM-20789 - $?, I2C, 1hPa, 300hPa - 1100hPa (includes gyroscope and accelerometer)
 
 ## Sound 
 
