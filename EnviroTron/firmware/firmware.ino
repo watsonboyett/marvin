@@ -6,6 +6,7 @@
 #include "SHT21.h"
 #include "LPS22HB.h"
 #include "I2C_Utils.h"
+#include "common.h"
 
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
@@ -16,7 +17,7 @@ extern "C" {
 }
 
 #define USE_SERIAL Serial
-#define USE_WIFI (true)
+#define USE_WIFI (false)
 
 void connect_wifi()
 {
@@ -64,7 +65,7 @@ void setup()
   // NOTE: prevent ESP from sleeping because it causes lots of ADC noise
   wifi_set_sleep_type(NONE_SLEEP_T);
 
-  
+
   I2C_Setup();
   PIR_Setup();
   MIC_Setup();
@@ -108,13 +109,12 @@ uint32_t previous_time = 0;
 uint32_t sample_interval = 1000;
 uint32_t sample_count = 0;
 
+// Get the latest sensor values
 void collect_sensor_data()
 {
   sample_count++;
 
-  // Get the latest sensor values
   motion_inst = PIR_AnyMovementOccurred();
-  motion_avg = motion_avg || motion_inst;
 
   ALS_MeasureLight();
   als_infrared_inst = ALS_GetIrLightLevel();
@@ -130,10 +130,7 @@ void collect_sensor_data()
 
   mic_level_inst = MIC_GetAvgLevel_SPL();
   float mic_level_max_new = MIC_GetMaxLevel_SPL();
-  if (mic_level_max_new > mic_level_max)
-  {
-    mic_level_max = mic_level_max_new;
-  }
+  mic_level_max = max_val(mic_level_max, mic_level_max_new);
   MIC_ResetMinMaxLevels();
 }
 
@@ -141,12 +138,13 @@ void update_sensor_averages()
 {
   if (sample_count > 1)
   {
-    als_visible_avg = (als_visible_inst * avg_a) + (als_visible_avg * avg_a1);
-    sht_temp_avg = (sht_temp_inst * avg_a) + (sht_temp_avg * avg_a1);
-    sht_rh_avg = (sht_rh_inst * avg_a) + (sht_rh_avg * avg_a1);
-    lps_pres_avg = (lps_pres_inst * avg_a) + (lps_pres_avg * avg_a1);
-    lps_temp_avg = (lps_temp_inst * avg_a) + (lps_temp_avg * avg_a1);
-    mic_level_avg = (mic_level_inst * avg_a) + (mic_level_avg * avg_a1);
+    motion_avg = motion_avg || motion_inst;
+    als_visible_avg = calc_exponential_avg(als_visible_avg, als_visible_inst, avg_a);
+    sht_temp_avg = calc_exponential_avg(sht_temp_avg, sht_temp_inst, avg_a);
+    sht_rh_avg = calc_exponential_avg(sht_rh_avg, sht_rh_inst, avg_a);
+    lps_pres_avg = calc_exponential_avg(lps_pres_avg, lps_pres_inst, avg_a);
+    lps_temp_avg = calc_exponential_avg(lps_temp_avg, lps_temp_inst, avg_a);
+    mic_level_avg = calc_exponential_avg(mic_level_avg, mic_level_inst, avg_a);
   }
   else
   {
@@ -158,6 +156,12 @@ void update_sensor_averages()
     lps_temp_avg = lps_temp_inst;
     mic_level_avg = mic_level_inst;
   }
+}
+
+void clear_max_values()
+{
+  motion_avg = false;
+  mic_level_max = 0;
 }
 
 uint16_t samples_since_last_write = 0;
@@ -273,8 +277,7 @@ void loop()
       MIC_EnableSampling(true);
       interrupts();
 
-      motion_avg = false;
-      mic_level_max = 0;
+      clear_max_values();
       samples_since_last_write = 0;
     }
 

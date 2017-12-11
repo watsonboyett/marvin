@@ -39,7 +39,7 @@ uint8_t I2C_WriteByte(uint8_t slaveAddr, uint8_t regAddr, uint8_t cmd)
 bool I2C_ReadAddr(uint8_t slaveAddr, uint8_t * data, uint8_t byteCount)
 {
   uint8_t bytes_rx = Wire.requestFrom(slaveAddr, byteCount);
-  //USE_SERIAL.printf("received %d bytes\n", bytes_rx);
+  //Serial.printf("received %d bytes\n", bytes_rx);
 
   if (bytes_rx < byteCount && Wire.available() < byteCount)
   {
