@@ -17,7 +17,7 @@ extern "C" {
 }
 
 #define USE_SERIAL Serial
-#define USE_WIFI (false)
+#define USE_WIFI (true)
 
 void connect_wifi()
 {
@@ -85,7 +85,6 @@ bool motion_inst = false;
 bool motion_avg = false;
 
 const float avg_a = 0.1;
-const float avg_a1 = (1 - avg_a);
 
 float als_visible_inst = 0;
 float als_visible_avg = 0;
@@ -225,40 +224,42 @@ void loop()
     update_sensor_averages();
 
     // Print results to console
-    char sample_count_str[9];
-    sprintf(sample_count_str, "%u", sample_count);
-    USE_SERIAL.printf("Sample: %s, ", sample_count_str);
+    if (true)
+    {
+      char sample_count_str[9];
+      sprintf(sample_count_str, "%u", sample_count);
+      USE_SERIAL.printf("Sample: %s, ", sample_count_str);
 
-    char sht_temp_str[6];
-    dtostrf(sht_temp_inst, 0, 2, sht_temp_str);
-    char sht_rh_str[6];
-    dtostrf(sht_rh_inst, 0, 2, sht_rh_str);
-    USE_SERIAL.printf("SHT T: %s, SHT RH: %s, ", sht_temp_str, sht_rh_str);
+      char sht_temp_str[6];
+      dtostrf(sht_temp_inst, 0, 2, sht_temp_str);
+      char sht_rh_str[6];
+      dtostrf(sht_rh_inst, 0, 2, sht_rh_str);
+      USE_SERIAL.printf("SHT T: %s, SHT RH: %s, ", sht_temp_str, sht_rh_str);
 
-    char lps_press_str[6];
-    dtostrf(lps_pres_inst, 0, 2, lps_press_str);
-    char lps_temp_str[6];
-    dtostrf(lps_temp_inst, 0, 2, lps_temp_str);
-    USE_SERIAL.printf("LPS P: %s, LPS T: %s, ", lps_press_str, lps_temp_str);
+      char lps_press_str[6];
+      dtostrf(lps_pres_inst, 0, 2, lps_press_str);
+      char lps_temp_str[6];
+      dtostrf(lps_temp_inst, 0, 2, lps_temp_str);
+      USE_SERIAL.printf("LPS P: %s, LPS T: %s, ", lps_press_str, lps_temp_str);
 
-    char als_vis_str[9];
-    dtostrf(als_visible_inst, 0, 2, als_vis_str);
-    char als_ir_str[9];
-    dtostrf(als_infrared_inst, 0, 2, als_ir_str);
-    USE_SERIAL.printf("ALS Vis: %s, ALS IR: %s, ", als_vis_str, als_ir_str);
+      char als_vis_str[9];
+      dtostrf(als_visible_inst, 0, 2, als_vis_str);
+      char als_ir_str[9];
+      dtostrf(als_infrared_inst, 0, 2, als_ir_str);
+      USE_SERIAL.printf("ALS Vis: %s, ALS IR: %s, ", als_vis_str, als_ir_str);
 
-    USE_SERIAL.printf("PIR M: %d, ", motion_inst);
+      USE_SERIAL.printf("PIR M: %d, ", motion_inst);
 
-    char mic_inst_str[6];
-    dtostrf(mic_level_avg, 0, 2, mic_inst_str);
-    USE_SERIAL.printf("MIC Va: %s ", mic_inst_str);
-    char mic_max_str[6];
-    dtostrf(mic_level_max, 0, 2, mic_max_str);
-    USE_SERIAL.printf("MIC Vh: %s ", mic_max_str);
+      char mic_inst_str[6];
+      dtostrf(mic_level_avg, 0, 2, mic_inst_str);
+      USE_SERIAL.printf("MIC Va: %s ", mic_inst_str);
+      char mic_max_str[6];
+      dtostrf(mic_level_max, 0, 2, mic_max_str);
+      USE_SERIAL.printf("MIC Vh: %s ", mic_max_str);
 
-    USE_SERIAL.printf("\n");
-    USE_SERIAL.flush();
-
+      USE_SERIAL.printf("\n");
+      USE_SERIAL.flush();
+    }
 
     // write sensor data to database (ensure WiFi is connected)
     if (samples_since_last_write >= db_write_rate)

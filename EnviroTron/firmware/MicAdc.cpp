@@ -13,8 +13,8 @@ const float MIC_adc_voltage_max = 3.3;  // in Volts
 const float MIC_adc_value_max = 4096.0;
 
 const float MIC_voltage_offset = 1.65;  // in Volts
-const float MIC_amp_gain = 46.24;   // in Volt / Volt
-const float MIC_mic_sens = 125.89;  //  in Volt / Pascal
+const float MIC_amp_gain = 60.84;   // in Volt/Volt
+const float MIC_mic_sens = 125.89;  //  in Pascal/Volt (-42 dB -> 10^(-42/20) = 7.943 mV/Pa)
 const float MIC_conv = MIC_mic_sens / MIC_amp_gain;  // conversion factor for Volts to Pascals
 
 bool MIC_has_new_sample = false;
@@ -25,7 +25,6 @@ float MIC_voltage_max = 0;
 
 float MIC_voltage_avg = 0;
 const float MIC_avg_a = 0.1;
-const float MIC_avg_a1 = (1 - MIC_avg_a);
 
 #define MCP3221_ADDR (0b01001101)
 
@@ -37,11 +36,23 @@ void MIC_MeasureLevel()
   int sensorValue = ((int)rd_bytes[0] << 8 | rd_bytes[1]);
 
   // Convert the analog reading (which goes from 0 - 4096) to a voltage (0 - 3.3V):
-  MIC_voltage_inst = sensorValue * (MIC_adc_voltage_max / MIC_adc_value_max);
+  MIC_voltage_inst = sensorValue * (MIC_adc_voltage_max / MIC_adc_value_max) - MIC_voltage_offset;
   MIC_voltage_avg = calc_exponential_avg(MIC_voltage_avg, MIC_voltage_inst, MIC_avg_a);
 
-  MIC_voltage_max = max(MIC_voltage_inst, MIC_voltage_max);
-  MIC_voltage_min = min(MIC_voltage_inst, MIC_voltage_min);
+  float v_abs = abs(MIC_voltage_inst);
+  MIC_voltage_max = max(v_abs, MIC_voltage_max);
+  MIC_voltage_min = min(v_abs, MIC_voltage_min);
+
+//  char mic_inst_str[8];
+//  dtostrf((MIC_voltage_inst), 0, 4, mic_inst_str);
+//  char mic_avg_str[8];
+//  dtostrf((MIC_voltage_avg), 0, 4, mic_avg_str);
+//  char mic_min_str[8];
+//  dtostrf((MIC_voltage_min), 0, 4, mic_min_str);
+//  char mic_max_str[8];
+//  dtostrf((MIC_voltage_max), 0, 4, mic_max_str);
+//  Serial.printf("%s, %s, %s, %s \n", mic_inst_str, mic_avg_str, mic_min_str, mic_max_str);
+//  Serial.flush();
 
   MIC_has_new_sample = true;
 }
@@ -101,12 +112,12 @@ float MIC_GetAvgLevel_V()
   return MIC_voltage_avg;
 }
 
-#define MIC_MIN_PRESSURE_Pa (1e-5)
+#define MIC_MIN_PRESSURE_Pa (20e-6)  // min threshold of hearing is 20uPa (0 dB SPL)
 
 float MIC_VoltToSPL(float v)
 {
   // convert from volts to pascals (ensure pressure isn't 0 or the SPL will be inf)
-  float p = abs(v - MIC_voltage_offset) * MIC_conv;
+  float p = abs(v) * MIC_conv;
   p = max(p, MIC_MIN_PRESSURE_Pa);
 
   // convert from pascals to SPL (SPL is referenced to 20uPa, which is where the 50e3 factor comes from)
