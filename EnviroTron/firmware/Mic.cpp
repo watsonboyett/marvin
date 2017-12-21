@@ -1,16 +1,11 @@
-#pragma once
 
-#include "MicAdc.h"
+#include "Mic.h"
 #include "common.h"
-#include "I2C_Utils.h"
+#include "MCP3221.h"
 #include <Ticker.h>
 #include <Arduino.h>
 
 Ticker MIC_timer;
-
-const float MIC_adc_voltage_min = 0.0;  // in Volts
-const float MIC_adc_voltage_max = 3.3;  // in Volts
-const float MIC_adc_value_max = 4096.0;
 
 const float MIC_voltage_offset = 1.65;  // in Volts
 const float MIC_amp_gain = 60.84;   // in Volt/Volt
@@ -26,34 +21,27 @@ float MIC_voltage_max = 0;
 float MIC_voltage_avg = 0;
 const float MIC_avg_a = 0.1;
 
-#define MCP3221_ADDR (0b01001101)
 
 void MIC_MeasureLevel()
 {
-  //int sensorValue = analogRead(MIC_ADC_PIN);
-  uint8_t rd_bytes[2] = {0};
-  bool success = I2C_ReadAddr(MCP3221_ADDR, rd_bytes, 2);
-  int sensorValue = ((int)rd_bytes[0] << 8 | rd_bytes[1]);
+  MCP3221_MeasureLevel();
+  float mic_v = MCP3221_GetLevel_V();
 
-  // Convert the analog reading (which goes from 0 - 4096) to a voltage (0 - 3.3V):
-  MIC_voltage_inst = sensorValue * (MIC_adc_voltage_max / MIC_adc_value_max) - MIC_voltage_offset;
+  MIC_voltage_inst = mic_v - MIC_voltage_offset;
   MIC_voltage_avg = calc_exponential_avg(MIC_voltage_avg, MIC_voltage_inst, MIC_avg_a);
 
   float v_abs = abs(MIC_voltage_inst);
   MIC_voltage_max = max(v_abs, MIC_voltage_max);
   MIC_voltage_min = min(v_abs, MIC_voltage_min);
 
-//  char mic_inst_str[8];
-//  dtostrf((MIC_voltage_inst), 0, 4, mic_inst_str);
-//  char mic_avg_str[8];
-//  dtostrf((MIC_voltage_avg), 0, 4, mic_avg_str);
-//  char mic_min_str[8];
-//  dtostrf((MIC_voltage_min), 0, 4, mic_min_str);
-//  char mic_max_str[8];
-//  dtostrf((MIC_voltage_max), 0, 4, mic_max_str);
-//  Serial.printf("%s, %s, %s, %s \n", mic_inst_str, mic_avg_str, mic_min_str, mic_max_str);
-//  Serial.flush();
+  
+  char v_str[12];
+  dtostrf(v_abs, 0, 5, v_str);
+  char db_str[12];
+  dtostrf(MIC_VoltToSPL(v_abs), 0, 5, db_str);
+  //Serial.printf("V: %s, SPL: %s \n", v_str, db_str);
 
+  
   MIC_has_new_sample = true;
 }
 
@@ -103,8 +91,8 @@ float MIC_GetMaxLevel_V()
 
 float MIC_ResetMinMaxLevels()
 {
-  MIC_voltage_min = MIC_adc_voltage_max;
-  MIC_voltage_max = MIC_adc_voltage_min;
+  MIC_voltage_min = MCP3221_VOLTAGE_MAX;
+  MIC_voltage_max = MCP3221_VOLTAGE_MIN;
 }
 
 float MIC_GetAvgLevel_V()
