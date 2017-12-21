@@ -9,3 +9,4 @@ float LPS_GetTemperature_C();
 float LPS_GetTemperature_F();
 
 void LPS_MeasurePressure();
+

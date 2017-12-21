@@ -1,16 +1,12 @@
 
 #include "creds.h"
-#include "PIR.h"
-#include "MicAdc.h"
-#include "LTR-329.h"
-#include "SHT21.h"
-#include "LPS22HB.h"
-#include "I2C_Utils.h"
+#include "Sensors.h"
 #include "common.h"
 
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
+//#include <ESP8266HTTPClient.h>
+#include <PubSubClient.h>
 
 extern "C" {
 #include "user_interface.h"
@@ -18,6 +14,45 @@ extern "C" {
 
 #define USE_SERIAL Serial
 #define USE_WIFI (true)
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+IPAddress broker(192, 168, 0, 186);
+
+void callback(char* topic, byte* payload, unsigned int length)
+{
+  USE_SERIAL.print("Message arrived [");
+  USE_SERIAL.print(topic);
+  USE_SERIAL.print("] ");
+  for (int i = 0; i < length; i++)
+  {
+    USE_SERIAL.print((char)payload[i]);
+  }
+  USE_SERIAL.println();
+}
+
+void reconnect()
+{
+  // Loop until we're reconnected
+  while (!client.connected())
+  {
+    USE_SERIAL.print("Attempting MQTT connection...");
+    if (client.connect("ESP8266 Client"))
+    {
+      USE_SERIAL.println("connected");
+      // ... and subscribe to topic
+      client.subscribe("ledStatus");
+    }
+    else
+    {
+      USE_SERIAL.print("failed, rc=");
+      USE_SERIAL.print(client.state());
+      USE_SERIAL.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
 
 void connect_wifi()
 {
@@ -39,6 +74,9 @@ void connect_wifi()
       delay(500);
     }
 
+    client.setServer(broker, 1883);
+    client.setCallback(callback);
+
     USE_SERIAL.print("WiFi connected. IP address: ");
     USE_SERIAL.println(WiFi.localIP());
   }
@@ -46,6 +84,8 @@ void connect_wifi()
 
 int chip_id = 0;
 char chip_id_str[7];
+
+
 
 void setup()
 {
@@ -65,122 +105,92 @@ void setup()
   // NOTE: prevent ESP from sleeping because it causes lots of ADC noise
   wifi_set_sleep_type(NONE_SLEEP_T);
 
-
-  I2C_Setup();
-  PIR_Setup();
-  MIC_Setup();
-  ALS_Setup();
-  SHT_Setup();
-  LPS_Setup();
-
+  SENSORS_Init();
   delay(1000);
-
-  PIR_EnableInterrupt(true);
-  MIC_EnableSampling(true);
-  interrupts();
+  SENSORS_EnableInterrupts();
 }
 
 
-bool motion_inst = false;
-bool motion_avg = false;
+bool motion_avg;
+float light_avg;
+float ir_avg;
+float temp_avg = 0;
+float rel_hum_avg = 0;
+float pres_avg = 0;
+float sound_avg = 0;
+float sound_max = 0;
 
-const float avg_a = 0.1;
-
-float als_visible_inst = 0;
-float als_visible_avg = 0;
-float als_infrared_inst = 0;
-
-float sht_temp_inst = 0;
-float sht_temp_avg = 0;
-float sht_rh_inst = 0;
-float sht_rh_avg = 0;
-
-float lps_pres_inst = 0;
-float lps_pres_avg = 0;
-float lps_temp_inst = 0;
-float lps_temp_avg = 0;
-
-float mic_level_inst = 0;
-float mic_level_avg = 0;
-float mic_level_max = 0;
-
-uint32_t previous_time = 0;
-uint32_t sample_interval = 1000;
-uint32_t sample_count = 0;
-
-// Get the latest sensor values
-void collect_sensor_data()
+bool publish_sensor_data(SensorData_t sd)
 {
-  sample_count++;
-
-  motion_inst = PIR_AnyMovementOccurred();
-
-  ALS_MeasureLight();
-  als_infrared_inst = ALS_GetIrLightLevel();
-  als_visible_inst = ALS_GetAmbientLightLevel();
-
-  SHT_MeasureTemperature();
-  sht_temp_inst = SHT_GetTemperature_F();
-  sht_rh_inst = SHT_GetRelHumidity_pct();
-
-  LPS_MeasurePressure();
-  lps_pres_inst = LPS_GetPressure_mbar();
-  lps_temp_inst = LPS_GetTemperature_F();
-
-  mic_level_inst = MIC_GetAvgLevel_SPL();
-  float mic_level_max_new = MIC_GetMaxLevel_SPL();
-  mic_level_max = max_val(mic_level_max, mic_level_max_new);
-  MIC_ResetMinMaxLevels();
-}
-
-void update_sensor_averages()
-{
-  if (sample_count > 1)
+  bool success = 1;
+  for (int i = 0; i < 8; i++)
   {
-    motion_avg = motion_avg || motion_inst;
-    als_visible_avg = calc_exponential_avg(als_visible_avg, als_visible_inst, avg_a);
-    sht_temp_avg = calc_exponential_avg(sht_temp_avg, sht_temp_inst, avg_a);
-    sht_rh_avg = calc_exponential_avg(sht_rh_avg, sht_rh_inst, avg_a);
-    lps_pres_avg = calc_exponential_avg(lps_pres_avg, lps_pres_inst, avg_a);
-    lps_temp_avg = calc_exponential_avg(lps_temp_avg, lps_temp_inst, avg_a);
-    mic_level_avg = calc_exponential_avg(mic_level_avg, mic_level_inst, avg_a);
+    char topic[32];
+    char msg[32];
+    char subtopic[12];
+
+    // TODO: this is super hacky, so figure out a better way to do this
+    switch (i)
+    {
+      case 0:
+        {
+          sprintf(subtopic, "motion");
+          sprintf(msg, "%d", sd.motion_avg);
+          break;
+        }
+      case 1:
+        {
+          sprintf(subtopic, "light");
+          dtostrf(sd.light_avg, 0, 2, msg);
+          break;
+        }
+      case 2:
+        {
+          sprintf(subtopic, "ir");
+          dtostrf(sd.ir_avg, 0, 2, msg);
+          break;
+        }
+      case 3:
+        {
+          sprintf(subtopic, "temp");
+          dtostrf(sd.temp_avg, 0, 2, msg);
+          break;
+        }
+      case 4:
+        {
+          sprintf(subtopic, "rhum");
+          dtostrf(sd.rel_hum_avg, 0, 2, msg);
+          break;
+        }
+      case 5:
+        {
+          sprintf(subtopic, "pressure");
+          dtostrf(sd.pres_avg, 0, 2, msg);
+          break;
+        }
+      case 6:
+        {
+          sprintf(subtopic, "sound_avg");
+          dtostrf(sd.sound_avg, 0, 2, msg);
+          break;
+        }
+      case 7:
+        {
+          sprintf(subtopic, "sound_max");
+          dtostrf(sd.sound_max, 0, 2, msg);
+          break;
+        }
+    }
+
+    sprintf(topic, "sensors/%#06x/%s", chip_id, subtopic);
+    success &= client.publish(topic, msg);
   }
-  else
+  return success;
+}
+
+/*
+  void write_msg_to_db(char * msg)
   {
-    // initialize average values
-    als_visible_avg = als_visible_inst;
-    sht_temp_avg = sht_temp_inst;
-    sht_rh_avg = sht_rh_inst;
-    lps_pres_avg = lps_pres_inst;
-    lps_temp_avg = lps_temp_inst;
-    mic_level_avg = mic_level_inst;
-  }
-}
-
-void clear_max_values()
-{
-  motion_avg = false;
-  mic_level_max = 0;
-}
-
-uint16_t samples_since_last_write = 0;
-uint16_t db_write_rate = 30;
-void write_data_to_db()
-{
-  String post_payload =
-    String("sensor,node=0,id=") + String(chip_id_str) +
-    String(" ") +
-    String("sample=") + String(sample_count) +
-    String(",temp=") + String(sht_temp_avg) +
-    String(",humidity=") + String(sht_rh_avg) +
-    String(",pressure=") + String(lps_pres_avg) +
-    String(",temp_alt=") + String(lps_temp_avg) +
-    String(",light=") + String(als_visible_avg) +
-    String(",motion=") + String(motion_avg) +
-    String(",sound_avg=") + String(mic_level_avg) +
-    String(",sound_max=") + String(mic_level_max);
-  USE_SERIAL.println(post_payload);
-
   bool isHttpGet = false;
   String write_url = String(INFLUXDB_URL) + "/write?db=" + INFLUXDB_DBNAME;
 
@@ -210,7 +220,14 @@ void write_data_to_db()
     String payload = http.getString();
     USE_SERIAL.println(payload);
   }
-}
+  }
+*/
+
+uint32_t previous_time = 0;
+uint32_t sample_interval = 1000;
+
+uint16_t samples_since_last_write = 0;
+uint16_t db_write_rate = 2;
 
 void loop()
 {
@@ -219,71 +236,52 @@ void loop()
   if (current_time - previous_time >= sample_interval)
   {
     previous_time = current_time;
-
-    collect_sensor_data();
-    update_sensor_averages();
+    SENSORS_Update();
 
     // Print results to console
-    if (true)
-    {
-      char sample_count_str[9];
-      sprintf(sample_count_str, "%u", sample_count);
-      USE_SERIAL.printf("Sample: %s, ", sample_count_str);
-
-      char sht_temp_str[6];
-      dtostrf(sht_temp_inst, 0, 2, sht_temp_str);
-      char sht_rh_str[6];
-      dtostrf(sht_rh_inst, 0, 2, sht_rh_str);
-      USE_SERIAL.printf("SHT T: %s, SHT RH: %s, ", sht_temp_str, sht_rh_str);
-
-      char lps_press_str[6];
-      dtostrf(lps_pres_inst, 0, 2, lps_press_str);
-      char lps_temp_str[6];
-      dtostrf(lps_temp_inst, 0, 2, lps_temp_str);
-      USE_SERIAL.printf("LPS P: %s, LPS T: %s, ", lps_press_str, lps_temp_str);
-
-      char als_vis_str[9];
-      dtostrf(als_visible_inst, 0, 2, als_vis_str);
-      char als_ir_str[9];
-      dtostrf(als_infrared_inst, 0, 2, als_ir_str);
-      USE_SERIAL.printf("ALS Vis: %s, ALS IR: %s, ", als_vis_str, als_ir_str);
-
-      USE_SERIAL.printf("PIR M: %d, ", motion_inst);
-
-      char mic_inst_str[6];
-      dtostrf(mic_level_avg, 0, 2, mic_inst_str);
-      USE_SERIAL.printf("MIC Va: %s ", mic_inst_str);
-      char mic_max_str[6];
-      dtostrf(mic_level_max, 0, 2, mic_max_str);
-      USE_SERIAL.printf("MIC Vh: %s ", mic_max_str);
-
-      USE_SERIAL.printf("\n");
-      USE_SERIAL.flush();
-    }
+    USE_SERIAL.print("Sensors: ");
+    char * inst_str = SENSORS_GetInstString();
+    USE_SERIAL.println(inst_str);
 
     // write sensor data to database (ensure WiFi is connected)
     if (samples_since_last_write >= db_write_rate)
     {
-      // NOTE: interrupts during WiFi write seem to cause ESP8266 module to reboot
-      PIR_EnableInterrupt(false);
-      MIC_EnableSampling(false);
-      noInterrupts();
+      char * avg_str = SENSORS_GetAvgString();
+      USE_SERIAL.println(avg_str);
+
+      SensorData_t sd = SENSORS_GetSensorData();
 
       if (USE_WIFI && (WiFi.status() == WL_CONNECTED))
       {
-        write_data_to_db();
+        // NOTE: interrupts during WiFi write seem to cause ESP8266 module to reboot
+        SENSORS_DisableInterrupts();
+
+        if (!client.connected()) {
+          reconnect();
+        }
+        client.loop();
+
+        //write_data_to_db(avg_str);
+        bool success = publish_sensor_data(sd);
+        if (success)
+        {
+          USE_SERIAL.println("Publish Succeeded.");
+        }
+        else
+        {
+          USE_SERIAL.println("Publish Failed.");
+        }
+
+        SENSORS_EnableInterrupts();
       }
 
-      PIR_EnableInterrupt(true);
-      MIC_EnableSampling(true);
-      interrupts();
-
-      clear_max_values();
+      SENSORS_ClearHoldValues();
       samples_since_last_write = 0;
     }
 
     samples_since_last_write++;
   }
+
   delay(100);
 }
 

@@ -12,7 +12,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     bool PHE : 1;
     bool PLE : 1;
@@ -56,7 +56,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     bool SIM : 1;
     bool BDU : 1;
@@ -74,7 +74,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     bool ONE_SHOT : 1;
     bool zero : 1;
@@ -94,7 +94,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     bool INT_S1 : 1;
     bool INT_s2 : 1;
@@ -114,7 +114,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     uint8_t WTM : 5;
     uint8_t F_MODE : 3;
@@ -162,7 +162,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     bool LC_EN : 1;
     bool reserved : 1;
@@ -177,7 +177,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     bool PH : 1;
     bool PL : 1;
@@ -194,7 +194,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     uint8_t FSS : 6;
     bool OVR : 1;
@@ -209,7 +209,7 @@ typedef union
 {
   uint8_t reg;
 
-  struct 
+  struct
   {
     bool P_DA : 1;
     bool T_DA : 1;
@@ -273,10 +273,10 @@ void LPS_Setup()
   {
     LPS_ctrl_reg1.ODR = 0b001;
     LPS_ctrl_reg1.EN_LPFP = 1;
-    LPS_ctrl_reg1.BDU = 1;  // must read PRESS_OUT_H register last when BDU is enabled    
+    LPS_ctrl_reg1.BDU = 1;  // must read PRESS_OUT_H register last when BDU is enabled
     I2C_WriteByte(LPS_ADDR, LPS_CTRL_REG1_ADDR, LPS_ctrl_reg1.reg);
     delay(10);
-    
+
     LPS_configured = true;
   }
 }
@@ -319,3 +319,4 @@ void LPS_MeasurePressure()
   LPS_Temp_C = (float) LPS_temp.value / 100 + LPS_TemperatureOffset_C;
   LPS_Temp_F = LPS_Temp_C * (9.0 / 5.0) + 32;
 }
+
