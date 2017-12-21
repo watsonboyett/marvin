@@ -4,12 +4,13 @@
 
 typedef struct
 {
-  bool motion_inst;
-  bool motion_avg;
-  float light_inst;
-  float light_avg;
-  float ir_inst;
-  float ir_avg;
+  uint32_t sample_count = 0;
+  bool motion_inst = 0;
+  bool motion_avg = 0;
+  float light_inst = 0;
+  float light_avg = 0;
+  float ir_inst = 0;
+  float ir_avg = 0;
   float temp_inst = 0;
   float temp_avg = 0;
   float rel_hum_inst = 0;

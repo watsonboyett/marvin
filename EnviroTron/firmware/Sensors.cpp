@@ -36,35 +36,11 @@ void SENSORS_DisableInterrupts()
 }
 
 const float avg_a = 0.1;
-
 SensorData_t sd;
-
-//bool motion_inst = false;
-//bool motion_avg = false;
-//
-//float als_visible_inst = 0;
-//float als_visible_avg = 0;
-//float als_infrared_inst = 0;
-//
-//float sht_temp_inst = 0;
-//float sht_temp_avg = 0;
-//float sht_rh_inst = 0;
-//float sht_rh_avg = 0;
-//
-//float lps_pres_inst = 0;
-//float lps_pres_avg = 0;
-//float lps_temp_inst = 0;
-//float lps_temp_avg = 0;
-//
-//float mic_level_inst = 0;
-//float mic_level_avg = 0;
-//float mic_level_max = 0;
-
-uint32_t sample_count = 0;
 
 void update_sensor_averages()
 {
-  if (sample_count > 1)
+  if (sd.sample_count > 1)
   {
     sd.motion_avg = sd.motion_avg || sd.motion_inst;
     sd.light_avg = calc_exponential_avg(sd.light_avg, sd.light_inst, avg_a);
@@ -90,7 +66,7 @@ void update_sensor_averages()
 
 void SENSORS_Update()
 {
-  sample_count++;
+  sd.sample_count++;
 
   sd.motion_inst = PIR_AnyMovementOccurred();
 
@@ -149,7 +125,7 @@ char * SENSORS_GetInstString()
   dtostrf(sd.sound_max, 0, 2, spl_max_str);
 
   sprintf(inst_str, "sample=%u,temp=%s,humidity=%s,pressure=%s,temp_alt=%s,light=%s,ir=%s,motion=%d,sound=%s,sound_max=%s",
-          sample_count, temp_str, rh_str, press_str, temp_alt_str, light_str, ir_str, sd.motion_inst, spl_str, spl_max_str);
+          sd.sample_count, temp_str, rh_str, press_str, temp_alt_str, light_str, ir_str, sd.motion_inst, spl_str, spl_max_str);
 
   return inst_str;
 }
@@ -176,7 +152,7 @@ char * SENSORS_GetAvgString()
   dtostrf(sd.sound_max, 0, 2, spl_max_str);
 
   sprintf(avg_str, "sample=%u,temp=%s,humidity=%s,pressure=%s,temp_alt=%s,light=%s,motion=%d,sound_avg=%s,sound_max=%s",
-          sample_count, temp_str, rh_str, press_str, temp_alt_str, light_str, sd.motion_avg, spl_str, spl_max_str);
+          sd.sample_count, temp_str, rh_str, press_str, temp_alt_str, light_str, sd.motion_avg, spl_str, spl_max_str);
 
   return avg_str;
 }
