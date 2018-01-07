@@ -10,7 +10,7 @@ void I2C_Setup()
   Wire.begin(SDA, SCL);
 }
 
-// return True is ACK is retruned from slave, false otherwise
+// return True if ACK is retruned from slave, false otherwise
 uint8_t I2C_WriteAddr(uint8_t slaveAddr)
 {
   Wire.beginTransmission(slaveAddr);
@@ -35,7 +35,7 @@ uint8_t I2C_WriteByte(uint8_t slaveAddr, uint8_t regAddr, uint8_t cmd)
   return result;
 }
 
-// return True is ACK is retruned from slave, false otherwise
+// return True if ACK is retruned from slave, false otherwise
 bool I2C_ReadAddr(uint8_t slaveAddr, uint8_t * data, uint8_t byteCount)
 {
   uint8_t bytes_rx = Wire.requestFrom(slaveAddr, byteCount);

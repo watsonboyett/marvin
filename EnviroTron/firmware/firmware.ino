@@ -75,16 +75,16 @@ void loop()
     SENSORS_Update();
 
     // Print latest sensor samples to console
-    USE_SERIAL.print("Inst: ");
+    //USE_SERIAL.print("Inst: ");
     char * inst_str = SENSORS_GetInstString();
-    USE_SERIAL.println(inst_str);
+    //USE_SERIAL.println(inst_str);
 
     // wait until we hit the publish interval to send the averaged data
     if (samples_since_last_write >= publish_interval)
     {
-      USE_SERIAL.print("Avg: ");
+      //USE_SERIAL.print("Avg: ");
       char * avg_str = SENSORS_GetAvgString();
-      USE_SERIAL.println(avg_str);
+      //USE_SERIAL.println(avg_str);
 
       // convert sensor data structure to topic data structure
       SensorData_t sd = SENSORS_GetSensorData();
@@ -110,11 +110,11 @@ void loop()
         bool success = MQTT_PublishMessages(&md);
         if (success)
         {
-          USE_SERIAL.println("Publish Succeeded.");
+          //USE_SERIAL.println("Publish Succeeded.");
         }
         else
         {
-          USE_SERIAL.println("Publish Failed.");
+          //USE_SERIAL.println("Publish Failed.");
         }
 
         SENSORS_EnableInterrupts();

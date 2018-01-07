@@ -7,8 +7,8 @@
 
 Ticker MIC_timer;
 
-const float MIC_voltage_offset = 1.65;  // in Volts
-const float MIC_amp_gain = 60.84;   // in Volt/Volt
+const float MIC_voltage_offset = 1.64678;  // in Volts
+const float MIC_amp_gain = 441.0;   // in Volt/Volt
 const float MIC_mic_sens = 125.89;  //  in Pascal/Volt (-42 dB -> 10^(-42/20) = 7.943 mV/Pa)
 const float MIC_conv = MIC_mic_sens / MIC_amp_gain;  // conversion factor for Volts to Pascals
 
@@ -36,10 +36,10 @@ void MIC_MeasureLevel()
 
   
   char v_str[12];
-  dtostrf(v_abs, 0, 5, v_str);
+  dtostrf(MIC_voltage_inst, 0, 5, v_str);
   char db_str[12];
-  dtostrf(MIC_VoltToSPL(v_abs), 0, 5, db_str);
-  //Serial.printf("V: %s, SPL: %s \n", v_str, db_str);
+  dtostrf(MIC_VoltToSPL(v_abs), 0, 3, db_str);
+  //Serial.printf("%s, %s \r\n", v_str, db_str);
 
   
   MIC_has_new_sample = true;
@@ -49,7 +49,7 @@ void MIC_EnableSampling(bool enable)
 {
   if (enable)
   {
-    MIC_timer.attach_ms(10, MIC_MeasureLevel);
+    MIC_timer.attach_ms(2, MIC_MeasureLevel);
   }
   else
   {

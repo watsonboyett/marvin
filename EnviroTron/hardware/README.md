@@ -1,4 +1,37 @@
 
+# Revision History
+
+## v1A
+
+* Initial design
+
+## v1B
+
+* Moved PIR output to D8 pin
+* Fixed floating CSB pin on MS5607 chip 
+* Added pull-down to PIR output
+
+## v1C
+
+* Changed pressure sensor to LPS22 chip
+* Added microphone and amp
+* Added 3v3 regulator (fed from 5v rail)
+* Added current limiting resistor to PIR output
+
+## v1D
+
+* Added ADC chip for mic (ESP's ADC does not seem to meet noise specs when WiFi is used)
+* Replaced 3v3 regulator with precision reference
+
+## v1E
+
+* Added Pi filter to create analog voltage rail
+* Changed mic to SPH1642 part
+* Increased mic amp gain
+
+
+# Parts Selection
+
 ## MCU
 
 * D1 Mini Pro - $5, 11 DIO, 1 AIO [web](https://www.wemos.cc/product/d1-mini-pro.html)
@@ -30,6 +63,7 @@
 * LPS22HBTR - $4, I2C, high accuracy, decent range
 * ICM-20789 - $?, I2C, 1hPa, 300hPa - 1100hPa (includes gyroscope and accelerometer)
 
+
 ## Sound 
 
 * (MIC) SPM0404HE5H-PB - $4
@@ -44,6 +78,7 @@
 
 * AS-MLV-P2 - $25, CO/
 * SGP30 - $?, MO Gas (CO2 Equivalent)
+* CCS811B - $14, I2C, TVOC + eCO2
 
 
 ## Vibration/Acceleration
