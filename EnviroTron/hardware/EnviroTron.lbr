@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -3897,7 +3897,7 @@ Optical Sensor Ambient I²C</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MCP6002">
+<deviceset name="OPAMP">
 <description>IC OPAMP General Purpose Amplifier Circuit Rail-to-Rail</description>
 <gates>
 <gate name="G1" symbol="OPAMP" x="2.54" y="10.16"/>
@@ -3905,7 +3905,7 @@ Optical Sensor Ambient I²C</description>
 <gate name="G3" symbol="V+/V-" x="40.64" y="0"/>
 </gates>
 <devices>
-<device name="" package="MSOP-8">
+<device name="-MSOP8" package="MSOP-8">
 <connects>
 <connect gate="G1" pin="+IN" pad="3"/>
 <connect gate="G1" pin="-IN" pad="2"/>
@@ -3917,10 +3917,15 @@ Optical Sensor Ambient I²C</description>
 <connect gate="G3" pin="V-" pad="4"/>
 </connects>
 <technologies>
-<technology name="">
-<attribute name="MFG" value="Microchip Technology" constant="no"/>
+<technology name="-MCP6002">
+<attribute name="MFG" value="Microchip Technologies Inc." constant="no"/>
 <attribute name="MPN" value="MCP6002T-I/MS" constant="no"/>
 <attribute name="PN-DK" value="MCP6002T-I/MSCT-ND" constant="no"/>
+</technology>
+<technology name="-OPA2376">
+<attribute name="MFG" value="Texas Instruments" constant="no"/>
+<attribute name="MPN" value="OPA2376AIDGKR" constant="no"/>
+<attribute name="PN-DK" value="296-22630-1-ND" constant="no"/>
 </technology>
 </technologies>
 </device>

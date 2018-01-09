@@ -5546,7 +5546,7 @@ LETTER landscape</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MCP6002">
+<deviceset name="OPAMP">
 <description>IC OPAMP General Purpose Amplifier Circuit Rail-to-Rail</description>
 <gates>
 <gate name="G1" symbol="OPAMP" x="2.54" y="10.16"/>
@@ -5554,7 +5554,7 @@ LETTER landscape</description>
 <gate name="G3" symbol="V+/V-" x="40.64" y="0"/>
 </gates>
 <devices>
-<device name="" package="MSOP-8">
+<device name="-MSOP8" package="MSOP-8">
 <connects>
 <connect gate="G1" pin="+IN" pad="3"/>
 <connect gate="G1" pin="-IN" pad="2"/>
@@ -5566,10 +5566,15 @@ LETTER landscape</description>
 <connect gate="G3" pin="V-" pad="4"/>
 </connects>
 <technologies>
-<technology name="">
-<attribute name="MFG" value="Microchip Technology" constant="no"/>
+<technology name="-MCP6002">
+<attribute name="MFG" value="Microchip Technologies Inc." constant="no"/>
 <attribute name="MPN" value="MCP6002T-I/MS" constant="no"/>
 <attribute name="PN-DK" value="MCP6002T-I/MSCT-ND" constant="no"/>
+</technology>
+<technology name="-OPA2376">
+<attribute name="MFG" value="Texas Instruments" constant="no"/>
+<attribute name="MPN" value="OPA2376AIDGKR" constant="no"/>
+<attribute name="PN-DK" value="296-22630-1-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -5604,7 +5609,9 @@ LETTER landscape</description>
 <part name="MOTION" library="EnviroTron" deviceset="PIR" device=""/>
 <part name="R3" library="EnviroTron" deviceset="R-US_" device="R0603" value="68k"/>
 <part name="TEMP" library="EnviroTron" deviceset="SHT21" device=""/>
-<part name="COMMS" library="EnviroTron" deviceset="WEMOS-D1-MINI" device=""/>
+<part name="COMMS" library="EnviroTron" deviceset="WEMOS-D1-MINI" device="">
+<attribute name="SPICEPREFIX" value="X"/>
+</part>
 <part name="PRESS" library="EnviroTron" deviceset="LPS22HB" device=""/>
 <part name="C7" library="EnviroTron" deviceset="C-US" device="C0603" value="100n"/>
 <part name="MIC" library="EnviroTron" deviceset="MIC-MEMS" device="-6"/>
@@ -5616,7 +5623,7 @@ LETTER landscape</description>
 <part name="R9" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="R10" library="EnviroTron" deviceset="R-US_" device="R0603" value="180k"/>
 <part name="R11" library="EnviroTron" deviceset="R-US_" device="R0603" value="10k"/>
-<part name="C11" library="EnviroTron" deviceset="C-US" device="C0603" value="100n"/>
+<part name="C11" library="EnviroTron" deviceset="C-US" device="C0603" value="10n"/>
 <part name="FRAME1" library="EnviroTron" deviceset="LETTER_L" device="">
 <attribute name="SECTION" value="Sensor Board"/>
 </part>
@@ -5635,7 +5642,9 @@ LETTER landscape</description>
 <part name="R5" library="EnviroTron" deviceset="R-US_" device="R0603" value="100"/>
 <part name="C16" library="EnviroTron" deviceset="C-US" device="C0603" value="1u"/>
 <part name="C17" library="EnviroTron" deviceset="C-US" device="C0603" value="1u"/>
-<part name="AMP" library="EnviroTron" deviceset="MCP6002" device=""/>
+<part name="AMP" library="EnviroTron" deviceset="OPAMP" device="-MSOP8" technology="-OPA2376">
+<attribute name="SPICEPREFIX" value="J"/>
+</part>
 </parts>
 <sheets>
 <sheet>

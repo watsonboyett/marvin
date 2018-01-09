@@ -30,7 +30,9 @@
 * Increased mic amp gain
 
 
-# Parts Selection
+# Alternate Parts 
+
+These are not intended to be drop-in replacements. These are parts that may provide similar performance and similar cost (or were found while performing initial component selection).
 
 ## MCU
 
