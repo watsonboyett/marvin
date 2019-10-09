@@ -128,14 +128,14 @@ void ALS_Setup()
   {
     delay(1200);
     
-    ALS_control.ALS_Gain = ALS_GAIN_2X;
+    ALS_control.ALS_Gain = ALS_GAIN_8X;
     ALS_control.ALS_Mode = ALS_MODE_ACTIVE;
     I2C_WriteByte(ALS_ADDR, ALS_CONTR_ADDR, ALS_control.reg);
     
     delay(20);
 
-    ALS_meas.ALS_Meas_Rate = ALS_MEAS_RATE_500ms;
-    ALS_meas.ALS_Int_Time = ALS_INT_TIME_200ms;
+    ALS_meas.ALS_Meas_Rate = ALS_MEAS_RATE_100ms;
+    ALS_meas.ALS_Int_Time = ALS_INT_TIME_50ms;
     I2C_WriteByte(ALS_ADDR, ALS_MEAS_RATE_ADDR, ALS_meas.reg);
     
     ALS_configured = true;
@@ -145,19 +145,22 @@ void ALS_Setup()
 }
 
 
-
 ALS_DATA_t ALS_vis = {0};
 ALS_DATA_t ALS_ir = {0};
 
+const float ALS_VIS_CORRECTION_FACTOR = 18.0;
+
 float ALS_GetAmbientLightLevel()
 {
-  float level = (float) ALS_vis.value * ALS_GainFactor;
+  float level = (float) ALS_vis.value * ALS_GainFactor * ALS_VIS_CORRECTION_FACTOR;
   return level;
 }
 
+const float ALS_IR_CORRECTION_FACTOR = 4.5;
+
 float ALS_GetIrLightLevel()
 {
-  float level = (float) ALS_ir.value * ALS_GainFactor;
+  float level = (float) ALS_ir.value * ALS_GainFactor * ALS_IR_CORRECTION_FACTOR;
   return level;
 }
 

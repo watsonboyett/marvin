@@ -7,9 +7,9 @@
 
 Ticker MIC_timer;
 
-const float MIC_voltage_offset = 1.64678;  // in Volts
-const float MIC_amp_gain = 441.0;   // in Volt/Volt
-const float MIC_mic_sens = 125.89;  //  in Pascal/Volt (-42 dB -> 10^(-42/20) = 7.943 mV/Pa)
+const float MIC_voltage_offset = 1.65;  // in Volts
+const float MIC_amp_gain = 361.0;   // in Volt/Volt
+const float MIC_mic_sens = 79.433;  //  in Pascal/Volt (-38 dB -> 10^(-38/20) = 12.589 mV/Pa)
 const float MIC_conv = MIC_mic_sens / MIC_amp_gain;  // conversion factor for Volts to Pascals
 
 bool MIC_has_new_sample = false;
@@ -100,7 +100,8 @@ float MIC_GetAvgLevel_V()
   return MIC_voltage_avg;
 }
 
-#define MIC_MIN_PRESSURE_Pa (20e-6)  // min threshold of hearing is 20uPa (0 dB SPL)
+// NOTE: min threshold of hearing is 20uPa (0 dB SPL)
+const float MIC_MIN_PRESSURE_Pa = 20e-6;  
 
 float MIC_VoltToSPL(float v)
 {

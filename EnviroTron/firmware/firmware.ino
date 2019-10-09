@@ -62,7 +62,7 @@ uint32_t sample_interval = 1000;
 uint32_t uptime_sec = 0;
 
 uint16_t samples_since_last_write = 0;
-uint16_t publish_interval = 2;
+uint16_t publish_interval = 3;
 
 void loop()
 {
@@ -75,16 +75,16 @@ void loop()
     SENSORS_Update();
 
     // Print latest sensor samples to console
-    //USE_SERIAL.print("Inst: ");
+    USE_SERIAL.print("Inst > ");
     char * inst_str = SENSORS_GetInstString();
-    //USE_SERIAL.println(inst_str);
+    USE_SERIAL.println(inst_str);
 
     // wait until we hit the publish interval to send the averaged data
     if (samples_since_last_write >= publish_interval)
     {
-      //USE_SERIAL.print("Avg: ");
+      USE_SERIAL.print("Avg > ");
       char * avg_str = SENSORS_GetAvgString();
-      //USE_SERIAL.println(avg_str);
+      USE_SERIAL.println(avg_str);
 
       // convert sensor data structure to topic data structure
       SensorData_t sd = SENSORS_GetSensorData();

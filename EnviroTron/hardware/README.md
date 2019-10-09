@@ -1,6 +1,13 @@
 
 # Revision History
 
+## v2A
+
+* Major redesign of hardware!
+* Changed MCU to ESP32-WROOM
+* Consolidated all parts to one PCB
+* Changed mic circuit to use digital mic (no amplifier needed)
+
 ## v1A
 
 * Initial design
@@ -41,13 +48,14 @@ These are not intended to be drop-in replacements. These are parts that may prov
 
 ## Temp/Humidity
 
-* SHT21 - $9, I2C, 0.5C/2%RH accuracy
-* SHT25 - $14, I2C, 0.2C/1.8%RH accuracy
-* Si7013 - $4, I2C, 0.4C/3%RH accuracy
-
+* SHT35 - $12, I2C, 0.1°C/1.5%RH accuracy
+* SHT21 - $9, I2C, 0.5°C/2%RH accuracy
+* SHT25 - $14, I2C, 0.2°C/1.8%RH accuracy
+* Si7013 - $4, I2C, 0.4°C/3%RH accuracy
 
 ## Light
 
+* APDS-9250 - $3, I2C, Separate R/G/B/Vis/IR channels
 * LTR-329ALS-01 - $1, I2C, Separate Visible/IR channels
 * TSL45315CL - $2, I2C, 
 * PDV-P9203 - $2, Analog, 
@@ -63,7 +71,8 @@ These are not intended to be drop-in replacements. These are parts that may prov
 ## Pressure
 
 * LPS22HBTR - $4, I2C, high accuracy, decent range
-* ICM-20789 - $?, I2C, 1hPa, 300hPa - 1100hPa (includes gyroscope and accelerometer)
+* ICM-20789 - $9, I2C, 1hPa, 300hPa - 1100hPa (includes gyroscope and accelerometer)
+* DPS422XTSA1 - $3, I2C, 0.06hPa/0.4°C, 300–1200 hPa
 
 
 ## Sound 
@@ -79,7 +88,7 @@ These are not intended to be drop-in replacements. These are parts that may prov
 ## Air Quality
 
 * AS-MLV-P2 - $25, CO/
-* SGP30 - $?, MO Gas (CO2 Equivalent)
+* SGP30 - $14, MO Gas (CO2 Equivalent)
 * CCS811B - $14, I2C, TVOC + eCO2
 
 

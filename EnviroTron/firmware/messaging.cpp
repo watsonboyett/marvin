@@ -33,7 +33,7 @@ void WIFI_TurnOff()
 void WIFI_Connect()
 {
   chip_id = ESP.getChipId();
-  sprintf(chip_id_str, "%#06x", chip_id);
+  sprintf(chip_id_str, "%06x", chip_id);
   USE_SERIAL.printf("Chip ID: %s \n", chip_id_str);
   String core_version = String("Core Version: ") + ESP.getCoreVersion();
   USE_SERIAL.println(core_version);
@@ -112,7 +112,7 @@ bool MQTT_PublishMessages(MsgDict_t * md)
   for (int i = 0; i < 3; i++)
   {
     char topic[38];
-    sprintf(topic, "sensors/%#06x/%s", chip_id, md->u32_topics[i].key);
+    sprintf(topic, "sensors/%06x/%s", chip_id, md->u32_topics[i].key);
     char msg[32];
     sprintf(msg, "%u", md->u32_topics[i].value);
     success &= client.publish(topic, msg);
@@ -121,7 +121,7 @@ bool MQTT_PublishMessages(MsgDict_t * md)
   for (int i = 0; i < 7; i++)
   {
     char topic[38];
-    sprintf(topic, "sensors/%#06x/%s", chip_id, md->float_topics[i].key);
+    sprintf(topic, "sensors/%06x/%s", chip_id, md->float_topics[i].key);
     char msg[32];
     dtostrf(md->float_topics[i].value, 0, 2, msg);
     success &= client.publish(topic, msg);
